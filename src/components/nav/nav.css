@@ -1,0 +1,39 @@
+nav{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 0 3vw;
+    background: var(--white);
+    margin: 0;
+    padding: 1vw 3vw;
+    border-bottom: solid 0.12vw var(--black);
+}
+
+.nav-bar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-right{
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+.navlink:hover{
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1000px){  
+  
+    nav{
+        padding: 0 30px;
+        padding: 10px 30px;
+    }
+    
+    .nav-right{
+        gap: 20px;
+    }
+
+  }
