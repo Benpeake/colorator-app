@@ -1,0 +1,7 @@
+.interface-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100vh);
+    overflow: auto;
+}

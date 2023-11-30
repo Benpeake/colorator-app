@@ -6,8 +6,8 @@ footer{
     background: var(--white);
     margin: 0;
     padding: 1vw 3vw;
-    border-top: solid 0.12vw var(--black);
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: end;
+    border-top: 0.12vw solid;
 }

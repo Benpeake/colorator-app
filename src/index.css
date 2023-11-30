@@ -15,6 +15,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--white);
+  color: var(--black);
 }
 
 a{
@@ -28,19 +29,24 @@ p{
 }
 
 .large-copy{
-  font-size: 4vw;
+  font-size: 3vw;
 }
 
 .med-copy{
-  font-size: 1.8vw;
+  font-size: 1.6vw;
 }
 
 .small-copy{
   font-size: 1.3vw;
 }
 
+.small-print{
+  font-size: 1.1vw;
+}
+
 .bold{
   font-weight: 700;
+  text-decoration: underline;
 }
 
 .gradient-text {
@@ -48,24 +54,8 @@ p{
   background-clip: text;
   color: transparent; 
   display: inline-block;
-  transition: background-clip 0.5s ease-in-out;
-}
-
-.gradient-border {
-  border: 0.2vw solid; 
-  border-image: linear-gradient(-45deg, #FF007F, #5438DC) 1;
-  display: inline-block;
-  transition: border-image 0.8s ease-in-out;
-}
-
-.button{
-  padding: 0.3vw 0.5vw;
-  border-radius: 0.5vw;
   font-weight: 500;
 }
-  .button:hover{
-    border-image: linear-gradient(45deg, #FF007F, #5438DC) 1;
-  }
 
 @media screen and (max-width: 1000px){  
   
@@ -80,4 +70,9 @@ p{
   .small-copy{
     font-size: 13px;
   }
+
+  .small-print{
+    font-size: 11px;
+  }
+  
 }

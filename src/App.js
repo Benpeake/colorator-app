@@ -2,6 +2,8 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Nav from './components/nav';
 import Footer from './components/footer';
+import { useState } from 'react';
+import Interface from './components/color-gen-interface';
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -13,10 +15,21 @@ function generateRandomHex() {
 }
 
 function App() {
+
+  const [colors, setColors] = useState([
+    { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
+    { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
+    { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
+    { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
+  ]);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Nav />
+        <Interface 
+          colors={colors}
+        />
         <Footer />
       </BrowserRouter>
     </div>

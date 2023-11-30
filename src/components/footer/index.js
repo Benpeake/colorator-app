@@ -4,7 +4,7 @@ function Footer(){
 
     return(
         <footer>
-            <p>
+            <p className="small-print">
                 © Copyright 2023 | Site designed & built by Ben Peake
             </p>
         </footer>
