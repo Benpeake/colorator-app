@@ -1,13 +1,20 @@
-footer{
+footer {
     position: sticky;
     bottom: 0;
     width: 100%;
     padding: 0 3vw;
     background: var(--white);
-    margin: 0;
-    padding: 1vw 3vw;
     display: flex;
-    flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end; 
+    align-items: center;
     border-top: 0.12vw solid;
-}
+    height: 3vw ;
+  }
+  
+  @media screen and (max-width: 1000px){  
+  
+    footer {
+        height: 30px ;
+      }
+
+  }

@@ -2,6 +2,14 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: calc(100vh);
+    height: calc(100vh - 6.24vw);
     overflow: auto;
 }
+
+@media screen and (max-width: 1000px){  
+  
+    .interface-container{
+        height: calc(100vh - 62.4px);
+    }
+
+  }

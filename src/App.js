@@ -1,9 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Nav from './components/nav';
 import Footer from './components/footer';
 import { useState } from 'react';
 import Interface from './components/color-gen-interface';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -23,13 +25,32 @@ function App() {
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
   ]);
 
+  function handleMoveColor(fromIndex, toIndex) {
+    const updatedColors = [...colors];
+    const [movedColor] = updatedColors.splice(fromIndex, 1);
+    updatedColors.splice(toIndex, 0, movedColor);
+    setColors(updatedColors);
+  }
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <Nav />
-        <Interface 
-          colors={colors}
-        />
+        <DndProvider backend={HTML5Backend}>
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <Interface 
+                  colors={colors}
+                  setColors={setColors}
+                  handleMoveColor={handleMoveColor}
+                />
+              }
+            />
+          </Routes>
+        </DndProvider>
         <Footer />
       </BrowserRouter>
     </div>

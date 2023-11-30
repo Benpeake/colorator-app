@@ -5,7 +5,6 @@ nav{
     padding: 0 3vw;
     background: var(--white);
     margin: 0;
-    padding: 1vw 3vw;
     border-bottom: 0.12vw solid;
 }
 
@@ -13,6 +12,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 3vw;
 }
 
 .nav-right{
@@ -29,11 +29,14 @@ nav{
   
     nav{
         padding: 0 30px;
-        padding: 10px 30px;
     }
     
     .nav-right{
         gap: 20px;
+    }
+
+    .nav-bar-container{
+        height: 30px;
     }
 
   }
