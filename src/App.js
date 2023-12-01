@@ -1,13 +1,13 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Nav from './components/nav';
-import Footer from './components/footer';
-import { useState } from 'react';
-import Interface from './components/color-gen-interface';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import Controller from './components/color-gen-controller';
-import useUndo from './components/useUndo';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Nav from "./components/nav";
+import Footer from "./components/footer";
+import { useState } from "react";
+import Interface from "./components/color-gen-interface";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Controller from "./components/color-gen-controller";
+import useUndo from "./components/useUndo";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -19,7 +19,6 @@ function generateRandomHex() {
 }
 
 function App() {
-
   const initialColors = [
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
@@ -36,14 +35,33 @@ function App() {
     setColors(updatedColors);
   }
 
-  function generateRandomColors() {
+  function generateRandomColor() {
     const newColors = colors.map((colorObj) => {
+      if (colorObj.locked) {
+        return colorObj;
+      } else {
         return {
           color: generateRandomHex(),
-          locked: colorObj.locked,
+          locked: false,
         };
       }
-    );
+    });
+    setColors(newColors);
+  }
+
+  function addColorPanel() {
+    const newColors = [...colors];
+    if (colors.length < 5) {
+      newColors.push({ color: generateRandomHex(), locked: false });
+    }
+    setColors(newColors);
+  }
+
+  function removeColorPanel(index) {
+    const newColors = [...colors];
+    if (colors.length > 2) {
+      newColors.splice(index, 1);
+    }
     setColors(newColors);
   }
 
@@ -52,19 +70,21 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Controller
-          generateRandomColors={generateRandomColors}
+          generateRandomColor={generateRandomColor}
           undo={undo}
           redo={redo}
+          addColorPanel={addColorPanel}
         />
         <DndProvider backend={HTML5Backend}>
           <Routes>
             <Route
-              path='/'
+              path="/"
               element={
-                <Interface 
+                <Interface
                   colors={colors}
                   setColors={setColors}
                   handleMoveColor={handleMoveColor}
+                  removeColorPanel={removeColorPanel}
                 />
               }
             />

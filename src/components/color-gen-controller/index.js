@@ -1,10 +1,10 @@
 import "./controller.css";
 
-function Controller({ generateRandomColors, undo, redo }) {
+function Controller({ generateRandomColor, undo, redo, addColorPanel}) {
   return (
     <section className="controller-contrainer">
       <div className="controller-left">
-        <div className="icon-container">
+        <div className="icon-container" onClick={addColorPanel}>
           <img
             className="icon"
             src="../../../icons/plus_black.svg"
@@ -39,7 +39,7 @@ function Controller({ generateRandomColors, undo, redo }) {
         <div className="icon-container">
           <p className="small-copy">|</p>
         </div>
-        <div className="icon-container" onClick={generateRandomColors}>
+        <div className="icon-container" onClick={generateRandomColor}>
           <img
             className="icon"
             src="../../../icons/boom_black.svg"
