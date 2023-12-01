@@ -27,7 +27,7 @@ function Nav(){
                     </NavLink>
                     <div>
                     <NavLink className="gradient-border button gradient-text" to="/">
-                        Sign-Up
+                        Sign up
                     </NavLink>
                     </div>
                 </div>

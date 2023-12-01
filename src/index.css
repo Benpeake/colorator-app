@@ -46,7 +46,6 @@ p{
 
 .bold{
   font-weight: 700;
-  text-decoration: underline;
 }
 
 .gradient-text {
@@ -56,6 +55,12 @@ p{
   display: inline-block;
   font-weight: 500;
 }
+
+.dark{
+  color: var(--white);
+  background-color: var(--black);
+}
+
 
 @media screen and (max-width: 1000px){  
   

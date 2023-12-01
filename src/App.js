@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Interface from './components/color-gen-interface';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import Controller from './components/color-gen-controller';
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -37,6 +38,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Nav />
+        <Controller />
         <DndProvider backend={HTML5Backend}>
           <Routes>
             <Route

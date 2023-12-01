@@ -29,6 +29,7 @@ nav{
   
     nav{
         padding: 0 30px;
+        border-bottom: solid 1.2px;
     }
     
     .nav-right{
