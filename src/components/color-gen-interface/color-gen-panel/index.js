@@ -2,7 +2,14 @@ import { useState } from "react";
 import "./panel.css";
 import { useDrag, useDrop } from "react-dnd";
 
-function Panel({ colors, color, index, handleMoveColor, removeColorPanel }) {
+function Panel({
+  colors,
+  color,
+  index,
+  handleMoveColor,
+  removeColorPanel,
+  handleLockStatus,
+}) {
   const [copySuccess, setCopySuccess] = useState(false);
 
   const [{ isDragging }, drag] = useDrag({
@@ -57,22 +64,27 @@ function Panel({ colors, color, index, handleMoveColor, removeColorPanel }) {
             alt="close icon"
           />
         </div>
-        <div
-          className="panel-icon-container"
-          onClick={handleCopyColor}
-        >
+        <div className="panel-icon-container" onClick={handleCopyColor}>
           <img
             className="panel-icon"
             src="../../../icons/copy_black.svg"
             alt="copy icon"
           />
         </div>
-        <div className="panel-icon-container">
+        <div
+          className="panel-icon-container"
+          onClick={() => {
+            handleLockStatus(index);
+          }}
+        >
           <img
             className="panel-icon"
             src="../../../icons/open_black.svg"
             alt="locked status open icon"
           />
+        </div>
+        <div className="panel-icon-container">
+          <p className="med-copy">{color}</p>
         </div>
       </div>
     </section>

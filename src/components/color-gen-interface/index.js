@@ -3,7 +3,7 @@ import './interface.css'
 import { useDrag, useDrop } from "react-dnd";
 
 
-function Interface({colors, setColors, handleMoveColor, removeColorPanel}) {
+function Interface({colors, setColors, handleMoveColor, removeColorPanel, handleLockStatus}) {
 
     return(
         <section 
@@ -16,6 +16,7 @@ function Interface({colors, setColors, handleMoveColor, removeColorPanel}) {
                 index={index}
                 handleMoveColor={handleMoveColor}
                 removeColorPanel ={removeColorPanel}
+                handleLockStatus={handleLockStatus}
             />
       ))}
         </section>

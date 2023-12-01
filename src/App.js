@@ -65,6 +65,12 @@ function App() {
     setColors(newColors);
   }
 
+  function handleLockStatus(index) {
+    const updatedColors = [...colors];
+    updatedColors[index].locked = !updatedColors[index].locked;
+    setColors(updatedColors);
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -85,6 +91,7 @@ function App() {
                   setColors={setColors}
                   handleMoveColor={handleMoveColor}
                   removeColorPanel={removeColorPanel}
+                  handleLockStatus={handleLockStatus}
                 />
               }
             />

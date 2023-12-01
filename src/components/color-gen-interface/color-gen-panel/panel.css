@@ -34,6 +34,18 @@
     height: auto;
 }
 
+.hex-display{
+    padding: 0.5vw;
+    border-radius: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .hex-display:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+    }
+
 @media screen and (max-width: 1000px){  
     .panel-icon{
         width: 20px;
