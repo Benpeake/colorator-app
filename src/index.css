@@ -61,6 +61,11 @@ p{
   background-color: var(--black);
 }
 
+input:focus {
+  outline: none; 
+  box-shadow: none; 
+}
+
 
 @media screen and (max-width: 1000px){  
   

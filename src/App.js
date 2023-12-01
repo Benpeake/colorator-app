@@ -71,6 +71,18 @@ function App() {
     setColors(updatedColors);
   }
 
+  function updateColor(index, newColor) {
+    const updatedColors = [...colors];
+    updatedColors[index].color = newColor;
+    setColors(updatedColors);
+  }
+
+  // function acceptColorPickerColor() {
+  //   updateColorHistoryAndIndex(colors);
+  //   setColorPickerVisible(false);
+  // }
+
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -92,6 +104,7 @@ function App() {
                   handleMoveColor={handleMoveColor}
                   removeColorPanel={removeColorPanel}
                   handleLockStatus={handleLockStatus}
+                  updateColor={updateColor}
                 />
               }
             />
