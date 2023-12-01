@@ -1,6 +1,6 @@
 import './controller.css'
 
-function Controller() {
+function Controller({generateRandomColors}) {
 
     return(
         <section className='controller-contrainer'>
@@ -24,7 +24,10 @@ function Controller() {
                 <div className='icon-container'>
                     <p className='small-copy'>|</p>
                 </div>
-                <div className='icon-container'>
+                <div 
+                    className='icon-container'
+                    onClick={generateRandomColors}
+                >
                 <img className="icon" src="../../../icons/boom_black.svg" alt="generate icon"/>
                     <p className='small-copy'>Generate!</p>
                 </div>

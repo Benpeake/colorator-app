@@ -33,12 +33,24 @@ function App() {
     setColors(updatedColors);
   }
 
+  function generateRandomColors() {
+    const newColors = colors.map((colorObj) => {
+        return {
+          color: generateRandomHex(),
+          locked: colorObj.locked,
+        };
+      }
+    );
+    setColors(newColors);
+  }
 
   return (
     <div className="App">
       <BrowserRouter>
         <Nav />
-        <Controller />
+        <Controller
+          generateRandomColors={generateRandomColors}
+        />
         <DndProvider backend={HTML5Backend}>
           <Routes>
             <Route
