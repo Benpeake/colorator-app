@@ -7,6 +7,7 @@ import Interface from './components/color-gen-interface';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Controller from './components/color-gen-controller';
+import useUndo from './components/useUndo';
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -19,12 +20,14 @@ function generateRandomHex() {
 
 function App() {
 
-  const [colors, setColors] = useState([
+  const initialColors = [
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
-  ]);
+  ];
+
+  const [colors, setColors, undo, redo] = useUndo(initialColors);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -50,6 +53,8 @@ function App() {
         <Nav />
         <Controller
           generateRandomColors={generateRandomColors}
+          undo={undo}
+          redo={redo}
         />
         <DndProvider backend={HTML5Backend}>
           <Routes>
