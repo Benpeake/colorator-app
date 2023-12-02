@@ -2,12 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
-import { useState } from "react";
 import Interface from "./components/color-gen-interface";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Controller from "./components/color-gen-controller";
-import useUndo from "./components/useUndo";
+import useUndo from "./services/useUndo";
+
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -71,18 +71,21 @@ function App() {
     setColors(updatedColors);
   }
 
+  function tempUpdateColor(index, newColor) {
+    setColors((prevColors) => {
+      const updatedColors = [...prevColors];
+      updatedColors[index] = { ...updatedColors[index], color: newColor };
+      return updatedColors;
+    },false);
+  }
+  
   function updateColor(index, newColor) {
     const updatedColors = [...colors];
-    updatedColors[index].color = newColor;
+    updatedColors[index].color = newColor
     setColors(updatedColors);
   }
-
-  // function acceptColorPickerColor() {
-  //   updateColorHistoryAndIndex(colors);
-  //   setColorPickerVisible(false);
-  // }
-
-
+  
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -105,6 +108,7 @@ function App() {
                   removeColorPanel={removeColorPanel}
                   handleLockStatus={handleLockStatus}
                   updateColor={updateColor}
+                  tempUpdateColor={tempUpdateColor}
                 />
               }
             />

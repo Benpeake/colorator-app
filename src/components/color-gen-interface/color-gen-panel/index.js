@@ -4,13 +4,13 @@ import { useDrag, useDrop } from "react-dnd";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
 function Panel({
-  colors,
   color,
   index,
   handleMoveColor,
   removeColorPanel,
   handleLockStatus,
   updateColor,
+  tempUpdateColor
 }) {
   const [copySuccess, setCopySuccess] = useState(false);
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
@@ -49,17 +49,18 @@ function Panel({
   }
 
   function triggerColorPicker() {
+    setPreColorPickerValue(color)
     setDisplayColorPicker(true);
-    setPreColorPickerValue(color);
   }
 
   function closeColorPicker() {
-    updateColor(index, preColorPickerValue);
+    tempUpdateColor(index, preColorPickerValue)
     setDisplayColorPicker(false);
   }
 
-  function handleColorChange(newColor) {
-    updateColor(index, newColor);
+  function confirmColorPickerChange() {
+    updateColor(index, color)
+    setDisplayColorPicker(false);
   }
 
   return (
@@ -125,7 +126,7 @@ function Panel({
                 setInputHex(newColor);
               }}
               onMouseUp={() => {
-                handleColorChange(inputHex);
+                tempUpdateColor(index, inputHex)
               }}
               />
             </div>
@@ -135,15 +136,17 @@ function Panel({
                 color={inputHex}
                 onChange={(newColor) => {
                   setInputHex(newColor);
-                  handleColorChange(newColor);
                 }}
                 onBlur={() => {
-                  handleColorChange(inputHex);
+                  tempUpdateColor(index, inputHex)
                 }}
               />
             </div>
             <div className="color-picker-controlls">
-              <div className="panel-icon-container">
+              <div
+                className="panel-icon-container"
+                onClick={confirmColorPickerChange}
+              >
                 <img
                   className="panel-icon"
                   src="../../../icons/tick_white.svg"

@@ -1,27 +1,31 @@
-import Panel from './color-gen-panel'
-import './interface.css'
-import { useDrag, useDrop } from "react-dnd";
+import Panel from "./color-gen-panel";
+import "./interface.css";
 
-
-function Interface({colors, setColors, handleMoveColor, removeColorPanel, handleLockStatus, updateColor}) {
-
-    return(
-        <section 
-        className='interface-container'>
-        {colors.map((color, index) => (
-            <Panel
-                key={index}
-                color={color.color}
-                colors={colors}
-                index={index}
-                handleMoveColor={handleMoveColor}
-                removeColorPanel ={removeColorPanel}
-                handleLockStatus={handleLockStatus}
-                updateColor={updateColor}
-            />
+function Interface({
+  colors,
+  handleMoveColor,
+  removeColorPanel,
+  handleLockStatus,
+  updateColor,
+  tempUpdateColor
+}) {
+  return (
+    <section className="interface-container">
+      {colors.map((color, index) => (
+        <Panel
+          key={index}
+          color={color.color}
+          colors={colors}
+          index={index}
+          handleMoveColor={handleMoveColor}
+          removeColorPanel={removeColorPanel}
+          handleLockStatus={handleLockStatus}
+          updateColor={updateColor}
+          tempUpdateColor={tempUpdateColor}
+        />
       ))}
-        </section>
-    )
+    </section>
+  );
 }
 
-export default Interface
+export default Interface;
