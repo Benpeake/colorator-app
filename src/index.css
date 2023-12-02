@@ -66,6 +66,14 @@ input:focus {
   box-shadow: none; 
 }
 
+.white {
+  color: var(--white);
+}
+
+.black {
+  color: var(--black);
+}
+
 
 @media screen and (max-width: 1000px){  
   

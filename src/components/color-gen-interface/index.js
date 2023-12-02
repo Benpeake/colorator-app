@@ -9,13 +9,15 @@ function Interface({
   updateColor,
   tempUpdateColor
 }) {
+
   return (
     <section className="interface-container">
       {colors.map((color, index) => (
         <Panel
           key={index}
           color={color.color}
-          colors={colors}
+          name={color.name}
+          fontColor={color.fontColor}
           index={index}
           handleMoveColor={handleMoveColor}
           removeColorPanel={removeColorPanel}

@@ -29,6 +29,11 @@
         cursor: pointer;
     }
 
+.panel-name{
+    padding: 0.5vw;
+    opacity: 0.6;
+}
+
 .move:hover{
     cursor: grab;
 }

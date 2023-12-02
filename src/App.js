@@ -7,7 +7,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Controller from "./components/color-gen-controller";
 import useUndo from "./services/useUndo";
-
+import ColorFetcher from "./services/colorFetcher";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -68,7 +68,7 @@ function App() {
   function handleLockStatus(index) {
     const updatedColors = [...colors];
     updatedColors[index].locked = !updatedColors[index].locked;
-    setColors(updatedColors);
+    setColors(updatedColors, false);
   }
 
   function tempUpdateColor(index, newColor) {
@@ -76,18 +76,18 @@ function App() {
       const updatedColors = [...prevColors];
       updatedColors[index] = { ...updatedColors[index], color: newColor };
       return updatedColors;
-    },false);
+    }, false);
   }
-  
+
   function updateColor(index, newColor) {
     const updatedColors = [...colors];
-    updatedColors[index].color = newColor
+    updatedColors[index].color = newColor;
     setColors(updatedColors);
   }
-  
-  
+
   return (
     <div className="App">
+      <ColorFetcher colors={colors} setColors={setColors} />
       <BrowserRouter>
         <Nav />
         <Controller
