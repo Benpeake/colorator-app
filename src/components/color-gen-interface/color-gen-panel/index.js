@@ -89,14 +89,14 @@ function Panel({
           >
             <img
               className="panel-icon"
-              src="../../../icons/close_black.svg"
+              src={`../../../icons/close_${setfontColor(fontColor)}.svg`}
               alt="close icon"
             />
           </div>
           <div className="panel-icon-container" onClick={handleCopyColor}>
             <img
               className="panel-icon"
-              src="../../../icons/copy_black.svg"
+              src={`../../../icons/copy_${setfontColor(fontColor)}.svg`}
               alt="copy icon"
             />
           </div>
@@ -108,14 +108,14 @@ function Panel({
           >
             <img
               className="panel-icon"
-              src="../../../icons/open_black.svg"
+              src={`../../../icons/open_${setfontColor(fontColor)}.svg`}
               alt="locked status open icon"
             />
           </div>
           <div className="panel-icon-container move">
             <img
               className="panel-icon"
-              src="../../../icons/move_black.svg"
+              src={`../../../icons/move_${setfontColor(fontColor)}.svg`}
               alt="move panel icon"
             />
           </div>
