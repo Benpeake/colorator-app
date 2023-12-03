@@ -98,11 +98,13 @@ function Panel({
             iconSrc={`../../../icons/close_${setfontColor(fontColor)}.svg`}
             altText="close icon"
             isUnactive={minPanelNum}
+            iconTip="Remove panel"
           />
           <PanelIcon
             onClick={handleCopyColor}
             iconSrc={`../../../icons/copy_${setfontColor(fontColor)}.svg`}
             altText="copy icon"
+            iconTip="Copy colour"
           />
           <PanelIcon
             onClick={() => handleLockStatus(index)}
@@ -110,13 +112,19 @@ function Panel({
               colors[index].locked ? "locked" : "open"
             }_${setfontColor(fontColor)}.svg`}
             altText="locked status open icon"
+            iconTip="Toggle lock"
           />
           <PanelIcon
             iconSrc={`../../../icons/move_${setfontColor(fontColor)}.svg`}
             altText="move panel icon"
             customClass={"move"}
+            iconTip="Move panel"
           />
-          <PanelIcon onClick={triggerColorPicker} content={color} />
+          <PanelIcon
+            onClick={triggerColorPicker}
+            content={color}
+            iconTip="Select colour"
+          />
           <div className="panel-name">
             <p className="small-copy">{name}</p>
           </div>

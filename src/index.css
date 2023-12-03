@@ -44,6 +44,10 @@ p{
   font-size: 1.1vw;
 }
 
+.tiny-print{
+  font-size: 0.8vw;
+}
+
 .bold{
   font-weight: 700;
 }

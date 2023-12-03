@@ -11,6 +11,7 @@ const PanelIcon = ({
   content
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  console.log(isHovered)
 
   return (
     <div
@@ -27,8 +28,8 @@ const PanelIcon = ({
         <p className="med-copy">{content}</p>
       )}
       {isHovered && 
-        <div className="overlay">
-            {iconTip}
+        <div className="iconTip-overlay">
+            <p className="tiny-print">{iconTip}</p>
         </div>}
     </div>
   );

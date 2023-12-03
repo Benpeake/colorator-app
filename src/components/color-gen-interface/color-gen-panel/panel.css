@@ -9,49 +9,6 @@
     padding: 0;
 }
 
-.panel-info-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1vw;
-}
-
-.panel-icon-container{
-    padding: 0.5vw;
-    border-radius: 1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-    .panel-icon-container:hover{
-        background-color: rgba(38, 28, 21, 0.1);
-        cursor: pointer;
-    }
-    .white .panel-icon-container:hover{
-        background-color: rgba(252, 247, 255, 0.1);
-        cursor: pointer;
-    }
-
-    .white .move:hover{
-        cursor: grab;
-    }
-
-
-.panel-name{
-    padding: 0.5vw;
-    opacity: 0.6;
-}
-
-.move:hover{
-    cursor: grab;
-}
-
-.panel-icon{
-    width: 2vw;
-    height: auto;
-}
-
 .hex-display{
     padding: 0.5vw;
     border-radius: 1vw;
@@ -130,14 +87,6 @@
   }
 
 @media screen and (max-width: 1000px){  
-    .panel-icon{
-        width: 20px;
-    }
-    .panel-icon-container{
-        padding: 5px;
-        border-radius: 10px;
-    }
-
     .custom-hex-input {
         border: 1.2px solid var(--white);
         font-size: 11px;
