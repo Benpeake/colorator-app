@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./panel.css";
 import { useDrag, useDrop } from "react-dnd";
 import { HexColorPicker, HexColorInput } from "react-colorful";
+import PanelIcon from "./panel-icon";
 
 function Panel({
   color,
@@ -92,52 +93,33 @@ function Panel({
         style={{ backgroundColor: color, opacity: isDragging ? 0 : 1 }}
       >
         <div className="panel-info-container">
-          <div
-            className={`panel-icon-container ${minPanelNum ? "unnactive" : ""}`}
-            onClick={() => {
-              removeColorPanel(index);
-            }}
-          >
-            <img
-              className="panel-icon"
-              src={`../../../icons/close_${setfontColor(fontColor)}.svg`}
-              alt="close icon"
-            />
+          <PanelIcon
+            onClick={() => removeColorPanel(index)}
+            iconSrc={`../../../icons/close_${setfontColor(fontColor)}.svg`}
+            altText="close icon"
+            isUnactive={minPanelNum}
+          />
+          <PanelIcon
+            onClick={handleCopyColor}
+            iconSrc={`../../../icons/copy_${setfontColor(fontColor)}.svg`}
+            altText="copy icon"
+          />
+          <PanelIcon
+            onClick={() => handleLockStatus(index)}
+            iconSrc={`../../../icons/${
+              colors[index].locked ? "locked" : "open"
+            }_${setfontColor(fontColor)}.svg`}
+            altText="locked status open icon"
+          />
+          <PanelIcon
+            iconSrc={`../../../icons/move_${setfontColor(fontColor)}.svg`}
+            altText="move panel icon"
+            customClass={"move"}
+          />
+          <PanelIcon onClick={triggerColorPicker} content={color} />
+          <div className="panel-name">
+            <p className="small-copy">{name}</p>
           </div>
-          <div className="panel-icon-container" onClick={handleCopyColor}>
-            <img
-              className="panel-icon"
-              src={`../../../icons/copy_${setfontColor(fontColor)}.svg`}
-              alt="copy icon"
-            />
-          </div>
-          <div
-            className="panel-icon-container"
-            onClick={() => {
-              handleLockStatus(index);
-            }}
-          >
-            <img
-              className="panel-icon"
-              src={`../../../icons/${
-                colors[index].locked ? "locked" : "open"
-              }_${setfontColor(fontColor)}.svg`}
-              alt="locked status open icon"
-            />
-          </div>
-          <div className="panel-icon-container move">
-            <img
-              className="panel-icon"
-              src={`../../../icons/move_${setfontColor(fontColor)}.svg`}
-              alt="move panel icon"
-            />
-          </div>
-          <div className="panel-icon-container" onClick={triggerColorPicker}>
-            <p className="med-copy">{color}</p>
-          </div>
-        </div>
-        <div className="panel-name" onClick={triggerColorPicker}>
-          <p className="small-copy">{name}</p>
         </div>
       </section>
       {displayColorPicker && (
@@ -174,17 +156,29 @@ function Panel({
                 <img
                   className="panel-icon"
                   src="../../../icons/tick_white.svg"
-                  alt="move panel icon"
+                  alt="tick icon"
                 />
               </div>
               <div className="panel-icon-container" onClick={closeColorPicker}>
                 <img
                   className="panel-icon"
                   src="../../../icons/close_white.svg"
-                  alt="move panel icon"
+                  alt="close icon"
                 />
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {copySuccess && (
+        <div className="copy-success-overlay">
+          <div className="message-container">
+            <img
+              className="panel-icon"
+              src="../../../icons/tick_white.svg"
+              alt="tick icon"
+            />
+            <p className="small-copy">Colour coppied to clipboard</p>
           </div>
         </div>
       )}
