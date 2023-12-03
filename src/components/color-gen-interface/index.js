@@ -1,6 +1,7 @@
 import Panel from "./color-gen-panel";
 import "./interface.css";
 
+
 function Interface({
   colors,
   handleMoveColor,
@@ -14,6 +15,7 @@ function Interface({
     <section className="interface-container">
       {colors.map((color, index) => (
         <Panel
+          colors={colors}
           key={index}
           color={color.color}
           name={color.name}

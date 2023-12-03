@@ -74,6 +74,14 @@ input:focus {
   color: var(--black);
 }
 
+.unnactive{
+  opacity: 0.4;
+}
+  .unnactive:hover{
+    cursor: default !important;
+    font-weight: 400 !important;
+    background-color: transparent !important;
+  }
 
 @media screen and (max-width: 1000px){  
   

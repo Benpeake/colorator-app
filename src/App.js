@@ -26,7 +26,7 @@ function App() {
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
   ];
 
-  const [colors, setColors, undo, redo] = useUndo(initialColors);
+  const [colors, setColors, undo, redo, history, historyIndex] = useUndo(initialColors);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -53,8 +53,8 @@ function App() {
     const newColors = [...colors];
     if (colors.length < 5) {
       newColors.push({ color: generateRandomHex(), locked: false });
+      setColors(newColors);
     }
-    setColors(newColors);
   }
 
   function removeColorPanel(index) {
@@ -95,6 +95,9 @@ function App() {
           undo={undo}
           redo={redo}
           addColorPanel={addColorPanel}
+          colors={colors}
+          history={history}
+          historyIndex={historyIndex}
         />
         <DndProvider backend={HTML5Backend}>
           <Routes>

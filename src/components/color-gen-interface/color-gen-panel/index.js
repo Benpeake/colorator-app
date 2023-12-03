@@ -12,12 +12,22 @@ function Panel({
   updateColor,
   tempUpdateColor,
   name,
-  fontColor
+  fontColor,
+  colors
 }) {
   const [copySuccess, setCopySuccess] = useState(false);
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [preColorPickerValue, setPreColorPickerValue] = useState("");
   const [inputHex, setInputHex] = useState(color);
+  const [minPanelNum, setMinPanelNum] = useState(false)
+
+  useEffect(() => {
+    if(colors.length < 3){
+      setMinPanelNum(true)
+    } else {
+      setMinPanelNum(false)
+    }
+  }, [colors]);
 
   const [{ isDragging }, drag] = useDrag({
     type: "COLOR_PANEL",
@@ -71,6 +81,7 @@ function Panel({
     }
     return 'white'
   }
+
   return (
     <>
       <section
@@ -82,7 +93,7 @@ function Panel({
       >
         <div className="panel-info-container">
           <div
-            className="panel-icon-container"
+            className={`panel-icon-container ${minPanelNum ? 'unnactive' : ''}`}
             onClick={() => {
               removeColorPanel(index);
             }}
@@ -108,7 +119,7 @@ function Panel({
           >
             <img
               className="panel-icon"
-              src={`../../../icons/open_${setfontColor(fontColor)}.svg`}
+              src={`../../../icons/${colors[index].locked ? 'locked' : 'open'}_${setfontColor(fontColor)}.svg`}
               alt="locked status open icon"
             />
           </div>
@@ -132,7 +143,7 @@ function Panel({
           <div className="color-picker">
             <div>
               <HexColorPicker
-                color={inputHex}
+                color={color}
                 onChange={(newColor) => {
                   setInputHex(newColor);
                 }}
@@ -144,7 +155,7 @@ function Panel({
             <div>
               <HexColorInput
                 className="custom-hex-input"
-                color={inputHex}
+                color={color}
                 onChange={(newColor) => {
                   setInputHex(newColor);
                 }}
