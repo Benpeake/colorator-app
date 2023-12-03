@@ -61,8 +61,8 @@ function App() {
     const newColors = [...colors];
     if (colors.length > 2) {
       newColors.splice(index, 1);
+      setColors(newColors);
     }
-    setColors(newColors);
   }
 
   function handleLockStatus(index) {

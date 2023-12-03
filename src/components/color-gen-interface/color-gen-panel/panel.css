@@ -25,9 +25,14 @@
     align-items: center;
 }
     .panel-icon-container:hover{
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(38, 28, 21, 0.1);
         cursor: pointer;
     }
+    .white .panel-icon-container:hover{
+        background-color: rgba(252, 247, 255, 0.1);
+        cursor: pointer;
+    }
+
 
 .panel-name{
     padding: 0.5vw;

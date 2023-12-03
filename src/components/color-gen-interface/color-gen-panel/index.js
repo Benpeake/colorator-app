@@ -13,19 +13,19 @@ function Panel({
   tempUpdateColor,
   name,
   fontColor,
-  colors
+  colors,
 }) {
   const [copySuccess, setCopySuccess] = useState(false);
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [preColorPickerValue, setPreColorPickerValue] = useState("");
   const [inputHex, setInputHex] = useState(color);
-  const [minPanelNum, setMinPanelNum] = useState(false)
+  const [minPanelNum, setMinPanelNum] = useState(false);
 
   useEffect(() => {
-    if(colors.length < 3){
-      setMinPanelNum(true)
+    if (colors.length < 3) {
+      setMinPanelNum(true);
     } else {
-      setMinPanelNum(false)
+      setMinPanelNum(false);
     }
   }, [colors]);
 
@@ -75,11 +75,11 @@ function Panel({
     setDisplayColorPicker(false);
   }
 
-  function setfontColor(fontColor){
-    if(fontColor == '#000000'){
-      return 'black'
+  function setfontColor(fontColor) {
+    if (fontColor == "#000000") {
+      return "black";
     }
-    return 'white'
+    return "white";
   }
 
   return (
@@ -93,7 +93,7 @@ function Panel({
       >
         <div className="panel-info-container">
           <div
-            className={`panel-icon-container ${minPanelNum ? 'unnactive' : ''}`}
+            className={`panel-icon-container ${minPanelNum ? "unnactive" : ""}`}
             onClick={() => {
               removeColorPanel(index);
             }}
@@ -119,7 +119,9 @@ function Panel({
           >
             <img
               className="panel-icon"
-              src={`../../../icons/${colors[index].locked ? 'locked' : 'open'}_${setfontColor(fontColor)}.svg`}
+              src={`../../../icons/${
+                colors[index].locked ? "locked" : "open"
+              }_${setfontColor(fontColor)}.svg`}
               alt="locked status open icon"
             />
           </div>
