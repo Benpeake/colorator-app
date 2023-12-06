@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./panel-icon.css";
 
-const PanelIcon = ({
+function PanelIcon ({
   onClick,
   iconSrc,
   altText,
@@ -9,7 +9,7 @@ const PanelIcon = ({
   isUnactive,
   customClass,
   content
-}) => {
+}) {
   const [isHovered, setIsHovered] = useState(false);
   console.log(isHovered)
 

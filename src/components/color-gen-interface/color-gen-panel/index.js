@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./panel.css";
 import { useDrag, useDrop } from "react-dnd";
-import { HexColorPicker, HexColorInput } from "react-colorful";
 import PanelIcon from "./panel-icon";
+import ColorPicker from "./color-picker";
 
 function Panel({
   color,
@@ -131,52 +131,15 @@ function Panel({
         </div>
       </section>
       {displayColorPicker && (
-        <div className="color-picker-overlay">
-          <div className="color-picker">
-            <div>
-              <HexColorPicker
-                color={color}
-                onChange={(newColor) => {
-                  setInputHex(newColor);
-                }}
-                onMouseUp={() => {
-                  tempUpdateColor(index, inputHex);
-                }}
-              />
-            </div>
-            <div>
-              <HexColorInput
-                className="custom-hex-input"
-                color={color}
-                onChange={(newColor) => {
-                  setInputHex(newColor);
-                }}
-                onBlur={() => {
-                  tempUpdateColor(index, inputHex);
-                }}
-              />
-            </div>
-            <div className="color-picker-controlls">
-              <div
-                className="panel-icon-container"
-                onClick={confirmColorPickerChange}
-              >
-                <img
-                  className="panel-icon"
-                  src="../../../icons/tick_white.svg"
-                  alt="tick icon"
-                />
-              </div>
-              <div className="panel-icon-container" onClick={closeColorPicker}>
-                <img
-                  className="panel-icon"
-                  src="../../../icons/close_white.svg"
-                  alt="close icon"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ColorPicker
+          color={color}
+          index={index}
+          tempUpdateColor={tempUpdateColor}
+          inputHex={inputHex}
+          setInputHex={setInputHex}
+          confirmColorPickerChange={confirmColorPickerChange}
+          closeColorPicker={closeColorPicker}
+        />
       )}
       {copySuccess && (
         <div className="copy-success-overlay">
@@ -186,7 +149,7 @@ function Panel({
               src="../../../icons/tick_white.svg"
               alt="tick icon"
             />
-            <p className="small-copy">Colour coppied to clipboard</p>
+            <p className="small-print">Colour coppied to clipboard</p>
           </div>
         </div>
       )}

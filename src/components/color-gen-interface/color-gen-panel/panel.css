@@ -9,59 +9,6 @@
     padding: 0;
 }
 
-.hex-display{
-    padding: 0.5vw;
-    border-radius: 1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-    .hex-display:hover{
-        background-color: rgba(255, 255, 255, 0.2);
-        cursor: pointer;
-    }
-
-.color-picker-overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-}
-
-.color-picker{
-    background-color: var(--black);
-    padding: 15px;
-    border: 0.12vw solid var(--white);
-    color: var(--white);
-    border-radius: 1vw;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .custom-hex-input {
-    border: 0.12vw solid var(--white);
-    text-align: center;
-    background-color: var(--black);
-    color: var(--white);
-    font-size: 1.1vw;
-    height: 30px;
-    width: 200px;
-  }
-
-  .color-picker-controlls{
-    display: flex;
-    justify-content: space-around;
-    width: 200px;
-  }
-
   .copy-success-overlay {
     background-color: var(--black);
     color: var(--white);
@@ -87,11 +34,7 @@
   }
 
 @media screen and (max-width: 1000px){  
-    .custom-hex-input {
-        border: 1.2px solid var(--white);
-        font-size: 11px;
-      }
-
+  
       .copy-success-overlay {
         border: 1.2px solid var(--white);
         margin-bottom: 60px;
@@ -100,10 +43,5 @@
     
       .message-container{
         gap: 10px;
-      }
-
-      .color-picker{
-        border: 1.2px solid var(--white);
-        border-radius: 10px;
       }
   }

@@ -27,6 +27,7 @@ function App() {
   ];
 
   const [colors, setColors, undo, redo, history, historyIndex] = useUndo(initialColors);
+  const paletteAPI = 'http://localhost:8080/api'
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];

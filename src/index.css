@@ -45,7 +45,7 @@ p{
 }
 
 .tiny-print{
-  font-size: 0.8vw;
+  font-size: 0.9vw;
 }
 
 .bold{
@@ -104,5 +104,10 @@ input:focus {
   .small-print{
     font-size: 11px;
   }
+
+  .tiny-print{
+    font-size: 9px;
+  }
+  
   
 }
