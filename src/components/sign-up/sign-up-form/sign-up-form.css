@@ -1,0 +1,26 @@
+.registration-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vw;
+    color: var(--black);
+}
+
+.form-seg{
+    display: flex;
+    justify-content: space-between;
+    gap: 1vw;
+}
+
+@media screen and (max-width: 1000px){  
+    
+    .registration-form{
+        gap: 10px;
+    }
+    
+    .form-seg{
+        gap: 10px;
+    }
+    
+  }
+

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useSearchParams } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
@@ -8,6 +8,8 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Controller from "./components/color-gen-controller";
 import useUndo from "./services/useUndo";
 import ColorFetcher from "./services/colorFetcher";
+import { useState } from "react";
+import SignUp from "./components/sign-up";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -28,6 +30,7 @@ function App() {
 
   const [colors, setColors, undo, redo, history, historyIndex] = useUndo(initialColors);
   const paletteAPI = 'http://localhost:8080/api'
+  const [displaySignUp, setDisplaySignUp] = useState(false)
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -90,7 +93,10 @@ function App() {
     <div className="App">
       <ColorFetcher colors={colors} setColors={setColors} />
       <BrowserRouter>
-        <Nav />
+        <Nav
+          displaySignUp={displaySignUp}
+          setDisplaySignUp={setDisplaySignUp}
+        />
         <Controller
           generateRandomColor={generateRandomColor}
           undo={undo}
@@ -119,6 +125,12 @@ function App() {
           </Routes>
         </DndProvider>
         <Footer />
+        { displaySignUp && (
+          <SignUp 
+            displaySignUp={displaySignUp}
+            setDisplaySignUp={setDisplaySignUp}
+          />
+        )}
       </BrowserRouter>
     </div>
   );

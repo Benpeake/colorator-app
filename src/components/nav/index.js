@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./nav.css"
 import { useEffect, useState } from "react";
 
-function Nav(){
+function Nav({displaySignUp, setDisplaySignUp}){
 
     return(
         <nav>
@@ -27,7 +27,10 @@ function Nav(){
                         Login
                     </NavLink>
                     <div>
-                    <NavLink className="gradient-border button gradient-text" to="/">
+                    <NavLink
+                        className="gradient-border button gradient-text" to="/"
+                        onClick={() => {setDisplaySignUp(true)}}
+                    >
                         Sign up
                     </NavLink>
                     </div>

@@ -28,12 +28,18 @@ p{
   margin: 0;
 }
 
+h2{
+  padding: 0;
+  margin: 0;
+  font-weight: 800;
+}
+
 .large-copy{
   font-size: 3vw;
 }
 
 .med-copy{
-  font-size: 1.6vw;
+  font-size: 1.7vw;
 }
 
 .small-copy{
@@ -65,6 +71,10 @@ p{
   background-color: var(--black);
 }
 
+.grey{
+  opacity: 0.6;
+}
+
 input:focus {
   outline: none; 
   box-shadow: none; 
@@ -86,6 +96,31 @@ input:focus {
     font-weight: 400 !important;
     background-color: transparent !important;
   }
+
+  input {
+    border: 0.12vw solid var(--black);
+    background: transparent;
+    height: 2.5vw;
+    width: 15vw;
+    font-size: 1.1vw;
+    padding: 0 0.5vw;
+  }
+
+  :is(input[type="button"], input[type="submit"], button) {
+    width: 6vw;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 1vw;
+    border: 0.12vw solid var(--black);
+    margin-top: 0.5vw;
+  }
+  :is(input[type="button"], input[type="submit"], button):hover {
+    background-color: var(--white);
+    color: var(--black);
+    border: 0.12vw solid var(--black);
+    cursor: pointer;
+  }
+
 
 @media screen and (max-width: 1000px){  
   
@@ -109,5 +144,23 @@ input:focus {
     font-size: 9px;
   }
   
+  input {
+    border: 1.2px solid var(--black);
+    font-size: 11px;
+    padding: 0 5px;
+    height: 25px;
+    width: 150px;
+  }
+
+  :is(input[type="button"], input[type="submit"], button) {
+    width: 60px;
+    border-radius: 10px;
+    border: 1.2px solid var(--black);
+    margin-top: 5px;
+  }
+  :is(input[type="button"], input[type="submit"], button):hover {
+    border: 1.2px solid var(--black);
+    cursor: pointer;
+  }
   
 }
