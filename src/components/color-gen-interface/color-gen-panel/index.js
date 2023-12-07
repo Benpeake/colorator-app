@@ -145,7 +145,7 @@ function Panel({
       {copySuccess && (
         <Notification
           noteIconSrc={'../../icons/tick_white.svg'}
-          noteCopy={'color copied to clipboard!'}
+          noteCopy={'Color copied to clipboard!'}
           noteIconSrcCopy={'tick icon'}
         />
       )}

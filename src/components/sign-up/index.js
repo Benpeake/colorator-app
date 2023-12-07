@@ -9,6 +9,7 @@ function SignUp({
   setToken,
   registrationSuccess,
   setRegistrationSuccess,
+  setUsername,
 }) {
   return (
     <div className="signUp-overlay">
@@ -42,11 +43,12 @@ function SignUp({
             setDisplaySignUp={setDisplaySignUp}
             registrationSuccess={registrationSuccess}
             setRegistrationSuccess={setRegistrationSuccess}
+            setUsername={setUsername}
           />
         </div>
         <div className="sign-up-footer">
           <p className="tiny-print grey">
-            By joining you are agreeing to our terms of service.
+            By continuing are agreeing to our terms of service.
           </p>
         </div>
       </div>

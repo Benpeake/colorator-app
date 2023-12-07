@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import "./sign-up-form.css";
+import "./log-in-form.css";
 import Notification from "../../notification";
 
-function RegistrationForm({
+function LoginForm({
   ApiBlock,
-  token,
   setToken,
-  displaySignUp,
-  setDisplaySignUp,
-  registrationSuccess,
-  setRegistrationSuccess,
   setUsername,
+  setDisplaylogin,
+  setLoginSuccess
 }) {
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
   });
+  const [loginError, setLoginError] = useState(null)
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -29,10 +26,9 @@ function RegistrationForm({
   function handleRegistrationSubmit(e) {
     e.preventDefault();
 
-    fetch(ApiBlock + "/users/register", {
+    fetch(ApiBlock + "/users/login", {
       method: "POST",
       body: JSON.stringify({
-        name: formData.username,
         email: formData.email,
         password: formData.password,
       }),
@@ -48,10 +44,10 @@ function RegistrationForm({
           localStorage.setItem("token", data.access_token);
           setToken(data.access_token);
           setUsername(data.username)
-          setDisplaySignUp(false);
-          setRegistrationSuccess(true);
+          setDisplaylogin(false);
+          setLoginSuccess(true);
           setTimeout(() => {
-            setRegistrationSuccess(false);
+            setLoginSuccess(false);
           }, 1500)
         }
       });
@@ -62,20 +58,8 @@ function RegistrationForm({
     <>
       <form
         onSubmit={handleRegistrationSubmit}
-        className="registration-form small-copy"
+        className="login-form small-copy"
       >
-        <div className="form-seg">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         <div className="form-seg">
           <label htmlFor="email">Email:</label>
           <input
@@ -107,4 +91,4 @@ function RegistrationForm({
   );
 }
 
-export default RegistrationForm;
+export default LoginForm;

@@ -2,7 +2,6 @@ import {
   BrowserRouter,
   Route,
   Routes,
-  useSearchParams,
 } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
@@ -16,6 +15,7 @@ import ColorFetcher from "./services/colorFetcher";
 import { useState } from "react";
 import SignUp from "./components/sign-up";
 import Notification from "./components/notification";
+import Login from "./components/log-in";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -38,8 +38,12 @@ function App() {
     useUndo(initialColors);
   const ApiBlock = "http://localhost:8080/api";
   const [displaySignUp, setDisplaySignUp] = useState(false);
+  const [displayLogin, setDisplaylogin] = useState(false)
   const [token, setToken] = useState(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [username, setUsername] = useState('')
+  const [logoutSuccess, setLogoutSuccess] = useState(false)
+  const [loginSuccess, setLoginSuccess] = useState(false)
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -105,6 +109,13 @@ function App() {
         <Nav
           displaySignUp={displaySignUp}
           setDisplaySignUp={setDisplaySignUp}
+          token={token}
+          setToken={setToken}
+          username={username}
+          ApiBlock={ApiBlock}
+          setUsername={setUsername}
+          setLogoutSuccess={setLogoutSuccess}
+          setDisplaylogin={setDisplaylogin}
         />
         <Controller
           generateRandomColor={generateRandomColor}
@@ -143,12 +154,36 @@ function App() {
             setToken={setToken}
             registrationSuccess={registrationSuccess}
             setRegistrationSuccess={setRegistrationSuccess}
+            setUsername={setUsername}
+          />
+        )}
+        {displayLogin && (
+          <Login 
+            setDisplaylogin={setDisplaylogin}
+            ApiBlock={ApiBlock}
+            setToken={setToken}
+            setUsername={setUsername}
+            setLoginSuccess={setLoginSuccess}
           />
         )}
         {registrationSuccess && (
           <Notification
             noteIconSrc={"../../icons/tick_white.svg"}
             noteCopy={"Registration successful!"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {logoutSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Loged out"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {loginSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Welcome back!"}
             noteIconSrcCopy={"tick icon"}
           />
         )}

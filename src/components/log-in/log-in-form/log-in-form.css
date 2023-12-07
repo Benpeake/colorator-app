@@ -1,0 +1,31 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vw;
+    color: var(--black);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.form-seg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1vw;
+}
+
+@media screen and (max-width: 1000px){  
+    
+    .registration-form{
+        gap: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .form-seg{
+        gap: 10px;
+    }
+    
+  }
+
