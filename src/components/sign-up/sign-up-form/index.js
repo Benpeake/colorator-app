@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./sign-up-form.css";
 
-function RegistrationForm() {
+function RegistrationForm({ApiBlock}) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -16,13 +16,31 @@ function RegistrationForm() {
     });
   }
 
-  function handleSubmit(e) {
+  function handleRegistrationSubmit(e) {
     e.preventDefault();
-    // Add your form submission logic here, such as sending data to a server
+
+    fetch(ApiBlock + "/users/register", {
+      method: "POST",
+      body: JSON.stringify({
+        name: formData.username,
+        email: formData.email,
+        password: formData.password,
+      }),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+      });
+
   }
 
   return (
-    <form onSubmit={handleSubmit} className="registration-form small-copy">
+    <form onSubmit={handleRegistrationSubmit} className="registration-form small-copy">
       <div className="form-seg">
         <label htmlFor="username">Username:</label>
         <input

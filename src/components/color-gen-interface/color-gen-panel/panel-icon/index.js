@@ -11,7 +11,6 @@ function PanelIcon ({
   content
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  console.log(isHovered)
 
   return (
     <div

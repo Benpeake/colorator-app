@@ -29,7 +29,7 @@ function App() {
   ];
 
   const [colors, setColors, undo, redo, history, historyIndex] = useUndo(initialColors);
-  const paletteAPI = 'http://localhost:8080/api'
+  const ApiBlock = 'http://localhost:8080/api'
   const [displaySignUp, setDisplaySignUp] = useState(false)
 
   function handleMoveColor(fromIndex, toIndex) {
@@ -129,6 +129,7 @@ function App() {
           <SignUp 
             displaySignUp={displaySignUp}
             setDisplaySignUp={setDisplaySignUp}
+            ApiBlock={ApiBlock}
           />
         )}
       </BrowserRouter>

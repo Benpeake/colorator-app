@@ -1,7 +1,7 @@
 import RegistrationForm from "./sign-up-form";
 import "./sign-up.css"
 
-function SignUp ({displaySignUp, setDisplaySignUp}) {
+function SignUp ({displaySignUp, setDisplaySignUp, ApiBlock}) {
 
 
     return(
@@ -18,21 +18,23 @@ function SignUp ({displaySignUp, setDisplaySignUp}) {
                     </div>
                 </div>
                 <div className="sign-up-form">
-                    <h2 className="med-copy">
+                    <h2 className="large-copy">
                         Hello!
                     </h2>
                 </div>
                 <div className="sign-up-form">
-                    <p className="small-copy">
-                        Fill in the the form below to join Colorator.
+                    <p className="small-print down-gap">
+                        Fill in the the form below to join.
                     </p>
                 </div>
                 <div className="sign-up-form">
-                    <RegistrationForm />
+                    <RegistrationForm
+                        ApiBlock={ApiBlock}
+                    />
                 </div>
                 <div className="sign-up-footer">
                 <p className="tiny-print grey">
-                        By joining you are agreeing to our terms of service
+                        By joining you are agreeing to our terms of service.
                     </p>
                 </div>
             </div>

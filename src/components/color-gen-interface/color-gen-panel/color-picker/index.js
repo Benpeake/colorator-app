@@ -38,7 +38,7 @@ function ColorPicker (
               }}
             />
           </div>
-          <div className="color-picker-controlls">
+          <div className="color-picker-controlls white">
             <div
               className="panel-icon-container"
               onClick={confirmColorPickerChange}
