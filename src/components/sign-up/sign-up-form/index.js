@@ -17,6 +17,7 @@ function RegistrationForm({
     email: "",
     password: "",
   });
+  const [loginError, setLoginError] = useState('')
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -54,8 +55,8 @@ function RegistrationForm({
             setRegistrationSuccess(false);
           }, 1500)
         }
+        setLoginError(data.message)
       });
-      
   }
 
   return (
@@ -99,6 +100,10 @@ function RegistrationForm({
             required
           />
         </div>
+        <p className="tiny-print grey form-info"> must be 6 characters</p>
+        {loginError && (
+          <p className=" error tiny-print">{loginError}</p>
+        )}
         <div className="">
           <input className="small-copy" type="submit" value="Submit" />
         </div>

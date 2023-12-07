@@ -6,7 +6,7 @@ function Notification ({noteIconSrc, noteCopy, noteIconSrcCopy}) {
     <div className="copy-success-overlay">
     <div className="message-container">
       <img
-        className="panel-icon"
+        className="note-icon"
         src={noteIconSrc}
         alt={noteIconSrcCopy}
       />

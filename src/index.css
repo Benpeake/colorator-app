@@ -62,6 +62,15 @@ h2{
   padding-bottom: 0.6vw;
 }
 
+.error{
+  color: #EA481F;
+  margin-top: -0.5vw;
+}
+
+.red{
+  color: #EA481F;
+}
+
 .gradient-text {
   background: linear-gradient(-45deg, #FF007F, #5438DC);
   background-clip: text;
@@ -166,5 +175,10 @@ input:focus {
     border: 1.2px solid var(--black);
     cursor: pointer;
   }
+
+  .error{
+    margin-top: 5px;
+  }
+  
   
 }

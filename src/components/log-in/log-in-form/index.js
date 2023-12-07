@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./log-in-form.css";
-import Notification from "../../notification";
 
 function LoginForm({
   ApiBlock,
@@ -13,7 +12,7 @@ function LoginForm({
     email: "",
     password: "",
   });
-  const [loginError, setLoginError] = useState(null)
+  const [loginError, setLoginError] = useState('')
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -23,7 +22,7 @@ function LoginForm({
     });
   }
 
-  function handleRegistrationSubmit(e) {
+  function handleLoginSubmit(e) {
     e.preventDefault();
 
     fetch(ApiBlock + "/users/login", {
@@ -50,6 +49,7 @@ function LoginForm({
             setLoginSuccess(false);
           }, 1500)
         }
+        setLoginError((data.message))
       });
       
   }
@@ -57,7 +57,7 @@ function LoginForm({
   return (
     <>
       <form
-        onSubmit={handleRegistrationSubmit}
+        onSubmit={handleLoginSubmit}
         className="login-form small-copy"
       >
         <div className="form-seg">
@@ -83,6 +83,9 @@ function LoginForm({
             required
           />
         </div>
+        {loginError && (
+          <p className=" error tiny-print">{loginError}</p>
+        )}
         <div className="">
           <input className="small-copy" type="submit" value="Submit" />
         </div>

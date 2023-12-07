@@ -15,6 +15,11 @@
     gap: 1vw;
 }
 
+.form-info{
+    padding-left: 2vw;
+    margin-top: -0.5vw;
+}
+
 @media screen and (max-width: 1000px){  
     
     .registration-form{
@@ -25,6 +30,11 @@
     
     .form-seg{
         gap: 10px;
+    }
+
+    .form-info{
+        padding-left: 20px;
+        margin-top: -5px;
     }
     
   }

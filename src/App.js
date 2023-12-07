@@ -36,6 +36,7 @@ function App() {
 
   const [colors, setColors, undo, redo, history, historyIndex] =
     useUndo(initialColors);
+
   const ApiBlock = "http://localhost:8080/api";
   const [displaySignUp, setDisplaySignUp] = useState(false);
   const [displayLogin, setDisplaylogin] = useState(false)
@@ -169,14 +170,14 @@ function App() {
         {registrationSuccess && (
           <Notification
             noteIconSrc={"../../icons/tick_white.svg"}
-            noteCopy={"Registration successful!"}
+            noteCopy={"Welcome aboard!"}
             noteIconSrcCopy={"tick icon"}
           />
         )}
         {logoutSuccess && (
           <Notification
             noteIconSrc={"../../icons/tick_white.svg"}
-            noteCopy={"Loged out"}
+            noteCopy={"See you later!"}
             noteIconSrcCopy={"tick icon"}
           />
         )}
