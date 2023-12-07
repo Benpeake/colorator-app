@@ -1,0 +1,36 @@
+.copy-success-overlay {
+    background-color: var(--black);
+    color: var(--white);
+    position: fixed; 
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%); 
+    padding: 15px;
+    border: 0.12vw solid var(--white);
+    margin-bottom: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    border-radius: 1vw;
+  }
+
+  .message-container{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 1000px){  
+  
+    .copy-success-overlay {
+      border: 1.2px solid var(--white);
+      margin-bottom: 60px;
+      border-radius: 10px;
+    }
+  
+    .message-container{
+      gap: 10px;
+    }
+}

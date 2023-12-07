@@ -1,4 +1,9 @@
-import { BrowserRouter, Route, Routes, useSearchParams } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useSearchParams,
+} from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
@@ -10,6 +15,7 @@ import useUndo from "./services/useUndo";
 import ColorFetcher from "./services/colorFetcher";
 import { useState } from "react";
 import SignUp from "./components/sign-up";
+import Notification from "./components/notification";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -28,9 +34,12 @@ function App() {
     { color: generateRandomHex(), locked: false, name: "", fontColor: "" },
   ];
 
-  const [colors, setColors, undo, redo, history, historyIndex] = useUndo(initialColors);
-  const ApiBlock = 'http://localhost:8080/api'
-  const [displaySignUp, setDisplaySignUp] = useState(false)
+  const [colors, setColors, undo, redo, history, historyIndex] =
+    useUndo(initialColors);
+  const ApiBlock = "http://localhost:8080/api";
+  const [displaySignUp, setDisplaySignUp] = useState(false);
+  const [token, setToken] = useState(null);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -125,11 +134,22 @@ function App() {
           </Routes>
         </DndProvider>
         <Footer />
-        { displaySignUp && (
-          <SignUp 
+        {displaySignUp && (
+          <SignUp
             displaySignUp={displaySignUp}
             setDisplaySignUp={setDisplaySignUp}
             ApiBlock={ApiBlock}
+            token={token}
+            setToken={setToken}
+            registrationSuccess={registrationSuccess}
+            setRegistrationSuccess={setRegistrationSuccess}
+          />
+        )}
+        {registrationSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Registration successful!"}
+            noteIconSrcCopy={"tick icon"}
           />
         )}
       </BrowserRouter>

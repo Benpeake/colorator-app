@@ -3,6 +3,7 @@ import "./panel.css";
 import { useDrag, useDrop } from "react-dnd";
 import PanelIcon from "./panel-icon";
 import ColorPicker from "./color-picker";
+import Notification from "../../notification";
 
 function Panel({
   color,
@@ -142,16 +143,11 @@ function Panel({
         />
       )}
       {copySuccess && (
-        <div className="copy-success-overlay">
-          <div className="message-container">
-            <img
-              className="panel-icon"
-              src="../../../icons/tick_white.svg"
-              alt="tick icon"
-            />
-            <p className="small-print">Colour coppied to clipboard</p>
-          </div>
-        </div>
+        <Notification
+          noteIconSrc={'../../icons/tick_white.svg'}
+          noteCopy={'color copied to clipboard!'}
+          noteIconSrcCopy={'tick icon'}
+        />
       )}
     </>
   );

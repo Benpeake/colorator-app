@@ -4,6 +4,8 @@
     justify-content: center;
     gap: 1vw;
     color: var(--black);
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 .form-seg{
@@ -17,6 +19,8 @@
     
     .registration-form{
         gap: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     
     .form-seg{

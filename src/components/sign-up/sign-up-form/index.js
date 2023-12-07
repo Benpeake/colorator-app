@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import "./sign-up-form.css";
+import Notification from "../../notification";
 
-function RegistrationForm({ApiBlock}) {
+function RegistrationForm({
+  ApiBlock,
+  token,
+  setToken,
+  displaySignUp,
+  setDisplaySignUp,
+  registrationSuccess,
+  setRegistrationSuccess,
+}) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -34,52 +43,65 @@ function RegistrationForm({ApiBlock}) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        if (data.message == "User registered successfully") {
+          console.log("success");
+          localStorage.setItem("token", data.access_token);
+          setToken(data.access_token);
+          setDisplaySignUp(false);
+          setRegistrationSuccess(true);
+          setTimeout(() => {
+            setRegistrationSuccess(false);
+          }, 1500);
+        }
       });
-
   }
 
   return (
-    <form onSubmit={handleRegistrationSubmit} className="registration-form small-copy">
-      <div className="form-seg">
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-      </div>
+    <>
+      <form
+        onSubmit={handleRegistrationSubmit}
+        className="registration-form small-copy"
+      >
+        <div className="form-seg">
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-seg">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <div className="form-seg">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-seg">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="">
-      <input className="small-copy" type="submit" value="Submit" />
-      </div>
-    </form>
+        <div className="form-seg">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="">
+          <input className="small-copy" type="submit" value="Submit" />
+        </div>
+      </form>
+    </>
   );
 }
 
