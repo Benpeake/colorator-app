@@ -1,3 +1,4 @@
+import Controller from "./color-gen-controller";
 import Panel from "./color-gen-panel";
 import "./interface.css";
 
@@ -8,10 +9,26 @@ function Interface({
   removeColorPanel,
   handleLockStatus,
   updateColor,
-  tempUpdateColor
+  tempUpdateColor,
+  generateRandomColor,
+  undo,
+  redo,
+  addColorPanel,
+  history,
+  historyIndex
 }) {
 
   return (
+    <>
+    <Controller
+    generateRandomColor={generateRandomColor}
+    undo={undo}
+    redo={redo}
+    addColorPanel={addColorPanel}
+    colors={colors}
+    history={history}
+    historyIndex={historyIndex}
+  />
     <section className="interface-container">
       {colors.map((color, index) => (
         <Panel
@@ -29,6 +46,7 @@ function Interface({
         />
       ))}
     </section>
+    </>
   );
 }
 

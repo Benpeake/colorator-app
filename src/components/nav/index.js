@@ -12,22 +12,29 @@ function Nav({
   setUsername,
   setLogoutSuccess,
   setDisplaylogin,
+  setUserEmail,
 }) {
   return (
     <nav>
       <div className="nav-bar-container">
         <div className="nav-left">
-          <p className="bold gradient-text med-copy" to="/">
+          <NavLink className="bold gradient-text med-copy" to="/">
             COLORATOR
-          </p>
+          </NavLink>
         </div>
         <div className="nav-right small-copy">
           <NavLink className="navlink" to="/">
             Generator
           </NavLink>
+          {token ? (
           <NavLink className="navlink" to="/">
             My Palettes
           </NavLink>
+          ) : (
+          <NavLink className="navlink" to="/"  onClick={setDisplaySignUp}>
+            My Palettes
+          </NavLink>
+          )}
           <NavLink className="navlink" to="/">
             All Palettes
           </NavLink>
@@ -40,11 +47,13 @@ function Nav({
               setUsername={setUsername}
               setToken={setToken}
               setLogoutSuccess={setLogoutSuccess}
+              setUserEmail={setUserEmail}
             />
           ) : (
             <Login
               setDisplaylogin={setDisplaylogin}
               setDisplaySignUp={setDisplaySignUp}
+              setUserEmail={setUserEmail}
             />
           )}
         </div>

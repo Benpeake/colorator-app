@@ -1,21 +1,17 @@
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
 import Interface from "./components/color-gen-interface";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import Controller from "./components/color-gen-controller";
 import useUndo from "./services/useUndo";
 import ColorFetcher from "./services/colorFetcher";
 import { useState } from "react";
 import SignUp from "./components/sign-up";
 import Notification from "./components/notification";
 import Login from "./components/log-in";
+import MyAccount from "./components/my-account";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -39,12 +35,13 @@ function App() {
 
   const ApiBlock = "http://localhost:8080/api";
   const [displaySignUp, setDisplaySignUp] = useState(false);
-  const [displayLogin, setDisplaylogin] = useState(false)
+  const [displayLogin, setDisplaylogin] = useState(false);
   const [token, setToken] = useState(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [username, setUsername] = useState('')
-  const [logoutSuccess, setLogoutSuccess] = useState(false)
-  const [loginSuccess, setLoginSuccess] = useState(false)
+  const [username, setUsername] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [logoutSuccess, setLogoutSuccess] = useState(false);
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -117,15 +114,7 @@ function App() {
           setUsername={setUsername}
           setLogoutSuccess={setLogoutSuccess}
           setDisplaylogin={setDisplaylogin}
-        />
-        <Controller
-          generateRandomColor={generateRandomColor}
-          undo={undo}
-          redo={redo}
-          addColorPanel={addColorPanel}
-          colors={colors}
-          history={history}
-          historyIndex={historyIndex}
+          setUserEmail={setUserEmail}
         />
         <DndProvider backend={HTML5Backend}>
           <Routes>
@@ -140,9 +129,25 @@ function App() {
                   handleLockStatus={handleLockStatus}
                   updateColor={updateColor}
                   tempUpdateColor={tempUpdateColor}
+                  generateRandomColor={generateRandomColor}
+                  undo={undo}
+                  redo={redo}
+                  addColorPanel={addColorPanel}
+                  history={history}
+                  historyIndex={historyIndex}
                 />
               }
             />
+            <Route 
+              path="/my-account"
+              element={
+                <MyAccount 
+                  userEmail={userEmail}
+                  setUserEmail={setUserEmail}
+                  username={username}
+                  setUsername={setUsername}
+                />} 
+                />
           </Routes>
         </DndProvider>
         <Footer />
@@ -156,15 +161,17 @@ function App() {
             registrationSuccess={registrationSuccess}
             setRegistrationSuccess={setRegistrationSuccess}
             setUsername={setUsername}
+            setUserEmail={setUserEmail}
           />
         )}
         {displayLogin && (
-          <Login 
+          <Login
             setDisplaylogin={setDisplaylogin}
             ApiBlock={ApiBlock}
             setToken={setToken}
             setUsername={setUsername}
             setLoginSuccess={setLoginSuccess}
+            setUserEmail={setUserEmail}
           />
         )}
         {registrationSuccess && (

@@ -11,6 +11,7 @@ function RegistrationForm({
   registrationSuccess,
   setRegistrationSuccess,
   setUsername,
+  setUserEmail,
 }) {
   const [formData, setFormData] = useState({
     username: "",
@@ -48,14 +49,16 @@ function RegistrationForm({
         if (data.access_token) {
           localStorage.setItem("token", data.access_token);
           setToken(data.access_token);
-          setUsername(data.username)
+          setUsername(data.data.name)
+          setUserEmail(data.data.email)
           setDisplaySignUp(false);
           setRegistrationSuccess(true);
           setTimeout(() => {
             setRegistrationSuccess(false);
           }, 1500)
-        }
+        } else{
         setLoginError(data.message)
+        }
       });
   }
 

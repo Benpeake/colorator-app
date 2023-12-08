@@ -1,0 +1,32 @@
+.page-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vw ;
+    padding-bottom: 6vw ;
+    gap: 2vw;
+}
+
+.user-details-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    margin: 0vw 6vw 4vw 6vw;
+    padding: 2vw;
+}
+
+@media screen and (max-width: 1000px){  
+
+    .page-heading{
+        padding-top: 60px ;
+        padding-bottom: 60px ;
+        gap: 20px;
+    }
+    
+    .user-details-container{
+        gap: 20px;
+        margin: 0 60px 40px 60px;
+        padding: 20px;
+    }
+  }

@@ -7,6 +7,7 @@ function Login({
   setUsername,
   setDisplaylogin,
   setLoginSuccess,
+  setUserEmail,
 }) {
   return (
     <div className="login-overlay">
@@ -38,6 +39,7 @@ function Login({
             setToken={setToken}
             setUsername={setUsername}
             setLoginSuccess={setLoginSuccess}
+            setUserEmail={setUserEmail}
           />
         </div>
         <div className="login-footer">

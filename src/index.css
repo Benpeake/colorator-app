@@ -34,6 +34,16 @@ h2{
   font-weight: 800;
 }
 
+h3{
+  padding: 0;
+  margin: 0;
+}
+
+.massive-copy{
+  font-size: 3vw;
+  font-weight: 800;
+}
+
 .large-copy{
   font-size: 2.5vw;
 }
@@ -136,6 +146,10 @@ input:focus {
 
 
 @media screen and (max-width: 1000px){  
+
+  .massive-copy{
+    font-size: 30px;
+  }
   
   .large-copy{
     font-size: 25px;

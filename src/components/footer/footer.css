@@ -8,13 +8,13 @@ footer {
     justify-content: flex-end; 
     align-items: center;
     border-top: 0.12vw solid;
-    height: 3vw ;
+    height: 3.5vw ;
   }
   
   @media screen and (max-width: 1000px){  
   
     footer {
-        height: 30px ;
+        height: 35px ;
         border-top: solid 1.2px;
       }
 

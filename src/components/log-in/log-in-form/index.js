@@ -6,7 +6,8 @@ function LoginForm({
   setToken,
   setUsername,
   setDisplaylogin,
-  setLoginSuccess
+  setLoginSuccess,
+  setUserEmail,
 }) {
   const [formData, setFormData] = useState({
     email: "",
@@ -42,14 +43,16 @@ function LoginForm({
         if (data.access_token) {
           localStorage.setItem("token", data.access_token);
           setToken(data.access_token);
-          setUsername(data.username)
+          setUsername(data.data.name);
+          setUserEmail(data.data.email);
           setDisplaylogin(false);
           setLoginSuccess(true);
           setTimeout(() => {
             setLoginSuccess(false);
           }, 1500)
-        }
+        } else {
         setLoginError((data.message))
+        }
       });
       
   }
