@@ -25,4 +25,9 @@
         padding-bottom: 60px ;
         gap: 20px;
     }
+
+    .display-palettes-section{
+        gap: 30px;
+        padding: 0 30px;
+    }
   }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./all-palettes.css";
 import SavedPalette from "./saved-palette";
 
-function AllPalettes({ ApiBlock }) {
+function AllPalettes({ ApiBlock, updateColorsWithSavedPalette }) {
   const [savedPalettes, setSavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,13 +35,15 @@ function AllPalettes({ ApiBlock }) {
         {isLoading ? (
           <p className="med-copy">Loading...</p>
         ) : savedPalettes.length > 0 ? (
-          savedPalettes.map((palette) => (
+          savedPalettes.map((palette, index) => (
             <SavedPalette 
+                index={index}
                 key={palette.id} 
                 name={palette.name}
                 colors={palette.colors}
                 id={palette.id}
                 likes={palette.likes}
+                updateColorsWithSavedPalette={updateColorsWithSavedPalette}
             />
           ))
         ) : (

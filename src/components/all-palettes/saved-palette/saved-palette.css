@@ -6,7 +6,6 @@
     min-width: 235px;
 }
 
-
 .palettes-container-header{
     display: flex;
     justify-content: space-between;
@@ -43,4 +42,25 @@
 .all-palettes-icon:hover{
     opacity: 1;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1000px){  
+    .saved-palette-container{
+        gap: 3px;
+        width: 22%;
+        min-width: 235px;
+    }
+    
+    .palettes-container-colors{
+        border-radius: 10px;
+        height: 120px;
+    }
+    
+    .all-palettes-icon-container{
+        gap: 3px;
+    }
+    
+    .all-palettes-icon{
+        height: 15px;
+    }
 }

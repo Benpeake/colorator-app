@@ -107,6 +107,18 @@ function App() {
     setColors(updatedColors);
   }
 
+  function updateColorsWithSavedPalette(savedPaletteColors) {
+    const newColors = savedPaletteColors.map((color) => {
+      return {
+        color: color,
+        locked: false,
+        name: "",
+        fontColor: "",
+      };
+    });
+    setColors(newColors);
+  }
+
   return (
     <div className="App" id="root">
       <ColorFetcher colors={colors} setColors={setColors} />
@@ -171,6 +183,7 @@ function App() {
               element={
                 <AllPalettes
                   ApiBlock={ApiBlock}
+                  updateColorsWithSavedPalette={updateColorsWithSavedPalette}
                 />
               }
             />

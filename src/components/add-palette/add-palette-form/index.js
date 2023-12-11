@@ -58,7 +58,7 @@ function AddPaletteForm({
   }
 
   function handleCheckboxChange() {
-    setIsPrivate((prevIsPrivate) => prevIsPrivate);
+    setIsPrivate(!isPrivate);
   }
 
   return (
