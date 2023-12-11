@@ -1,7 +1,14 @@
 import { useState } from "react";
 import "./add-palette-form.css";
 
-function AddPaletteForm({ colors, token, setAddPaletteSuccess, ApiBlock, userId}) {
+function AddPaletteForm({
+  colors,
+  token,
+  setAddPaletteSuccess,
+  ApiBlock,
+  userId,
+  setDisplayAddPalette,
+}) {
   const [addPaletteErrorMsg, setAddPaletteErrorMsg] = useState("");
   const [newPaletteName, setNewPaletteName] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
@@ -27,9 +34,10 @@ function AddPaletteForm({ colors, token, setAddPaletteSuccess, ApiBlock, userId}
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.message == "Palette added") {
           setAddPaletteSuccess(true);
+          setDisplayAddPalette(false)
           setTimeout(() => {
             setAddPaletteSuccess(false);
           }, 1500);
@@ -55,10 +63,7 @@ function AddPaletteForm({ colors, token, setAddPaletteSuccess, ApiBlock, userId}
 
   return (
     <>
-      <form
-        onSubmit={handleAddPalette}
-        className="add-palette-form small-copy"
-      >
+      <form onSubmit={handleAddPalette} className="add-palette-form small-copy">
         <div className="form-seg-vert">
           <label htmlFor="paletteName">Palette name</label>
           <input
@@ -70,9 +75,17 @@ function AddPaletteForm({ colors, token, setAddPaletteSuccess, ApiBlock, userId}
             required
           />
         </div>
-        <p className={`tiny-print form-info2 ${addPaletteErrorMsg ? 'red' : 'grey'}`}>between 1 and 14 characters*</p>
+        <p
+          className={`tiny-print form-info2 ${
+            addPaletteErrorMsg ? "red" : "grey"
+          }`}
+        >
+          between 1 and 14 characters*
+        </p>
         <div className="form-seg-checkbox">
-        <label className="tiny-print" htmlFor="privateCheckbox">Make Palette Private</label>
+          <label className="tiny-print" htmlFor="privateCheckbox">
+            Make Palette Private
+          </label>
           <input
             type="checkbox"
             id="privateCheckbox"

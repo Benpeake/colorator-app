@@ -79,7 +79,7 @@ h3{
 
 .error{
   color: var(--red);
-  margin-top: -0.8vw;
+  margin-top: -0.5vw;
 }
 
 .red{
@@ -199,7 +199,7 @@ input:focus {
   }
 
   .error{
-    margin-top: -8px;
+    margin-top: 1px;
   }
   
   

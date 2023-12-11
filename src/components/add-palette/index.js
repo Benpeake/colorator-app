@@ -34,6 +34,7 @@ function AddPalette({
             setAddPaletteSuccess={setAddPaletteSuccess}
             ApiBlock={ApiBlock}
             userId={userId}
+            setDisplayAddPalette={setDisplayAddPalette}
           />
           <div className="addPalette-footer"></div>
         </div>

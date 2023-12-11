@@ -17,7 +17,9 @@ function Interface({
   addColorPanel,
   history,
   historyIndex,
-  setDisplayAddPalette
+  setDisplayAddPalette,
+  setDisplaySignUp,
+  token
 }) {
 
   return (
@@ -31,6 +33,8 @@ function Interface({
     history={history}
     historyIndex={historyIndex}
     setDisplayAddPalette={setDisplayAddPalette}
+    setDisplaySignUp={setDisplaySignUp}
+    token={token}
   />
     <section className="interface-container">
       {colors.map((color, index) => (

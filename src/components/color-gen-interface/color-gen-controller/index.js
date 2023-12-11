@@ -10,6 +10,8 @@ function Controller({
   history,
   historyIndex,
   setDisplayAddPalette,
+  setDisplaySignUp,
+  token,
 }) {
   const [maxPanelNum, setMaxPanelNum] = useState(true);
   const [undoActive, setUndoActive] = useState(false);
@@ -53,15 +55,27 @@ function Controller({
             src="../../../icons/like_black.svg"
             alt="save icon"
           />
-          <p
-            className="small-copy"
-            onClick={() => {
-              setDisplayAddPalette(true);
-              console.log('click')
-            }}
-          >
-            Save
-          </p>
+          {token ? (
+            <p
+              className="small-copy"
+              onClick={() => {
+                setDisplayAddPalette(true);
+                console.log("click");
+              }}
+            >
+              Save
+            </p>
+          ) : (
+            <p
+              className="small-copy"
+              onClick={() => {
+                setDisplaySignUp(true);
+                console.log("click");
+              }}
+            >
+              Save
+            </p>
+          )}
         </div>
         <div
           className={`icon-container ${undoActive ? "" : "unnactive"}`}

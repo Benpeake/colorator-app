@@ -143,6 +143,8 @@ function App() {
                   history={history}
                   historyIndex={historyIndex}
                   setDisplayAddPalette={setDisplayAddPalette}
+                  setDisplaySignUp={setDisplaySignUp}
+                  token={token}
                 />
               }
             />
