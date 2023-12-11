@@ -43,11 +43,11 @@ function App() {
   const [userEmail, setUserEmail] = useState("");
   const [logoutSuccess, setLogoutSuccess] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [accountUpdateSuccess, setAccountUpdateSuccess] = useState(false)
-  const [deleteAccountSuccess, setDeleteAccountSuccess] = useState(false)
-  const [addPaletteSuccess, setAddPaletteSuccess] = useState(false)
-  const [diplayAddPalette, setDisplayAddPalette] = useState(false); 
-  const [userId, setUserId] = useState(0)
+  const [accountUpdateSuccess, setAccountUpdateSuccess] = useState(false);
+  const [deleteAccountSuccess, setDeleteAccountSuccess] = useState(false);
+  const [addPaletteSuccess, setAddPaletteSuccess] = useState(false);
+  const [diplayAddPalette, setDisplayAddPalette] = useState(false);
+  const [userId, setUserId] = useState(0);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -148,10 +148,10 @@ function App() {
                 />
               }
             />
-            <Route 
+            <Route
               path="/my-account"
               element={
-                <MyAccount 
+                <MyAccount
                   userEmail={userEmail}
                   setUserEmail={setUserEmail}
                   username={username}
@@ -162,8 +162,9 @@ function App() {
                   ApiBlock={ApiBlock}
                   setDeleteAccountSuccess={setDeleteAccountSuccess}
                   setUserId={setUserId}
-                />} 
                 />
+              }
+            />
           </Routes>
         </DndProvider>
         <Footer />

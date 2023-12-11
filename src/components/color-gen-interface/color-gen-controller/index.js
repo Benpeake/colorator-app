@@ -16,6 +16,7 @@ function Controller({
   const [maxPanelNum, setMaxPanelNum] = useState(true);
   const [undoActive, setUndoActive] = useState(false);
   const [redoActive, setRedoActive] = useState(false);
+  const [generateIsHovered, setGenerateIsHovered] = useState(false)
 
   useEffect(() => {
     if (colors.length > 4) {
@@ -102,9 +103,14 @@ function Controller({
         <div className="icon-container">
           <p className="small-copy">|</p>
         </div>
-        <div className="icon-container" onClick={generateRandomColor}>
+        <div 
+          className="icon-container"
+          onClick={generateRandomColor}
+          onMouseEnter={() => setGenerateIsHovered(true)}
+          onMouseLeave={() => setGenerateIsHovered(false)}
+        >
           <img
-            className="icon"
+            className={`icon ${generateIsHovered ? 'rotate' : ''}`}
             src="../../../icons/boom_black.svg"
             alt="generate icon"
           />

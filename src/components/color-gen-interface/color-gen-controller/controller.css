@@ -33,6 +33,18 @@
     padding: 0.1vw 0.5vw;
 }
 
+.rotate {
+    animation: rotate 2s infinite linear; 
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 @media screen and (max-width: 1000px){  
   
     .icon{
