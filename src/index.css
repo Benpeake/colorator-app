@@ -10,6 +10,17 @@ box-sizing: border-box;
   --red: #EA481F;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;

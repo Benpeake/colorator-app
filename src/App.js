@@ -13,6 +13,7 @@ import Notification from "./components/notification";
 import Login from "./components/log-in";
 import MyAccount from "./components/my-account";
 import AddPalette from "./components/add-palette";
+import AllPalettes from "./components/all-palettes";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -107,7 +108,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" id="root">
       <ColorFetcher colors={colors} setColors={setColors} />
       <BrowserRouter>
         <Nav
@@ -162,6 +163,14 @@ function App() {
                   ApiBlock={ApiBlock}
                   setDeleteAccountSuccess={setDeleteAccountSuccess}
                   setUserId={setUserId}
+                />
+              }
+            />
+            <Route
+              path="/all-palettes"
+              element={
+                <AllPalettes
+                  ApiBlock={ApiBlock}
                 />
               }
             />

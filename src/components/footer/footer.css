@@ -9,6 +9,7 @@ footer {
     align-items: center;
     border-top: 0.12vw solid;
     height: 3.5vw ;
+    margin-top: auto;
   }
   
   @media screen and (max-width: 1000px){  

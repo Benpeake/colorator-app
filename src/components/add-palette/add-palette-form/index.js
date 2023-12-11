@@ -11,7 +11,7 @@ function AddPaletteForm({
 }) {
   const [addPaletteErrorMsg, setAddPaletteErrorMsg] = useState("");
   const [newPaletteName, setNewPaletteName] = useState("");
-  const [isPrivate, setIsPrivate] = useState(false);
+  const [isPrivate, setIsPrivate] = useState(true);
 
   function handleAddPalette(e) {
     e.preventDefault();
@@ -57,8 +57,8 @@ function AddPaletteForm({
     }
   }
 
-  function handleCheckboxChange(e) {
-    setIsPrivate(e.target.checked);
+  function handleCheckboxChange() {
+    setIsPrivate((prevIsPrivate) => prevIsPrivate);
   }
 
   return (

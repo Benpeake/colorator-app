@@ -1,0 +1,46 @@
+.saved-palette-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+    width: 22%;
+    min-width: 235px;
+}
+
+
+.palettes-container-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.palettes-container-footer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.palettes-container-colors{
+    display: flex;
+    border-radius: 1vw;
+    overflow: hidden;
+    height: 120px;
+}
+
+.palettes-container-panel{
+    flex-grow: 1;
+}
+
+.all-palettes-icon-container{
+    display: flex;
+    gap: 0.3vw;
+    align-items: center;
+}
+
+.all-palettes-icon{
+    height: 1.5vw;
+    opacity: 0.5;
+}
+.all-palettes-icon:hover{
+    opacity: 1;
+    cursor: pointer;
+}

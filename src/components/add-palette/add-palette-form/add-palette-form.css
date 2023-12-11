@@ -21,7 +21,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 0.5vw;
+    gap: 0.3vw;
     padding: 0.5vw 0;
 }
 
@@ -41,10 +41,12 @@ input[type="checkbox"] {
     margin: 0;
     font-size: 0;
     padding: 0;
+    border-radius: 100%;
+    background-color: var(--black);
   }
 
   input[type="checkbox"]:checked {
-    background-color: var(--black);
+    background-color: var(--white);
   }
 
 

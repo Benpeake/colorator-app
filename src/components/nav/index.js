@@ -36,7 +36,7 @@ function Nav({
             My Palettes
           </NavLink>
           )}
-          <NavLink className="navlink" to="/">
+          <NavLink className="navlink" to="/all-palettes">
             All Palettes
           </NavLink>
           <p>|</p>
