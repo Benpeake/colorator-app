@@ -14,7 +14,6 @@
 .login{
     background-color: var(--white);
     padding: 15px;
-    border: 0.12vw solid var(--black);
     color: var(--black);
     border-radius: 1vw;
     display: flex;
@@ -31,10 +30,9 @@
     width: 100%; 
 }
 
+
 .login-footer{
-    margin-bottom: 1.5vw;
-    margin-top: 1vw;
-    width: 16vw;
+    height: 2vw;
 }
 
 .overlay-icon{
@@ -46,14 +44,11 @@
 @media screen and (max-width: 1000px){  
     
     .login{
-        border: 1.2px solid var(--black);
         border-radius: 10px;
         gap: 15px;
     }
     .login-footer{
-        margin-bottom: 15px;
-        margin-top: 15px;
-        width: 160px;
+        height: 20px;
     }
 
     .overlay-icon{

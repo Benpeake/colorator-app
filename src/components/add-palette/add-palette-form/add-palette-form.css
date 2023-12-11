@@ -1,0 +1,80 @@
+.add-palette-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vw;
+    color: var(--black);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.form-seg-vert{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 0.5vw;
+}
+
+
+.form-seg-checkbox{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5vw;
+    padding: 0.5vw 0;
+}
+
+.form-info2{
+    margin-top: -0.8vw;
+    text-align: left;
+}
+
+input[type="checkbox"] {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 0.8vw;
+    height: 0.8vw;
+    border: 0.08vw solid var(--black);
+    cursor: pointer;
+    margin: 0;
+    font-size: 0;
+    padding: 0;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: var(--black);
+  }
+
+
+@media screen and (max-width: 1000px){  
+    
+    .add-palette-form{
+        gap: 1vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+    
+    .form-seg-vert{
+        gap: 0.5vw;
+    }
+    
+    
+    .form-seg-checkbox{
+        gap: 5px;
+        padding: 5px 0;
+    }
+    
+    .form-info2{
+        margin-top: -8px;
+    }
+    
+    input[type="checkbox"] {
+        width: 8px;
+        height: 8px;
+        border: 0.8px solid var(--black);
+      }
+    
+  }
+

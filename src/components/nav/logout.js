@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Logout({
   username,
@@ -8,7 +8,11 @@ function Logout({
   setToken,
   setLogoutSuccess,
   setUserEmail,
+  setUserId
 }) {
+
+  const navigate = useNavigate()
+
   function handleLogoutSubmit() {
     fetch(ApiBlock + "/users/logout", {
       method: "POST",
@@ -26,9 +30,11 @@ function Logout({
           setToken(null);
           setUsername("");
           setUserEmail("");
+          setUserId("")
           setLogoutSuccess(true);
           setTimeout(() => {
             setLogoutSuccess(false);
+            navigate("/");
           }, 1500);
         }
       });

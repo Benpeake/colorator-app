@@ -12,6 +12,7 @@ import SignUp from "./components/sign-up";
 import Notification from "./components/notification";
 import Login from "./components/log-in";
 import MyAccount from "./components/my-account";
+import AddPalette from "./components/add-palette";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -44,6 +45,9 @@ function App() {
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [accountUpdateSuccess, setAccountUpdateSuccess] = useState(false)
   const [deleteAccountSuccess, setDeleteAccountSuccess] = useState(false)
+  const [addPaletteSuccess, setAddPaletteSuccess] = useState(false)
+  const [diplayAddPalette, setDisplayAddPalette] = useState(false); 
+  const [userId, setUserId] = useState(0)
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -117,6 +121,7 @@ function App() {
           setLogoutSuccess={setLogoutSuccess}
           setDisplaylogin={setDisplaylogin}
           setUserEmail={setUserEmail}
+          setUserId={setUserId}
         />
         <DndProvider backend={HTML5Backend}>
           <Routes>
@@ -137,6 +142,7 @@ function App() {
                   addColorPanel={addColorPanel}
                   history={history}
                   historyIndex={historyIndex}
+                  setDisplayAddPalette={setDisplayAddPalette}
                 />
               }
             />
@@ -153,6 +159,7 @@ function App() {
                   setAccountUpdateSuccess={setAccountUpdateSuccess}
                   ApiBlock={ApiBlock}
                   setDeleteAccountSuccess={setDeleteAccountSuccess}
+                  setUserId={setUserId}
                 />} 
                 />
           </Routes>
@@ -169,6 +176,7 @@ function App() {
             setRegistrationSuccess={setRegistrationSuccess}
             setUsername={setUsername}
             setUserEmail={setUserEmail}
+            setUserId={setUserId}
           />
         )}
         {displayLogin && (
@@ -179,6 +187,17 @@ function App() {
             setUsername={setUsername}
             setLoginSuccess={setLoginSuccess}
             setUserEmail={setUserEmail}
+            setUserId={setUserId}
+          />
+        )}
+        {diplayAddPalette && (
+          <AddPalette
+            colors={colors}
+            token={token}
+            setAddPaletteSuccess={setAddPaletteSuccess}
+            setDisplayAddPalette={setDisplayAddPalette}
+            ApiBlock={ApiBlock}
+            userId={userId}
           />
         )}
         {registrationSuccess && (
@@ -213,6 +232,13 @@ function App() {
           <Notification
             noteIconSrc={"../../icons/tick_white.svg"}
             noteCopy={"Your account has been removed"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {addPaletteSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Palette added!"}
             noteIconSrcCopy={"tick icon"}
           />
         )}

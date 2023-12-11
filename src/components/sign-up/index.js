@@ -11,6 +11,7 @@ function SignUp({
   setRegistrationSuccess,
   setUsername,
   setUserEmail,
+  setUserId
 }) {
   return (
     <div className="signUp-overlay">
@@ -28,7 +29,7 @@ function SignUp({
           </div>
         </div>
         <div className="sign-up-form">
-          <h2 className="large-copy">Hello!</h2>
+          <h2 className="med-copy">Hello!</h2>
         </div>
         <div className="sign-up-form">
           <p className="small-print down-gap">
@@ -46,6 +47,7 @@ function SignUp({
             setRegistrationSuccess={setRegistrationSuccess}
             setUsername={setUsername}
             setUserEmail={setUserEmail}
+            setUserId={setUserId}
           />
         </div>
         <div className="sign-up-footer">

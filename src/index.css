@@ -79,7 +79,7 @@ h3{
 
 .error{
   color: var(--red);
-  margin-top: -0.5vw;
+  margin-top: -0.8vw;
 }
 
 .red{
@@ -126,9 +126,10 @@ input:focus {
   }
 
   input {
-    border: 0.12vw solid var(--black);
+    border: 0.08vw solid rgba(38, 28, 21, 0.5);
+    ;
     background: transparent;
-    height: 2.5vw;
+    height: 2vw;
     width: 15vw;
     font-size: 1.1vw;
     padding: 0 0.5vw;
@@ -138,9 +139,10 @@ input:focus {
     width: 6vw;
     background-color: var(--black);
     color: var(--white);
-    border-radius: 1vw;
+    border-radius: 3vw;
     border: 0.12vw solid var(--black);
     margin-top: 0.5vw;
+    height: 2.5vw;
   }
   :is(input[type="button"], input[type="submit"], button):hover {
     background-color: var(--white);
@@ -177,18 +179,19 @@ input:focus {
   }
   
   input {
-    border: 1.2px solid var(--black);
+    border: 0.8px solid rgba(38, 28, 21, 0.5);
     font-size: 11px;
     padding: 0 5px;
-    height: 25px;
+    height: 20px;
     width: 150px;
   }
 
   :is(input[type="button"], input[type="submit"], button) {
     width: 60px;
-    border-radius: 10px;
+    border-radius: 30px;
     border: 1.2px solid var(--black);
     margin-top: 5px;
+    height: 25px;
   }
   :is(input[type="button"], input[type="submit"], button):hover {
     border: 1.2px solid var(--black);
@@ -196,7 +199,7 @@ input:focus {
   }
 
   .error{
-    margin-top: 5px;
+    margin-top: -8px;
   }
   
   

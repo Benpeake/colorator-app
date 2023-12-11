@@ -1,37 +1,45 @@
 import { useEffect, useState } from "react";
 import "./controller.css";
 
-function Controller({ colors, generateRandomColor, undo, redo, addColorPanel, history, historyIndex}) {
-
-  const [maxPanelNum, setMaxPanelNum] = useState(true)
-  const [undoActive, setUndoActive] = useState(false)
-  const [redoActive, setRedoActive] = useState(false)
+function Controller({
+  colors,
+  generateRandomColor,
+  undo,
+  redo,
+  addColorPanel,
+  history,
+  historyIndex,
+  setDisplayAddPalette,
+}) {
+  const [maxPanelNum, setMaxPanelNum] = useState(true);
+  const [undoActive, setUndoActive] = useState(false);
+  const [redoActive, setRedoActive] = useState(false);
 
   useEffect(() => {
-      if (colors.length > 4 ) {
-        setMaxPanelNum(false);
-      } else {
-        setMaxPanelNum(true);
-      }
-      if(historyIndex > 0){
-        setUndoActive(true)
-      } else {
-        setUndoActive(false)
-      }
-      if (historyIndex < history.length - 1)
-      {
-        setRedoActive(true)
-      } else {
-        setRedoActive(false)
-      }
-    }, [colors]);
+    if (colors.length > 4) {
+      setMaxPanelNum(false);
+    } else {
+      setMaxPanelNum(true);
+    }
+    if (historyIndex > 0) {
+      setUndoActive(true);
+    } else {
+      setUndoActive(false);
+    }
+    if (historyIndex < history.length - 1) {
+      setRedoActive(true);
+    } else {
+      setRedoActive(false);
+    }
+  }, [colors]);
 
   return (
     <section className="controller-contrainer">
       <div className="controller-left">
-        <div 
-        className={`icon-container ${maxPanelNum ? '' : 'unnactive'}`}
-        onClick={addColorPanel}>
+        <div
+          className={`icon-container ${maxPanelNum ? "" : "unnactive"}`}
+          onClick={addColorPanel}
+        >
           <img
             className="icon"
             src="../../../icons/plus_black.svg"
@@ -45,11 +53,20 @@ function Controller({ colors, generateRandomColor, undo, redo, addColorPanel, hi
             src="../../../icons/like_black.svg"
             alt="save icon"
           />
-          <p className="small-copy">Save</p>
+          <p
+            className="small-copy"
+            onClick={() => {
+              setDisplayAddPalette(true);
+              console.log('click')
+            }}
+          >
+            Save
+          </p>
         </div>
-        <div 
-           className={`icon-container ${undoActive ? '' : 'unnactive'}`}
-          onClick={undo}>
+        <div
+          className={`icon-container ${undoActive ? "" : "unnactive"}`}
+          onClick={undo}
+        >
           <img
             className="icon"
             src="../../../icons/undo_black.svg"
@@ -57,9 +74,10 @@ function Controller({ colors, generateRandomColor, undo, redo, addColorPanel, hi
           />
           <p className="small-copy">Undo</p>
         </div>
-        <div 
-          className={`icon-container ${redoActive ? '' : 'unnactive'}`}
-          onClick={redo}>
+        <div
+          className={`icon-container ${redoActive ? "" : "unnactive"}`}
+          onClick={redo}
+        >
           <img
             className="icon"
             src="../../../icons/redo_black.svg"

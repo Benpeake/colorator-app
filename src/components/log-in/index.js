@@ -8,6 +8,7 @@ function Login({
   setDisplaylogin,
   setLoginSuccess,
   setUserEmail,
+  setUserId,
 }) {
   return (
     <div className="login-overlay">
@@ -24,9 +25,9 @@ function Login({
             />
           </div>
         </div>
-        <div className="login-form">
-          <h2 className="large-copy">Hello!</h2>
-        </div>
+        <div className="modal-title">
+            <h2 className="med-copy">Log in</h2>
+          </div>
         <div className="login-form">
           <p className="small-print down-gap">
             Please enter your login details.
@@ -40,12 +41,10 @@ function Login({
             setUsername={setUsername}
             setLoginSuccess={setLoginSuccess}
             setUserEmail={setUserEmail}
+            setUserId={setUserId}
           />
         </div>
         <div className="login-footer">
-          <p className="tiny-print grey">
-            By continuing are agreeing to our terms of service.
-          </p>
         </div>
       </div>
     </div>

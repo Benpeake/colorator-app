@@ -20,7 +20,7 @@ function PasswordUpdate({ handleChangePassword, updatePasswordError}) {
     <form className="user-detail-seg" onSubmit={handleSubmit}>
       <div className="label-wrapper">
         <label className="med-copy bold">Password</label>
-        <label className="grey tiny-print normal">Must be 6 characters</label>
+        <label className="grey tiny-print normal">Must be at least 6 characters</label>
       </div>
 
       <div className="password-input-section">

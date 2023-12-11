@@ -9,6 +9,7 @@ function RegistrationForm({
   setRegistrationSuccess,
   setUsername,
   setUserEmail,
+  setUserId
 }) {
   const [formData, setFormData] = useState({
     username: "",
@@ -48,6 +49,7 @@ function RegistrationForm({
           setToken(data.access_token);
           setUsername(data.data.name)
           setUserEmail(data.data.email)
+          setUserId(data.data.id)
           setDisplaySignUp(false);
           setRegistrationSuccess(true);
           setTimeout(() => {
@@ -100,7 +102,7 @@ function RegistrationForm({
             required
           />
         </div>
-        <p className="tiny-print grey form-info"> must be 6 characters</p>
+        <p className="tiny-print grey form-info"> must be 6 characters*</p>
         {loginError && (
           <p className=" error tiny-print">{loginError}</p>
         )}

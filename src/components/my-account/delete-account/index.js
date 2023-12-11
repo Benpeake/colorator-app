@@ -9,6 +9,7 @@ function DeleteAccount({
     setUsername,
     setUserEmail,
     setDeleteAccountSuccess,
+    setUserId,
 }) {
     const [firstDelete, setFirstDelete] = useState(false);
     const navigate = useNavigate()
@@ -29,11 +30,11 @@ function DeleteAccount({
             .then((res) => res.json())
             .then((data) => {
               if (data.message === "User deleted successfully") {
-                localStorage.setItem("token", data.access_token);
                 localStorage.removeItem("token");
                 setToken(null);
                 setUsername("");
                 setUserEmail("");
+                setUserId(0)
                 setDeleteAccountSuccess(true)
                 setTimeout(() => {
                     setDeleteAccountSuccess(false);

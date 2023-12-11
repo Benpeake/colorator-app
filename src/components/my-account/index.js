@@ -14,6 +14,7 @@ function MyAccount({
   ApiBlock,
   setToken,
   setDeleteAccountSuccess,
+  setUserId,
 }) {
 
 const [updateEmailError, setupdateEmailError] = useState('')
@@ -139,6 +140,7 @@ const [updatePasswordError, setPasswordError] = useState('')
             setUsername={setUsername}
             setUserEmail={setUserEmail}
             setDeleteAccountSuccess={setDeleteAccountSuccess}
+            setUserId={setUserId}
         />
       </div>
     </div>

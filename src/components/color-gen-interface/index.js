@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Controller from "./color-gen-controller";
 import Panel from "./color-gen-panel";
 import "./interface.css";
@@ -15,7 +16,8 @@ function Interface({
   redo,
   addColorPanel,
   history,
-  historyIndex
+  historyIndex,
+  setDisplayAddPalette
 }) {
 
   return (
@@ -28,6 +30,7 @@ function Interface({
     colors={colors}
     history={history}
     historyIndex={historyIndex}
+    setDisplayAddPalette={setDisplayAddPalette}
   />
     <section className="interface-container">
       {colors.map((color, index) => (

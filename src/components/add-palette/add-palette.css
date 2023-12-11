@@ -1,4 +1,4 @@
-.signUp-overlay{
+.addPalette-overlay{
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     background-color: rgba(38, 28, 21, 0.4);
 }
 
-.sign-up{
+.addPalette{
     background-color: var(--white);
     padding: 15px;
     color: var(--black);
@@ -23,17 +23,11 @@
     gap: 1.5vw;
 }
 
-.sign-up-topbar{
+.addPalette-topbar{
     display: flex;
     justify-content: space-between;
     align-items: flex-start; 
     width: 100%; 
-}
-
-.sign-up-footer{
-    margin-bottom: 1.5vw;
-    margin-top: 1vw;
-    width: 16vw;
 }
 
 .overlay-icon{
@@ -41,21 +35,25 @@
     height: auto;
 }
 
+.addPalette-footer{
+    height: 2vw;
+}
+
 
 @media screen and (max-width: 1000px){  
     
-    .sign-up{
+    .addPalette{
+        border: 1.2px solid var(--black);
         border-radius: 10px;
         gap: 15px;
-    }
-    .sign-up-footer{
-        margin-bottom: 15px;
-        margin-top: 15px;
-        width: 160px;
     }
 
     .overlay-icon{
         width: 20px;
     }
+
+    .addPalette-footer{
+        height: 30px;
+    }    
     
   }

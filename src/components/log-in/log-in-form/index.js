@@ -8,6 +8,7 @@ function LoginForm({
   setDisplaylogin,
   setLoginSuccess,
   setUserEmail,
+  setUserId
 }) {
   const [formData, setFormData] = useState({
     email: "",
@@ -45,6 +46,7 @@ function LoginForm({
           setToken(data.access_token);
           setUsername(data.data.name);
           setUserEmail(data.data.email);
+          setUserId(data.data.id)
           setDisplaylogin(false);
           setLoginSuccess(true);
           setTimeout(() => {
@@ -56,7 +58,6 @@ function LoginForm({
       });
       
   }
-
   return (
     <>
       <form

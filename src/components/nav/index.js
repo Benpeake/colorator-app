@@ -13,6 +13,7 @@ function Nav({
   setLogoutSuccess,
   setDisplaylogin,
   setUserEmail,
+  setUserId,
 }) {
   return (
     <nav>
@@ -48,6 +49,7 @@ function Nav({
               setToken={setToken}
               setLogoutSuccess={setLogoutSuccess}
               setUserEmail={setUserEmail}
+              setUserId={setUserId}
             />
           ) : (
             <Login
