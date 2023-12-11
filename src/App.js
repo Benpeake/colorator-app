@@ -42,6 +42,8 @@ function App() {
   const [userEmail, setUserEmail] = useState("");
   const [logoutSuccess, setLogoutSuccess] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [accountUpdateSuccess, setAccountUpdateSuccess] = useState(false)
+  const [deleteAccountSuccess, setDeleteAccountSuccess] = useState(false)
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -146,6 +148,11 @@ function App() {
                   setUserEmail={setUserEmail}
                   username={username}
                   setUsername={setUsername}
+                  token={token}
+                  setToken={setToken}
+                  setAccountUpdateSuccess={setAccountUpdateSuccess}
+                  ApiBlock={ApiBlock}
+                  setDeleteAccountSuccess={setDeleteAccountSuccess}
                 />} 
                 />
           </Routes>
@@ -192,6 +199,20 @@ function App() {
           <Notification
             noteIconSrc={"../../icons/tick_white.svg"}
             noteCopy={"Welcome back!"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {accountUpdateSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Account updated"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {deleteAccountSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Your account has been removed"}
             noteIconSrcCopy={"tick icon"}
           />
         )}

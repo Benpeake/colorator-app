@@ -10,6 +10,7 @@ function SignUp({
   registrationSuccess,
   setRegistrationSuccess,
   setUsername,
+  setUserEmail,
 }) {
   return (
     <div className="signUp-overlay">
@@ -44,6 +45,7 @@ function SignUp({
             registrationSuccess={registrationSuccess}
             setRegistrationSuccess={setRegistrationSuccess}
             setUsername={setUsername}
+            setUserEmail={setUserEmail}
           />
         </div>
         <div className="sign-up-footer">

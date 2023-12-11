@@ -4,11 +4,8 @@ import Notification from "../../notification";
 
 function RegistrationForm({
   ApiBlock,
-  token,
   setToken,
-  displaySignUp,
   setDisplaySignUp,
-  registrationSuccess,
   setRegistrationSuccess,
   setUsername,
   setUserEmail,

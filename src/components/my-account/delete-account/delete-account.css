@@ -1,0 +1,33 @@
+.user-delete-seg{
+    display: flex;
+    border: 0.12vw solid var(--red);
+    border-radius: 1vw;
+    padding: 2vw;
+    gap: 2vw;
+    justify-content: start;
+    align-items: center;
+}
+
+.user-details-input{
+    width: 100%;
+    padding: 1.5vw 1vw;
+}
+
+input.delete-button{
+    align-self: flex-end;
+    background: var(--red);
+    border: 0.12vw solid var(--red);
+    margin: 0;
+}
+    input.delete-button:hover{
+        align-self: flex-end;
+        background: var(--white);
+        color: var(--red);
+        border: 0.12vw solid var(--red);
+    }
+
+
+
+@media screen and (max-width: 1000px){  
+
+  }
