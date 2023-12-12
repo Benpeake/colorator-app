@@ -104,7 +104,7 @@ function LikedPalette({
               handleColorPanelClick(color);
             }}
           >
-            {hoveredColor === color && <p className="hex-number">{color}</p>}
+            {hoveredColor === color && <p className="hex-number small-copy">{color}</p>}
           </div>
         ))}
       </div>

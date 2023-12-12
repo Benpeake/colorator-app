@@ -5,3 +5,11 @@
     padding-right: 0.5vw;
 
 }
+
+
+@media screen and (max-width: 1000px){  
+    .saved-palettes-container-footer{
+        padding-right: 5px;
+    }
+    
+}

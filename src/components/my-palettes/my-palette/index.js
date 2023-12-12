@@ -154,7 +154,7 @@ function MyPalette({
               handleColorPanelClick(color);
             }}
           >
-            {hoveredColor === color && <p className="hex-number">{color}</p>}
+            {hoveredColor === color && <p className="hex-number small-copy">{color}</p>}
           </div>
         ))}
       </div>
@@ -165,7 +165,7 @@ function MyPalette({
             src="`../../../icons/close_black.svg"
           />
           <p 
-            className="tiny-copy grey"
+            className="small-print grey"
             onClick={() => {handleDeletePalette(id)}}
           >
             Delete</p>

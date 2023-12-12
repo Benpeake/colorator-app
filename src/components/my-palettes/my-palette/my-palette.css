@@ -9,3 +9,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 1000px){  
+    .my-palettes-icon-container{
+        gap: 1px;
+    }
+}

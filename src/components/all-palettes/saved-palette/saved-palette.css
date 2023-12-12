@@ -66,27 +66,34 @@
 @media screen and (max-width: 1000px){  
     .saved-palette-container{
         gap: 3px;
-        width: 22%;
-        min-width: 235px;
+    }
+    
+    .palettes-container-header{
+        gap: 2px;
+    }
+    
+    .palettes-container-footer{
+        gap: 10px;
     }
     
     .palettes-container-colors{
         border-radius: 10px;
-        height: 120px;
     }
     
     .all-palettes-icon-container{
-        gap: 3px;
+        gap: 2px;
     }
     
     .all-palettes-icon{
         height: 15px;
     }
-
+    
     .palette-title{
         padding-left: 5px;
     }
+    
     .palettes-container-footer{
         padding-right: 5px;
     }
+    
 }

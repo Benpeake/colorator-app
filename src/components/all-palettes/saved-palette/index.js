@@ -14,10 +14,10 @@ function SavedPalette({
   getAllPalettes,
   setDisplaylogin,
   setCopySuccess,
-  getContrastColor
+  getContrastColor,
+  setLikeError
 }) {
   const navigate = useNavigate();
-  const [likeError, setLikeError] = useState("");
   const [hoveredColor, setHoveredColor] = useState(null);
 
   function handleInfoIconClick(savedPaletteColors) {
@@ -106,7 +106,7 @@ function SavedPalette({
             onClick={() => { handleColorPanelClick(color)}}
           >
             {hoveredColor === color && (
-              <p className="hex-number">{color}</p>
+              <p className="hex-number small-copy">{color}</p>
             )}
           </div>
         ))}
@@ -123,16 +123,16 @@ function SavedPalette({
               src="`../../../icons/heart_plus_black.svg"
               style={{ cursor: "pointer" }}
             />
-            <p className="tiny-copy grey">Like</p>
+            <p className="small-print grey">Like</p>
             </div>
           ) : (
-            <div className="panel-icon-container">
+            <div
+              className="panel-icon-container all-palettes-icon-container"
+              onClick={() => {setDisplaylogin(true)}}
+            >
             <img
               className="all-palettes-icon"
               src="`../../../icons/heart_plus_black.svg"
-              onClick={() => {
-                setDisplaylogin(true);
-              }}
               style={{ cursor: "pointer" }}
             />
             <p className="small-print grey">Like</p>

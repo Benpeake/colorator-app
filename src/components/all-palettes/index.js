@@ -16,6 +16,7 @@ function AllPalettes({
   const [allPalettesSearchFiler, setAllPaletteSearchFilter] = useState("");
   const [orderBy, setOrderBy] = useState("");
   const [isLiked, setIsLiked] = useState(false);
+  const [likeError, setLikeError] = useState("");
 
     function getAllPalettes() {
     const searchQueryString = allPalettesSearchFiler ? `&search=${allPalettesSearchFiler}` : "";
@@ -97,6 +98,7 @@ function AllPalettes({
               setDisplaylogin={setDisplaylogin}
               setCopySuccess={setCopySuccess}
               getContrastColor={getContrastColor}
+              setLikeError={setLikeError}
             />
           ))
         ) : (
@@ -107,6 +109,13 @@ function AllPalettes({
           <Notification
             noteIconSrc={"../../icons/like_white.svg"}
             noteCopy={"Palette liked!"}
+            noteIconSrcCopy={"heart icon"}
+          />
+        )}
+        {likeError && (
+          <Notification
+            noteIconSrc={"../../icons/close_white.svg"}
+            noteCopy={"You have already liked this palette"}
             noteIconSrcCopy={"heart icon"}
           />
         )}
