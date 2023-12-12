@@ -14,6 +14,10 @@ function MyPalette({
   getAllPalettes,
   setDisplaylogin,
   setCopySuccess,
+  publicStatus,
+  setDeleteSuccess,
+  showSavedPalettes,
+  getAllMyPalettes
 }) {
   const navigate = useNavigate();
   const [hoveredColor, setHoveredColor] = useState(null);
@@ -35,13 +39,34 @@ function MyPalette({
     return luminance > 0.5 ? "var(--black)" : "var(--white)";
   }
 
-  function handleDeletePalette() {}
+  function handleDeletePalette (id) {
+    fetch(ApiBlock + "/palettes/delete/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        if (data.message === `Palette removed`) {
+          setDeleteSuccess(true)
+          getAllMyPalettes(showSavedPalettes)
+          setTimeout(() => {
+            setDeleteSuccess(false)
+          }, 1500);
+        } else {
+          console.log(data.message);
+        }
+      });
+  }
 
   function setPalettePublic() {}
 
   function setPalettePrivate() {}
 
-  function handlenLikePalette() {}
 
   function handleColorPanelClick(color) {
     const textarea = document.createElement("textarea");
@@ -71,14 +96,16 @@ function MyPalette({
   return (
     <div className="saved-palette-container">
       <div className="palettes-container-header">
-        <p className="small-copy">{name}</p>
-        <img
-          className="all-palettes-icon"
-          src="`../../../icons/info_black.svg"
-          onClick={() => {
-            handleInfoIconClick(colors);
-          }}
-        />
+        <p className="palette-title small-copy">{name}</p>
+        <div className="panel-icon-container">
+          <img
+            className="all-palettes-icon"
+            src="`../../../icons/open_new_black.svg"
+            onClick={() => {
+              handleInfoIconClick(colors);
+            }}
+          />
+        </div>
       </div>
       <div className="palettes-container-colors">
         {colors.map((color, index) => (
@@ -102,10 +129,35 @@ function MyPalette({
           </div>
         ))}
       </div>
-      <div className="palettes-container-footer">
-        <div className="all-palettes-icon-container">
-          <p className="tiny-copy grey"> Likes</p>
+      <div className="Mypalettes-container-footer">
+        <div className="all-palettes-icon-container panel-icon-container">
+          <img
+            className="all-palettes-icon"
+            src="`../../../icons/close_black.svg"
+          />
+          <p 
+            className="tiny-copy grey"
+            onClick={() => {handleDeletePalette(id)}}
+          >
+            Delete</p>
         </div>
+        { publicStatus == 1 ? (
+        <div className="all-palettes-icon-container panel-icon-container">
+          <img
+            className="all-palettes-icon"
+            src="`../../../icons/make_private_black.svg"
+          />
+          <p className="tiny-copy grey">Private</p>
+        </div>
+      ) : (
+        <div className="all-palettes-icon-container panel-icon-container">
+        <img
+          className="all-palettes-icon"
+          src="`../../../icons/make_public_black.svg"
+        />
+        <p className="tiny-copy grey">Public</p>
+      </div>
+      )}
       </div>
     </div>
   );

@@ -16,15 +16,12 @@ function AllPalettes({
   const [orderBy, setOrderBy] = useState("");
   const [isLiked, setIsLiked] = useState(false);
 
-
-
     function getAllPalettes() {
     const searchQueryString = allPalettesSearchFiler ? `&search=${allPalettesSearchFiler}` : "";
     const orderQueryString = orderBy ? `&order_by=${orderBy}` : "";
     fetch(ApiBlock + `/palettes/all?${searchQueryString}${orderQueryString}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const palettes = data.data.map((palette) => ({
           name: palette.name,
           colors: palette.hex_colors,
@@ -107,7 +104,7 @@ function AllPalettes({
       {isLiked && (
           <Notification
             noteIconSrc={"../../icons/like_white.svg"}
-            noteCopy={"Palette Liked!"}
+            noteCopy={"Palette liked!"}
             noteIconSrcCopy={"heart icon"}
           />
         )}

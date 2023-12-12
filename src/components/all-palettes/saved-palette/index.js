@@ -91,14 +91,16 @@ function SavedPalette({
   return (
     <div className="saved-palette-container">
       <div className="palettes-container-header">
-        <p className="small-copy">{name}</p>
+        <p className="palette-title small-copy">{name}</p>
+        <div className="panel-icon-container">
         <img
           className="all-palettes-icon"
-          src="`../../../icons/info_black.svg"
+          src="`../../../icons/open_new_black.svg"
           onClick={() => {
             handleInfoIconClick(colors);
           }}
         />
+        </div>
       </div>
       <div className="palettes-container-colors">
         {colors.map((color, index) => (
@@ -123,6 +125,7 @@ function SavedPalette({
       <div className="palettes-container-footer">
         <div className="all-palettes-icon-container">
           {token ? (
+            <div className="panel-icon-container">
             <img
               className="all-palettes-icon"
               src="`../../../icons/like_black.svg"
@@ -131,7 +134,9 @@ function SavedPalette({
               }}
               style={{ cursor: "pointer" }}
             />
+            </div>
           ) : (
+            <div className="panel-icon-container">
             <img
               className="all-palettes-icon"
               src="`../../../icons/like_black.svg"
@@ -140,8 +145,9 @@ function SavedPalette({
               }}
               style={{ cursor: "pointer" }}
             />
+            </div>
           )}
-          <p className="tiny-copy grey"> Likes {likes}</p>
+          <p className="small-print grey"> Likes {likes}</p>
         </div>
         {likeError != "" && <p className="small-print">{likeError}</p>}
       </div>

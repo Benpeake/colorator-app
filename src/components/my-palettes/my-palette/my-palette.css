@@ -1,0 +1,11 @@
+.my-palettes-icon-container{
+    display: flex;
+    gap: 0.1vw;
+    align-items: center;
+}
+
+.Mypalettes-container-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

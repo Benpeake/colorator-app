@@ -71,14 +71,16 @@ function LikedPalette({
   return (
     <div className="saved-palette-container">
       <div className="palettes-container-header">
-        <p className="small-copy">{name}</p>
+        <p className="palette-title small-copy">{name}</p>
+        <div className="panel-icon-container">
         <img
           className="all-palettes-icon"
-          src="`../../../icons/info_black.svg"
+          src="`../../../icons/open_new_black.svg"
           onClick={() => {
             handleInfoIconClick(colors);
           }}
         />
+        </div>
       </div>
       <div className="palettes-container-colors">
         {colors.map((color, index) => (

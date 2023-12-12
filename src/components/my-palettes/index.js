@@ -1,31 +1,58 @@
 import { useEffect, useState } from "react";
 import "./my-palettes.css";
 import MyPalette from "./my-palette";
+import SavedPalette from "../all-palettes/saved-palette";
+import Notification from "../notification";
 
-function MyPalettes({ 
-    ApiBlock,
-    updateColorsWithSavedPalette,
-    token,
-    setDisplaylogin,
-    setCopySuccess
+function MyPalettes({
+  ApiBlock,
+  updateColorsWithSavedPalette,
+  token,
+  setDisplaylogin,
+  setCopySuccess,
 }) {
   const [mySavedPalettes, setMySavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [myPalettesSearchFiler, setMyPaletteSearchFilter] = useState("");
+  const [myPalettesSearchFilter, setMyPaletteSearchFilter] = useState("");
+  const [showSavedPalettes, setShowSavedPalettes] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false)
 
+  function getAllMyPalettes(showSavedPalettes) {
+    const searchQueryString = myPalettesSearchFilter
+      ? `?search=${myPalettesSearchFilter}`
+      : "";
+    const endPoint = showSavedPalettes ? "/palettes/liked" : "/palettes";
+    fetch(ApiBlock + `${endPoint}${searchQueryString}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const palettes = data.data.map((palette) => ({
+          name: palette.name,
+          colors: palette.hex_colors,
+          id: palette.id,
+          likes: palette.likes,
+          visible_status: palette.public
+        }));
+        setMySavedPalettes(palettes);
+        setIsLoading(false);
+      });
+  }
 
-    function getAllMyPalettes() {
-    }
+  useEffect(() => {
+    getAllMyPalettes(showSavedPalettes);
+  }, [showSavedPalettes, myPalettesSearchFilter]);
 
-    useEffect(() => {
-    }, []);
 
   return (
     <>
       <div className="page-heading">
-        <h2 className="massive-copy">All Palettes</h2>
+        <h2 className="massive-copy">My Palettes</h2>
         <p className="med-copy grey">
-          Get inspired by other users beautiful color schemes.
+          View and manage your liked and saved palettes.
         </p>
       </div>
       <div className="filter-bar">
@@ -36,23 +63,26 @@ function MyPalettes({
             id="search"
             name="search"
             placeholder="Search..."
-            value={myPalettesSearchFiler}
-            onChange={(e) => setMyPaletteSearchFilter(e)}
+            value={myPalettesSearchFilter}
+            onChange={(e) => setMyPaletteSearchFilter(e.target.value)}
           />
           <div className="search-icon">
             <img src="../../icons/search_black.svg" alt="Search Icon" />
           </div>
         </div>
         <div className="order-bar">
-          <label className="small-copy grey" htmlFor="sort">
-            Order By:
+          <label className="small-copy grey" htmlFor="filter">
+            Show my:
           </label>
           <select
-            name="sort"
-            id="sort"
+            name="filter"
+            id="filter"
+            onChange={() => {
+              setShowSavedPalettes(!showSavedPalettes);
+            }}
           >
-            <option value="newest">Newest</option>
-            <option value="most_likes">Most Popular</option>
+            <option value="newest">Saved palettes</option>
+            <option value="most_likes">Liked palettes</option>
           </select>
         </div>
       </div>
@@ -60,25 +90,56 @@ function MyPalettes({
         {isLoading ? (
           <p className="med-copy">Loading...</p>
         ) : mySavedPalettes.length > 0 ? (
-          mySavedPalettes.map((palette, index) => (
-            <MyPalette
-              index={index}
-              key={palette.id}
-              name={palette.name}
-              colors={palette.colors}
-              id={palette.id}
-              likes={palette.likes}
-              updateColorsWithSavedPalette={updateColorsWithSavedPalette}
-              ApiBlock={ApiBlock}
-              token={token}
-              setDisplaylogin={setDisplaylogin}
-              setCopySuccess={setCopySuccess}
-            />
-          ))
+          mySavedPalettes.map((palette, index) =>
+            showSavedPalettes ? (
+              <SavedPalette
+                index={index}
+                key={palette.id}
+                name={palette.name}
+                colors={palette.colors}
+                id={palette.id}
+                likes={palette.likes}
+                updateColorsWithSavedPalette={updateColorsWithSavedPalette}
+                ApiBlock={ApiBlock}
+                token={token}
+                setDisplaylogin={setDisplaylogin}
+                setCopySuccess={setCopySuccess}
+                publicStatus={palette.visible_status}
+                setDeleteSuccess={setDeleteSuccess}
+                showSavedPalettes={showSavedPalettes}
+                getAllMyPalettes={getAllMyPalettes}
+              />
+            ) : (
+              <MyPalette
+                index={index}
+                key={palette.id}
+                name={palette.name}
+                colors={palette.colors}
+                id={palette.id}
+                likes={palette.likes}
+                updateColorsWithSavedPalette={updateColorsWithSavedPalette}
+                ApiBlock={ApiBlock}
+                token={token}
+                setDisplaylogin={setDisplaylogin}
+                setCopySuccess={setCopySuccess}
+                publicStatus={palette.visible_status}
+                setDeleteSuccess={setDeleteSuccess}
+                showSavedPalettes={showSavedPalettes}
+                getAllMyPalettes={getAllMyPalettes}
+              />
+            )
+          )
         ) : (
           <p className="med-copy">No palettes found</p>
         )}
       </div>
+      {deleteSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/like_white.svg"}
+            noteCopy={"Palette deleted!"}
+            noteIconSrcCopy={"heart icon"}
+          />
+        )}
     </>
   );
 }
