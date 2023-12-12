@@ -6,17 +6,14 @@ function LikedPalette({
   name,
   colors,
   id,
-  likes,
   updateColorsWithSavedPalette,
   token,
   ApiBlock,
-  setIsLiked,
-  getAllPalettes,
-  setDisplaylogin,
   setCopySuccess,
   setUnlikePaletteSuccess,
   getAllMyPalettes,
-  showSavedPalettes
+  showSavedPalettes,
+  getContrastColor
 }) {
   const navigate = useNavigate();
   const [hoveredColor, setHoveredColor] = useState(null);
@@ -26,17 +23,6 @@ function LikedPalette({
     navigate("/");
   }
 
-  function getContrastColor(hexColor) {
-    const hex = hexColor.slice(1);
-    const bigint = parseInt(hex, 16);
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
-
-    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-
-    return luminance > 0.5 ? "var(--black)" : "var(--white)";
-  }
 
   function handleUnlikeClick(id) {
     fetch(ApiBlock + "/palettes/like/" + id, {

@@ -8,7 +8,8 @@ function AllPalettes({
     updateColorsWithSavedPalette,
     token,
     setDisplaylogin,
-    setCopySuccess
+    setCopySuccess,
+    getContrastColor
 }) {
   const [savedPalettes, setSavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -95,6 +96,7 @@ function AllPalettes({
               getAllPalettes={getAllPalettes}
               setDisplaylogin={setDisplaylogin}
               setCopySuccess={setCopySuccess}
+              getContrastColor={getContrastColor}
             />
           ))
         ) : (

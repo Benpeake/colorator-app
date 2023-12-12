@@ -121,6 +121,18 @@ function App() {
     setColors(newColors);
   }
 
+  function getContrastColor(hexColor) {
+    const hex = hexColor.slice(1);
+    const bigint = parseInt(hex, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+    return luminance > 0.5 ? "var(--black)" : "var(--white)";
+  }
+
   return (
     <div className="App" id="root">
       <ColorFetcher colors={colors} setColors={setColors} />
@@ -191,6 +203,7 @@ function App() {
                   token={token}
                   setDisplaylogin={setDisplaylogin}
                   setCopySuccess={setCopySuccess}
+                  getContrastColor={getContrastColor}
                 />
               }
             />
@@ -203,6 +216,7 @@ function App() {
                   token={token}
                   setDisplaylogin={setDisplaylogin}
                   setCopySuccess={setCopySuccess}
+                  getContrastColor={getContrastColor}
                 />
               }
             />

@@ -11,6 +11,7 @@ function MyPalettes({
   token,
   setDisplaylogin,
   setCopySuccess,
+  getContrastColor
 }) {
   const [mySavedPalettes, setMySavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -112,6 +113,7 @@ function MyPalettes({
                 showSavedPalettes={showSavedPalettes}
                 getAllMyPalettes={getAllMyPalettes}
                 setUnlikePaletteSuccess={setUnlikePaletteSuccess}
+                getContrastColor={getContrastColor}
               />
             ) : (
               <MyPalette
@@ -132,6 +134,7 @@ function MyPalettes({
                 getAllMyPalettes={getAllMyPalettes}
                 setMakePublicSuccess={setMakePublicSuccess}
                 setMakePrivateSuccess={setMakePrivateSuccess}
+                getContrastColor={getContrastColor}
               />
             )
           )
