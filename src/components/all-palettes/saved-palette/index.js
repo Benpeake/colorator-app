@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./saved-palette.css";
+import { useState } from "react";
 
 function SavedPalette({
   name,
@@ -7,15 +8,40 @@ function SavedPalette({
   id,
   likes,
   updateColorsWithSavedPalette,
-  index
+  index,
+  token,
+  ApiBlock
 }) {
 
     const navigate = useNavigate()
+    const [isLiked, setIsLiked] = useState(false);
+
 
     function handleInfoIconClick(savedPaletteColors) {
         updateColorsWithSavedPalette(savedPaletteColors);
         navigate("/")
       }
+
+    function handleLikeClick (id) {
+        fetch(ApiBlock + "/palettes/like/" + id, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.message === "Palette successfully updated") {
+              setIsLiked(true);
+            } else {
+                console.log(data.message)
+            }
+          })
+      };
+
+
 
   return (
     <div className="saved-palette-container">
@@ -39,7 +65,12 @@ function SavedPalette({
       </div>
         <div className="palettes-container-footer">
             <div className="all-palettes-icon-container">
-                <img  className="all-palettes-icon" src="`../../../icons/like_black.svg" />
+                <img 
+                    className="all-palettes-icon"
+                    src="`../../../icons/like_black.svg"
+                    onClick={() =>{handleLikeClick(id)}}
+                    style={{ cursor: "pointer" }}
+                />
                 <p className="tiny-copy grey"> Likes {likes}</p>
             </div>
         </div>

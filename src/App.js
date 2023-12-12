@@ -184,6 +184,7 @@ function App() {
                 <AllPalettes
                   ApiBlock={ApiBlock}
                   updateColorsWithSavedPalette={updateColorsWithSavedPalette}
+                  token={token}
                 />
               }
             />

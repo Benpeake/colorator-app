@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import "./all-palettes.css";
 import SavedPalette from "./saved-palette";
 
-function AllPalettes({ ApiBlock, updateColorsWithSavedPalette }) {
+function AllPalettes({ ApiBlock, updateColorsWithSavedPalette, token }) {
   const [savedPalettes, setSavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [allPalettesSearchFiler, setAllPaletteSearchFilter] = useState("");
+  const [orderBy, setOrderBy] = useState("");
 
   useEffect(() => {
-    const searchQueryString =
-    allPalettesSearchFiler !== "" ? "?search=" + allPalettesSearchFiler : "";
-    fetch(ApiBlock + "/palettes/all" + searchQueryString)
+    const searchQueryString = allPalettesSearchFiler ? `&search=${allPalettesSearchFiler}` : "";
+    const orderQueryString = orderBy ? `&order_by=${orderBy}` : "";
+    fetch(ApiBlock + `/palettes/all?${searchQueryString}${orderQueryString}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -24,7 +25,7 @@ function AllPalettes({ ApiBlock, updateColorsWithSavedPalette }) {
         setSavedPalettes(palettes);
         setIsLoading(false);
       });
-  }, [allPalettesSearchFiler]);
+  }, [allPalettesSearchFiler, orderBy]);
 
   return (
     <>
@@ -49,6 +50,20 @@ function AllPalettes({ ApiBlock, updateColorsWithSavedPalette }) {
             <img src="../../icons/search_black.svg" alt="Search Icon" />
           </div>
         </div>
+        <div className="order-bar">
+          <label className="small-copy grey" htmlFor="sort">
+            Order By:
+          </label>
+          <select
+            name="sort"
+            id="sort"
+            value={orderBy}
+            onChange={(e) => setOrderBy(e.target.value)}
+          >
+            <option value="newest">Newest</option>
+            <option value="most_likes">Most Popular</option>
+          </select>
+        </div>
       </div>
       <div className="display-palettes-section">
         {isLoading ? (
@@ -63,6 +78,8 @@ function AllPalettes({ ApiBlock, updateColorsWithSavedPalette }) {
               id={palette.id}
               likes={palette.likes}
               updateColorsWithSavedPalette={updateColorsWithSavedPalette}
+              ApiBlock={ApiBlock}
+              token={token}
             />
           ))
         ) : (
