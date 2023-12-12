@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import "./all-palettes.css";
 import SavedPalette from "./saved-palette";
+import Notification from "../notification";
 
 function AllPalettes({ ApiBlock, updateColorsWithSavedPalette, token }) {
   const [savedPalettes, setSavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [allPalettesSearchFiler, setAllPaletteSearchFilter] = useState("");
   const [orderBy, setOrderBy] = useState("");
+  const [isLiked, setIsLiked] = useState(false);
 
-  useEffect(() => {
+
+
+    function getAllPalettes() {
     const searchQueryString = allPalettesSearchFiler ? `&search=${allPalettesSearchFiler}` : "";
     const orderQueryString = orderBy ? `&order_by=${orderBy}` : "";
     fetch(ApiBlock + `/palettes/all?${searchQueryString}${orderQueryString}`)
@@ -25,7 +29,11 @@ function AllPalettes({ ApiBlock, updateColorsWithSavedPalette, token }) {
         setSavedPalettes(palettes);
         setIsLoading(false);
       });
-  }, [allPalettesSearchFiler, orderBy]);
+    }
+
+    useEffect(() => {
+        getAllPalettes()
+    }, [allPalettesSearchFiler, orderBy]);
 
   return (
     <>
@@ -80,12 +88,21 @@ function AllPalettes({ ApiBlock, updateColorsWithSavedPalette, token }) {
               updateColorsWithSavedPalette={updateColorsWithSavedPalette}
               ApiBlock={ApiBlock}
               token={token}
+              setIsLiked={setIsLiked}
+              getAllPalettes={getAllPalettes}
             />
           ))
         ) : (
           <p className="med-copy">No palettes found</p>
         )}
       </div>
+      {isLiked && (
+          <Notification
+            noteIconSrc={"../../icons/like_white.svg"}
+            noteCopy={"Palette Liked!"}
+            noteIconSrcCopy={"heart icon"}
+          />
+        )}
     </>
   );
 }

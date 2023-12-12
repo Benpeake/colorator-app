@@ -10,11 +10,13 @@ function SavedPalette({
   updateColorsWithSavedPalette,
   index,
   token,
-  ApiBlock
+  ApiBlock,
+  setIsLiked,
+  getAllPalettes
 }) {
 
     const navigate = useNavigate()
-    const [isLiked, setIsLiked] = useState(false);
+    const [likeError, setLikeError] = useState("")
 
 
     function handleInfoIconClick(savedPaletteColors) {
@@ -35,13 +37,20 @@ function SavedPalette({
           .then((data) => {
             if (data.message === "Palette successfully updated") {
               setIsLiked(true);
+              getAllPalettes()
+              setTimeout(() => {
+                setIsLiked(false);
+            }, 1500)
+            } else if (data.message === "Palette already liked"){
+                setLikeError(data.message)
+                setTimeout(() => {
+                    setLikeError("")
+                }, 1500)
             } else {
                 console.log(data.message)
             }
           })
       };
-
-
 
   return (
     <div className="saved-palette-container">
@@ -73,6 +82,9 @@ function SavedPalette({
                 />
                 <p className="tiny-copy grey"> Likes {likes}</p>
             </div>
+            {likeError != "" && (
+                    <p className="small-print red">{likeError}</p>
+                )}
         </div>
     </div>
   );

@@ -49,6 +49,7 @@ function App() {
   const [addPaletteSuccess, setAddPaletteSuccess] = useState(false);
   const [diplayAddPalette, setDisplayAddPalette] = useState(false);
   const [userId, setUserId] = useState(0);
+  const [userLikedPalettes, setUsersLikedPalettes] = useState()
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];

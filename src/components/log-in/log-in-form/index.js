@@ -44,9 +44,9 @@ function LoginForm({
         if (data.access_token) {
           localStorage.setItem("token", data.access_token);
           setToken(data.access_token);
-          setUsername(data.data.name);
-          setUserEmail(data.data.email);
-          setUserId(data.data.id)
+          setUsername(data.data.user.name);
+          setUserEmail(data.data.user.email);
+          setUserId(data.data.user.id)
           setDisplaylogin(false);
           setLoginSuccess(true);
           setTimeout(() => {
