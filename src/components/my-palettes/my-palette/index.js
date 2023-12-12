@@ -6,18 +6,16 @@ function MyPalette({
   name,
   colors,
   id,
-  likes,
   updateColorsWithSavedPalette,
   token,
   ApiBlock,
-  setIsLiked,
-  getAllPalettes,
-  setDisplaylogin,
   setCopySuccess,
   publicStatus,
   setDeleteSuccess,
   showSavedPalettes,
-  getAllMyPalettes
+  getAllMyPalettes,
+  setMakePublicSuccess,
+  setMakePrivateSuccess
 }) {
   const navigate = useNavigate();
   const [hoveredColor, setHoveredColor] = useState(null);
@@ -50,7 +48,6 @@ function MyPalette({
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         if (data.message === `Palette removed`) {
           setDeleteSuccess(true)
           getAllMyPalettes(showSavedPalettes)
@@ -63,9 +60,52 @@ function MyPalette({
       });
   }
 
-  function setPalettePublic() {}
+  function setPalettePublic (id) {
+    fetch(ApiBlock + "/palettes/status/public/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === `Palette set to public`) {
+          setMakePublicSuccess(true)
+          getAllMyPalettes(showSavedPalettes)
+          setTimeout(() => {
+            setMakePublicSuccess(false)
+          }, 1500);
+        } else {
+          console.log(data.message);
+        }
+      });
+  }
 
-  function setPalettePrivate() {}
+  function setPalettePrivate (id) {
+    fetch(ApiBlock + "/palettes/status/private/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === `Palette set to private`) {
+          setMakePrivateSuccess(true)
+          getAllMyPalettes(showSavedPalettes)
+          setTimeout(() => {
+            setMakePrivateSuccess(false)
+          }, 1500);
+        } else {
+          console.log(data.message);
+        }
+      });
+
+  }
 
 
   function handleColorPanelClick(color) {
@@ -142,20 +182,26 @@ function MyPalette({
             Delete</p>
         </div>
         { publicStatus == 1 ? (
-        <div className="all-palettes-icon-container panel-icon-container">
+        <div
+          className="all-palettes-icon-container panel-icon-container"
+          onClick={() =>{setPalettePrivate(id)}}
+        >
           <img
             className="all-palettes-icon"
             src="`../../../icons/make_private_black.svg"
           />
-          <p className="tiny-copy grey">Private</p>
+          <p className="small-print grey">Private</p>
         </div>
       ) : (
-        <div className="all-palettes-icon-container panel-icon-container">
+        <div
+        className="all-palettes-icon-container panel-icon-container"
+        onClick={() =>{setPalettePublic(id)}}
+        >
         <img
           className="all-palettes-icon"
           src="`../../../icons/make_public_black.svg"
         />
-        <p className="tiny-copy grey">Public</p>
+        <p className="small-print grey">Public</p>
       </div>
       )}
       </div>

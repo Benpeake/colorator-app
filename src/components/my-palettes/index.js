@@ -3,6 +3,7 @@ import "./my-palettes.css";
 import MyPalette from "./my-palette";
 import SavedPalette from "../all-palettes/saved-palette";
 import Notification from "../notification";
+import LikedPalette from "./liked-palette";
 
 function MyPalettes({
   ApiBlock,
@@ -16,6 +17,9 @@ function MyPalettes({
   const [myPalettesSearchFilter, setMyPaletteSearchFilter] = useState("");
   const [showSavedPalettes, setShowSavedPalettes] = useState(false);
   const [deleteSuccess, setDeleteSuccess] = useState(false)
+  const [makePublicSuccess, setMakePublicSuccess] = useState(false)
+  const [makePrivateSuccess, setMakePrivateSuccess] = useState(false)
+  const [unlikePaletteSuccess, setUnlikePaletteSuccess] = useState(false)
 
   function getAllMyPalettes(showSavedPalettes) {
     const searchQueryString = myPalettesSearchFilter
@@ -92,7 +96,7 @@ function MyPalettes({
         ) : mySavedPalettes.length > 0 ? (
           mySavedPalettes.map((palette, index) =>
             showSavedPalettes ? (
-              <SavedPalette
+              <LikedPalette
                 index={index}
                 key={palette.id}
                 name={palette.name}
@@ -105,9 +109,9 @@ function MyPalettes({
                 setDisplaylogin={setDisplaylogin}
                 setCopySuccess={setCopySuccess}
                 publicStatus={palette.visible_status}
-                setDeleteSuccess={setDeleteSuccess}
                 showSavedPalettes={showSavedPalettes}
                 getAllMyPalettes={getAllMyPalettes}
+                setUnlikePaletteSuccess={setUnlikePaletteSuccess}
               />
             ) : (
               <MyPalette
@@ -126,6 +130,8 @@ function MyPalettes({
                 setDeleteSuccess={setDeleteSuccess}
                 showSavedPalettes={showSavedPalettes}
                 getAllMyPalettes={getAllMyPalettes}
+                setMakePublicSuccess={setMakePublicSuccess}
+                setMakePrivateSuccess={setMakePrivateSuccess}
               />
             )
           )
@@ -135,9 +141,30 @@ function MyPalettes({
       </div>
       {deleteSuccess && (
           <Notification
-            noteIconSrc={"../../icons/like_white.svg"}
-            noteCopy={"Palette deleted!"}
-            noteIconSrcCopy={"heart icon"}
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Palette deleted"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {makePublicSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Palette made public"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {makePrivateSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Palette made private"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
+        {unlikePaletteSuccess && (
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Palette unliked"}
+            noteIconSrcCopy={"tick icon"}
           />
         )}
     </>

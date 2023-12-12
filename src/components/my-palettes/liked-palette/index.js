@@ -14,6 +14,9 @@ function LikedPalette({
   getAllPalettes,
   setDisplaylogin,
   setCopySuccess,
+  setUnlikePaletteSuccess,
+  getAllMyPalettes,
+  showSavedPalettes
 }) {
   const navigate = useNavigate();
   const [hoveredColor, setHoveredColor] = useState(null);
@@ -35,13 +38,28 @@ function LikedPalette({
     return luminance > 0.5 ? "var(--black)" : "var(--white)";
   }
 
-  function handleDeletePalette() {}
-
-  function setPalettePublic() {}
-
-  function setPalettePrivate() {}
-
-  function handleUnLikePalette() {}
+  function handleUnlikeClick(id) {
+    fetch(ApiBlock + "/palettes/like/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "Palette successfully updated (like removed)") {
+        setUnlikePaletteSuccess(true);
+          getAllMyPalettes(showSavedPalettes);
+          setTimeout(() => {
+            setUnlikePaletteSuccess(false);
+          }, 1500);
+        } else {
+          console.log(data.message);
+        }
+      });
+  }
 
   function handleColorPanelClick(color) {
     const textarea = document.createElement("textarea");
@@ -104,9 +122,16 @@ function LikedPalette({
           </div>
         ))}
       </div>
-      <div className="palettes-container-footer">
-        <div className="all-palettes-icon-container">
-          <p className="tiny-copy grey"> Likes</p>
+      <div className="saved-palettes-container-footer">
+      <div
+          className="all-palettes-icon-container panel-icon-container"
+          onClick={()=>{handleUnlikeClick(id)}}
+        >
+          <img
+            className="all-palettes-icon"
+            src="`../../../icons/heart_minus_black.svg"
+          />
+          <p className="small-print grey">Unlike</p>
         </div>
       </div>
     </div>

@@ -125,31 +125,32 @@ function SavedPalette({
       <div className="palettes-container-footer">
         <div className="all-palettes-icon-container">
           {token ? (
-            <div className="panel-icon-container">
+            <div 
+                className="panel-icon-container all-palettes-icon-container"
+                onClick={() => {handleLikeClick(id)}}
+            >
             <img
               className="all-palettes-icon"
-              src="`../../../icons/like_black.svg"
-              onClick={() => {
-                handleLikeClick(id);
-              }}
+              src="`../../../icons/heart_plus_black.svg"
               style={{ cursor: "pointer" }}
             />
+            <p className="tiny-copy grey">Like</p>
             </div>
           ) : (
             <div className="panel-icon-container">
             <img
               className="all-palettes-icon"
-              src="`../../../icons/like_black.svg"
+              src="`../../../icons/heart_plus_black.svg"
               onClick={() => {
                 setDisplaylogin(true);
               }}
               style={{ cursor: "pointer" }}
             />
+            <p className="small-print grey">Like</p>
             </div>
           )}
-          <p className="small-print grey"> Likes {likes}</p>
         </div>
-        {likeError != "" && <p className="small-print">{likeError}</p>}
+        <p className="small-print"><span className="grey">Likes </span>{likes}</p>
       </div>
     </div>
   );

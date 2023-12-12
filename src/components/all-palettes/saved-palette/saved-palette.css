@@ -59,7 +59,7 @@
 .palettes-container-footer{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     padding-right: 0.5vw;
 }
 
