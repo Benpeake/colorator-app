@@ -186,6 +186,7 @@ function App() {
                   ApiBlock={ApiBlock}
                   updateColorsWithSavedPalette={updateColorsWithSavedPalette}
                   token={token}
+                  setDisplaylogin={setDisplaylogin}
                 />
               }
             />

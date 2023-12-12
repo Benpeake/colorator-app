@@ -45,6 +45,13 @@
     cursor: pointer;
 }
 
+.hovered-color-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1000px){  
     .saved-palette-container{
         gap: 3px;

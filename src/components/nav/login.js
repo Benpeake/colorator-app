@@ -5,7 +5,7 @@ function Login ({setDisplaylogin, setDisplaySignUp}) {
   return (
     <>
     <NavLink
-      className="navlink" to="/"
+      className="navlink"
         onClick={() => {
           setDisplaylogin(true);
       }}
@@ -15,7 +15,6 @@ function Login ({setDisplaylogin, setDisplaySignUp}) {
     <div>
       <NavLink
         className="gradient-border button gradient-text"
-        to="/"
         onClick={() => {
           setDisplaySignUp(true);
         }}

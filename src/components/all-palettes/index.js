@@ -3,7 +3,12 @@ import "./all-palettes.css";
 import SavedPalette from "./saved-palette";
 import Notification from "../notification";
 
-function AllPalettes({ ApiBlock, updateColorsWithSavedPalette, token }) {
+function AllPalettes({ 
+    ApiBlock,
+    updateColorsWithSavedPalette,
+    token,
+    setDisplaylogin,
+}) {
   const [savedPalettes, setSavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [allPalettesSearchFiler, setAllPaletteSearchFilter] = useState("");
@@ -90,6 +95,7 @@ function AllPalettes({ ApiBlock, updateColorsWithSavedPalette, token }) {
               token={token}
               setIsLiked={setIsLiked}
               getAllPalettes={getAllPalettes}
+              setDisplaylogin={setDisplaylogin}
             />
           ))
         ) : (
