@@ -49,7 +49,7 @@ function App() {
   const [addPaletteSuccess, setAddPaletteSuccess] = useState(false);
   const [diplayAddPalette, setDisplayAddPalette] = useState(false);
   const [userId, setUserId] = useState(0);
-  const [userLikedPalettes, setUsersLikedPalettes] = useState()
+  const [copySuccess, setCopySuccess] = useState(false);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -159,6 +159,8 @@ function App() {
                   setDisplayAddPalette={setDisplayAddPalette}
                   setDisplaySignUp={setDisplaySignUp}
                   token={token}
+                  copySuccess={copySuccess}
+                  setCopySuccess={setCopySuccess}
                 />
               }
             />
@@ -187,6 +189,7 @@ function App() {
                   updateColorsWithSavedPalette={updateColorsWithSavedPalette}
                   token={token}
                   setDisplaylogin={setDisplaylogin}
+                  setCopySuccess={setCopySuccess}
                 />
               }
             />
@@ -270,6 +273,13 @@ function App() {
             noteIconSrcCopy={"tick icon"}
           />
         )}
+        {copySuccess && (
+        <Notification
+          noteIconSrc={'../../icons/tick_white.svg'}
+          noteCopy={'Color copied to clipboard!'}
+          noteIconSrcCopy={'tick icon'}
+        />
+      )}
       </BrowserRouter>
     </div>
   );

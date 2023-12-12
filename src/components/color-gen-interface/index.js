@@ -19,7 +19,9 @@ function Interface({
   historyIndex,
   setDisplayAddPalette,
   setDisplaySignUp,
-  token
+  token,
+  copySuccess,
+  setCopySuccess
 }) {
 
   return (
@@ -50,6 +52,8 @@ function Interface({
           handleLockStatus={handleLockStatus}
           updateColor={updateColor}
           tempUpdateColor={tempUpdateColor}
+          copySuccess={copySuccess}
+          setCopySuccess={setCopySuccess}
         />
       ))}
     </section>

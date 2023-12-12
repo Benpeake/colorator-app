@@ -13,6 +13,7 @@ function SavedPalette({
   setIsLiked,
   getAllPalettes,
   setDisplaylogin,
+  setCopySuccess,
 }) {
   const navigate = useNavigate();
   const [likeError, setLikeError] = useState("");
@@ -21,6 +22,18 @@ function SavedPalette({
   function handleInfoIconClick(savedPaletteColors) {
     updateColorsWithSavedPalette(savedPaletteColors);
     navigate("/");
+  }
+
+  function getContrastColor(hexColor) {
+    const hex = hexColor.slice(1);
+    const bigint = parseInt(hex, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+    return luminance > 0.5 ? "var(--black)" : "var(--white)";
   }
 
   function handleLikeClick(id) {
@@ -51,6 +64,30 @@ function SavedPalette({
       });
   }
 
+  function handleColorPanelClick(color) {
+    const textarea = document.createElement("textarea");
+    textarea.value = color;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      navigator.clipboard.writeText(color).then(() => {
+        console.log("Color hex copied to clipboard");
+        setCopySuccess(true);
+        setTimeout(() => {
+          setCopySuccess(false);
+        }, 1500);
+      }).catch((err) => {
+        console.error("Unable to copy color hex to clipboard", err);
+      });
+    } catch (err) {
+      console.error("Clipboard API not supported", err);
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
+  
+  
+
   return (
     <div className="saved-palette-container">
       <div className="palettes-container-header">
@@ -70,10 +107,12 @@ function SavedPalette({
             className={`palettes-container-panel ${hoveredColor === color ? "hovered-color-panel" : ""}`}
             style={{
               backgroundColor: color,
-              width: hoveredColor === color ? "40%" : "auto",
+              width: hoveredColor === color ? "30%" : "auto",
+              color: getContrastColor(color)
             }}
             onMouseEnter={() => setHoveredColor(color)}
             onMouseLeave={() => setHoveredColor(null)}
+            onClick={() => { handleColorPanelClick(color)}}
           >
             {hoveredColor === color && (
               <p className="hex-number">{color}</p>

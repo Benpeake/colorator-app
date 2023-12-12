@@ -8,6 +8,7 @@ function AllPalettes({
     updateColorsWithSavedPalette,
     token,
     setDisplaylogin,
+    setCopySuccess
 }) {
   const [savedPalettes, setSavedPalettes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -96,6 +97,7 @@ function AllPalettes({
               setIsLiked={setIsLiked}
               getAllPalettes={getAllPalettes}
               setDisplaylogin={setDisplaylogin}
+              setCopySuccess={setCopySuccess}
             />
           ))
         ) : (

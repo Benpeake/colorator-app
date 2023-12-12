@@ -16,8 +16,9 @@ function Panel({
   name,
   fontColor,
   colors,
+  copySuccess,
+  setCopySuccess
 }) {
-  const [copySuccess, setCopySuccess] = useState(false);
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [preColorPickerValue, setPreColorPickerValue] = useState("");
   const [inputHex, setInputHex] = useState(color);
@@ -140,13 +141,6 @@ function Panel({
           setInputHex={setInputHex}
           confirmColorPickerChange={confirmColorPickerChange}
           closeColorPicker={closeColorPicker}
-        />
-      )}
-      {copySuccess && (
-        <Notification
-          noteIconSrc={'../../icons/tick_white.svg'}
-          noteCopy={'Color copied to clipboard!'}
-          noteIconSrcCopy={'tick icon'}
         />
       )}
     </>
