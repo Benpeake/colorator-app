@@ -28,11 +28,11 @@ function Nav({
             Generator
           </NavLink>
           {token ? (
-          <NavLink className="navlink" to="/">
+          <NavLink className="navlink" to="/my-palettes">
             My Palettes
           </NavLink>
           ) : (
-          <NavLink className="navlink" to="/"  onClick={setDisplaySignUp}>
+          <NavLink className="navlink" onClick={setDisplaySignUp}>
             My Palettes
           </NavLink>
           )}

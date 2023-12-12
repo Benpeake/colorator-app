@@ -1,0 +1,125 @@
+.page-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vw ;
+    padding-bottom: 6vw ;
+    gap: 2vw;
+}
+
+.display-palettes-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3vw;
+    padding: 0 3vw;
+    padding-top: 0;
+    padding-bottom: 4vw;
+}
+
+.filter-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3vw;
+    padding-bottom: 3vw;
+}
+
+#search{
+    border: 0.08vw solid rgba(38, 28, 21, 0.5);
+    background: transparent;
+    height: 2.2vw;
+    width: 18vw;
+    font-size: 1.3vw;
+    padding: 0 0.5vw;
+}
+
+.search-container {
+    position: relative;
+  }
+
+.search-icon {
+    position: absolute;
+    top: 57%;
+    right: 0.5vw;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .search-icon img{
+    height: 1.4vw;
+  }
+
+  .order-bar{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+  }
+
+select {
+    border: 0.08vw solid rgba(38, 28, 21, 0.5);
+    background: transparent;
+    height: 2.2vw;
+    width: 14vw;
+    font-size: 1.3vw;
+    padding: 0 0.5vw;
+  }
+    select:focus {
+        outline: none;
+    }
+  
+  
+
+@media screen and (max-width: 1000px){  
+
+    .page-heading{
+        padding-top: 60px ;
+        padding-bottom: 60px ;
+        gap: 20px;
+    }
+
+    .display-palettes-section{
+        gap: 30px;
+        padding: 0 30px;
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+
+    .filter-bar{
+        padding: 0 30px;
+        padding-bottom: 30px;
+    }
+
+    
+    .search-icon {
+        position: absolute;
+        top: 57%;
+        right: 5px;
+      }
+    
+      .search-icon img{
+        height: 14px;
+      }
+
+      #search{
+        border: 0.8px solid rgba(38, 28, 21, 0.5);
+        height: 22px;
+        width: 180px;
+        font-size: 13px;
+        padding: 0 5px;
+    }
+
+    .order-bar{
+        gap: 10px;
+      }
+
+      select {
+        border: 0.8px solid rgba(38, 28, 21, 0.5);
+        height: 22px;
+        width: 140px;
+        font-size: 13px;
+        padding: 0 5px;
+      }
+  }

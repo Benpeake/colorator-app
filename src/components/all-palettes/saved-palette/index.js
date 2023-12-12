@@ -143,7 +143,7 @@ function SavedPalette({
           )}
           <p className="tiny-copy grey"> Likes {likes}</p>
         </div>
-        {likeError != "" && <p className="small-print red">{likeError}</p>}
+        {likeError != "" && <p className="small-print">{likeError}</p>}
       </div>
     </div>
   );

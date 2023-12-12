@@ -14,6 +14,7 @@ import Login from "./components/log-in";
 import MyAccount from "./components/my-account";
 import AddPalette from "./components/add-palette";
 import AllPalettes from "./components/all-palettes";
+import MyPalettes from "./components/my-palettes";
 
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
@@ -185,6 +186,18 @@ function App() {
               path="/all-palettes"
               element={
                 <AllPalettes
+                  ApiBlock={ApiBlock}
+                  updateColorsWithSavedPalette={updateColorsWithSavedPalette}
+                  token={token}
+                  setDisplaylogin={setDisplaylogin}
+                  setCopySuccess={setCopySuccess}
+                />
+              }
+            />
+            <Route
+              path="/my-palettes"
+              element={
+                <MyPalettes
                   ApiBlock={ApiBlock}
                   updateColorsWithSavedPalette={updateColorsWithSavedPalette}
                   token={token}
