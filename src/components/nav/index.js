@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./nav.css";
 import Login from "./login";
 import Logout from "./logout";
@@ -43,9 +43,9 @@ function Nav({
             My Palettes
           </NavLink>
           ) : (
-          <NavLink className="navlink" onClick={setDisplaySignUp}>
+          <Link className="navlink grey" to="#" onClick={setDisplaySignUp}>
             My Palettes
-          </NavLink>
+          </Link>
           )}
           <NavLink className="navlink" to="/all-palettes">
             All Palettes

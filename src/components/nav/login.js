@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Login ({setDisplaylogin, setDisplaySignUp, isMobileMenuOpen, toggleMobileMenu}) {
 
   return (
     <>
-    <NavLink
+    <Link
       className="navlink"
         onClick={() => {
           setDisplaylogin(true);
@@ -14,7 +14,7 @@ function Login ({setDisplaylogin, setDisplaySignUp, isMobileMenuOpen, toggleMobi
       }}
       >
       Login
-    </NavLink>
+    </Link>
     <div>
       <NavLink
         className="gradient-border button gradient-text navlink"
