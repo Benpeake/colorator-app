@@ -82,3 +82,16 @@
         border-radius: 10px;
       }    
   }
+
+  @media screen and (max-width: 525px){  
+    .panel-info-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .move{
+        display: none;
+    }
+  }

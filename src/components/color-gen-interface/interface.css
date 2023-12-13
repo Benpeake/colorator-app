@@ -13,3 +13,13 @@
     }
 
   }
+
+  @media screen and (max-width: 525px){  
+    .interface-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow: auto;
+    }
+
+  }
