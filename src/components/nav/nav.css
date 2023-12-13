@@ -26,6 +26,11 @@ nav{
     font-weight: 500;
 }
 
+.mobile-menu-icon-container{
+    display: none !important; 
+}
+
+
 @media screen and (max-width: 1000px){  
   
     nav{
@@ -41,4 +46,22 @@ nav{
         height: 40px;
     }
 
+  }
+
+  
+
+  @media screen and (max-width: 750px){  
+
+    .nav-right{
+        display: none;
+    }
+
+    .mobile-menu-icon-container{
+        display: flex !important;
+    }
+
+    .greeting{
+        display: none;
+    }
+    
   }

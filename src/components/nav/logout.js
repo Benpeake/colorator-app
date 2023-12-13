@@ -42,7 +42,7 @@ function Logout({
 
   return (
     <>
-      <p>
+      <p className="greeting">
         Hello <span className="bold">{username}</span>
       </p>
       <NavLink className="navlink" to="/my-account">

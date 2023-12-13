@@ -1,0 +1,29 @@
+.mobile-menu-display{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.close-button-container{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    margin: 30px;
+}
+
+.mobile-menu-icon{
+    width: 40px;
+}
+
+.mobile-menu-display .navlink{
+    font-size: 40px;
+}
