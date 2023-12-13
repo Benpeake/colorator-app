@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./my-account.css";
 import UserUpdate from "./user-update";
 import PasswordUpdate from "./password-update";
 import DeleteAccount from "./delete-account";
+import { useNavigate } from "react-router-dom";
 
 function MyAccount({
   userEmail,
@@ -20,6 +21,14 @@ function MyAccount({
 const [updateEmailError, setupdateEmailError] = useState('')
 const [updateNameError, setNameError] = useState('')
 const [updatePasswordError, setPasswordError] = useState('')
+
+const navigate = useNavigate();
+useEffect(() =>{
+  if(!token){
+    navigate("/")
+  }
+})
+
 
   function handleEmailUpdate(email) {
     fetch(ApiBlock + "/users/update/email", {

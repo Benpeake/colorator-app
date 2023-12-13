@@ -3,6 +3,7 @@ import "./my-palettes.css";
 import MyPalette from "./my-palette";
 import Notification from "../notification";
 import LikedPalette from "./liked-palette";
+import { useNavigate } from "react-router-dom";
 
 function MyPalettes({
   ApiBlock,
@@ -20,6 +21,13 @@ function MyPalettes({
   const [makePublicSuccess, setMakePublicSuccess] = useState(false)
   const [makePrivateSuccess, setMakePrivateSuccess] = useState(false)
   const [unlikePaletteSuccess, setUnlikePaletteSuccess] = useState(false)
+
+  const navigate = useNavigate();
+  useEffect(() =>{
+    if(!token){
+      navigate("/")
+    }
+  })
 
   function getAllMyPalettes(showSavedPalettes) {
     const searchQueryString = myPalettesSearchFilter
