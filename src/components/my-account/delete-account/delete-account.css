@@ -1,4 +1,4 @@
-.user-delete-seg{
+.user-delete-seg {
     display: flex;
     border: 0.12vw solid var(--red);
     border-radius: 1vw;
@@ -6,28 +6,57 @@
     gap: 2vw;
     justify-content: start;
     align-items: center;
-}
-
-.user-details-input{
+  }
+  
+  .user-details-input {
     width: 100%;
     padding: 1.5vw 1vw;
-}
-
-input.delete-button{
-    align-self: flex-end;
+  }
+  
+  input.delete-button {
     background: var(--red);
     border: 0.12vw solid var(--red);
     margin: 0;
-}
-    input.delete-button:hover{
-        align-self: flex-end;
-        background: var(--white);
-        color: var(--red);
-        border: 0.12vw solid var(--red);
-    }
-
-
-
-@media screen and (max-width: 1000px){  
-
   }
+  
+  input.delete-button:hover {
+    background: var(--white);
+    color: var(--red);
+    border: 0.12vw solid var(--red);
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .user-delete-seg {
+      border: 1.2px solid var(--red);
+      border-radius: 10px;
+      padding: 20px;
+      gap: 20px;
+    }
+  
+    .user-details-input {
+      padding: 15px 10px;
+    }
+  
+    input.delete-button {
+      border: 1.2px solid var(--red);
+      margin: 0; 
+    }
+  
+    input.delete-button:hover {
+      border: 1.2px solid var(--red);
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    .user-delete-seg {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+  
+    input.delete-button {
+      margin: 0;
+    }
+  }
+  

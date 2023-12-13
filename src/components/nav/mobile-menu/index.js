@@ -15,6 +15,7 @@ function MobileMenu({
   setUserId,
   setDisplaylogin,
   toggleMobileMenu,
+  isMobileMenuOpen
 }) {
   return (
     <div className="mobile-menu-display">
@@ -59,6 +60,8 @@ function MobileMenu({
           setLogoutSuccess={setLogoutSuccess}
           setUserEmail={setUserEmail}
           setUserId={setUserId}
+          isMobileMenuOpen={isMobileMenuOpen}
+          toggleMobileMenu={toggleMobileMenu}
         />
       ) : (
         <Login

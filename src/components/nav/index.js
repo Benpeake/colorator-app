@@ -92,6 +92,7 @@ function Nav({
       setUserId={setUserId}
       setDisplaylogin={setDisplaylogin}
       toggleMobileMenu={toggleMobileMenu}
+      isMobileMenuOpen={isMobileMenuOpen}
     />}
     </>
   );

@@ -8,10 +8,11 @@ function Logout({
   setToken,
   setLogoutSuccess,
   setUserEmail,
-  setUserId
+  setUserId,
+  isMobileMenuOpen,
+  toggleMobileMenu,
 }) {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleLogoutSubmit() {
     fetch(ApiBlock + "/users/logout", {
@@ -30,7 +31,7 @@ function Logout({
           setToken(null);
           setUsername("");
           setUserEmail("");
-          setUserId("")
+          setUserId("");
           setLogoutSuccess(true);
           setTimeout(() => {
             setLogoutSuccess(false);
@@ -45,7 +46,11 @@ function Logout({
       <p className="greeting">
         Hello <span className="bold">{username}</span>
       </p>
-      <NavLink className="navlink" to="/my-account">
+      <NavLink
+        className="navlink"
+        to="/my-account"
+        onClick={isMobileMenuOpen ? toggleMobileMenu : undefined}
+      >
         My Account
       </NavLink>
       <NavLink className="navlink" to="/" onClick={handleLogoutSubmit}>

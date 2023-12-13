@@ -123,3 +123,19 @@ select {
         padding: 0 5px;
       }
   }
+
+  @media screen and (max-width: 525px){  
+    .page-heading{
+      flex-wrap: wrap;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  .filter-bar{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+  
+  }
