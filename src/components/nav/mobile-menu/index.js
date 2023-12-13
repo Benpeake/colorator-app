@@ -68,6 +68,8 @@ function MobileMenu({
           setDisplaylogin={setDisplaylogin}
           setDisplaySignUp={setDisplaySignUp}
           setUserEmail={setUserEmail}
+          isMobileMenuOpen={isMobileMenuOpen}
+          toggleMobileMenu={toggleMobileMenu}
         />
       )}
     </div>
