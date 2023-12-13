@@ -29,6 +29,7 @@ function MyPalette({
   function handleDeletePalette (id) {
     fetch(ApiBlock + "/palettes/delete/" + id, {
       method: "DELETE",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -52,6 +53,8 @@ function MyPalette({
   function setPalettePublic (id) {
     fetch(ApiBlock + "/palettes/status/public/" + id, {
       method: "PUT",
+      mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -75,6 +78,8 @@ function MyPalette({
   function setPalettePrivate (id) {
     fetch(ApiBlock + "/palettes/status/private/" + id, {
       method: "PUT",
+      mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

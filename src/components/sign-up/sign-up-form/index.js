@@ -37,6 +37,7 @@ function RegistrationForm({
         password: formData.password,
       }),
       mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -45,7 +46,6 @@ function RegistrationForm({
       .then((res) => res.json())
       .then((data) => {
         if (data.access_token) {
-          localStorage.setItem("token", data.access_token);
           setToken(data.access_token);
           setUsername(data.data.user.name)
           setUserEmail(data.data.user.email)

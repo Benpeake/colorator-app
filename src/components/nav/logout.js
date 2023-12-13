@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function Logout({
   username,
@@ -18,6 +18,7 @@ function Logout({
     fetch(ApiBlock + "/users/logout", {
       method: "POST",
       mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -27,7 +28,6 @@ function Logout({
       .then((res) => res.json())
       .then((data) => {
         if (data.message === "Logout successful") {
-          localStorage.removeItem("token");
           setToken(null);
           setUsername("");
           setUserEmail("");
@@ -53,9 +53,9 @@ function Logout({
       >
         My Account
       </NavLink>
-      <NavLink className="navlink" to="/" onClick={handleLogoutSubmit}>
+      <Link className="navlink" to="/" onClick={handleLogoutSubmit}>
         Logout
-      </NavLink>
+      </Link>
     </>
   );
 }

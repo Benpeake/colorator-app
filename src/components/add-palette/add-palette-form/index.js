@@ -20,6 +20,7 @@ function AddPaletteForm({
     fetch(ApiBlock + "/palettes/add", {
       method: "POST",
       mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

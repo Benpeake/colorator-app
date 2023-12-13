@@ -27,6 +27,8 @@ function LikedPalette({
   function handleUnlikeClick(id) {
     fetch(ApiBlock + "/palettes/like/" + id, {
       method: "DELETE",
+      mode: "cors", 
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

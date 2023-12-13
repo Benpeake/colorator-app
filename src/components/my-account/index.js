@@ -25,6 +25,7 @@ const [updatePasswordError, setPasswordError] = useState('')
     fetch(ApiBlock + "/users/update/email", {
       method: "PUT",
       mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -52,6 +53,7 @@ const [updatePasswordError, setPasswordError] = useState('')
     fetch(ApiBlock + "/users/update/name", {
       method: "PUT",
       mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -79,6 +81,7 @@ const [updatePasswordError, setPasswordError] = useState('')
     fetch(ApiBlock + "/users/update/password", {
       method: "PUT",
       mode: "cors",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

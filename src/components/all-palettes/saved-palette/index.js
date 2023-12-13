@@ -28,6 +28,8 @@ function SavedPalette({
   function handleLikeClick(id) {
     fetch(ApiBlock + "/palettes/like/" + id, {
       method: "PUT",
+      mode: "cors", 
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

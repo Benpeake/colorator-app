@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./my-palettes.css";
 import MyPalette from "./my-palette";
-import SavedPalette from "../all-palettes/saved-palette";
 import Notification from "../notification";
 import LikedPalette from "./liked-palette";
 
@@ -28,6 +27,9 @@ function MyPalettes({
       : "";
     const endPoint = showSavedPalettes ? "/palettes/liked" : "/palettes";
     fetch(ApiBlock + `${endPoint}${searchQueryString}`, {
+      method: "GET",
+      mode: "cors", 
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

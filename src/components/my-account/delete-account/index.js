@@ -21,6 +21,7 @@ function DeleteAccount({
         fetch(ApiBlock + "/users/delete", {
             method: "DELETE",
             mode: "cors",
+            credentials: 'include',
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
@@ -30,7 +31,6 @@ function DeleteAccount({
             .then((res) => res.json())
             .then((data) => {
               if (data.message === "User deleted successfully") {
-                localStorage.removeItem("token");
                 setToken(null);
                 setUsername("");
                 setUserEmail("");
