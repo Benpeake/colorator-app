@@ -36,7 +36,7 @@ function App() {
   const [colors, setColors, undo, redo, history, historyIndex] =
     useUndo(initialColors);
 
-  const ApiBlock = "http://localhost:8080/api";
+  const ApiBlock = "https://colorator.dev/api";
   const [displaySignUp, setDisplaySignUp] = useState(false);
   const [displayLogin, setDisplaylogin] = useState(false);
   const [token, setToken] = useState(null);
@@ -301,12 +301,12 @@ function App() {
           />
         )}
         {copySuccess && (
-        <Notification
-          noteIconSrc={'../../icons/tick_white.svg'}
-          noteCopy={'Color copied to clipboard!'}
-          noteIconSrcCopy={'tick icon'}
-        />
-      )}
+          <Notification
+            noteIconSrc={"../../icons/tick_white.svg"}
+            noteCopy={"Color copied to clipboard!"}
+            noteIconSrcCopy={"tick icon"}
+          />
+        )}
       </BrowserRouter>
     </div>
   );
