@@ -27,3 +27,7 @@
 .mobile-menu-display .navlink{
     font-size: 40px;
 }
+
+.unactiveLink{
+    opacity: 0.5;
+}

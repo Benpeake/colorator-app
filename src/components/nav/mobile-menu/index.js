@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./mobile-menu.css";
 import Logout from "../logout";
 import Login from "../login";
@@ -27,29 +27,32 @@ function MobileMenu({
           onClick={toggleMobileMenu}
         />
       </div>
-      <NavLink className="navlink" to="/" onClick={toggleMobileMenu}>
+      <Link className="navlink" to="/" onClick={toggleMobileMenu}>
         Generator
-      </NavLink>
+      </Link>
       {token ? (
-        <NavLink
+        <Link
           className="navlink"
           to="/my-palettes"
           onClick={toggleMobileMenu}
         >
           My Palettes
-        </NavLink>
+        </Link>
       ) : (
-        <NavLink className="navlink" onClick={setDisplaySignUp}>
+        <Link className="navlink unactiveLink" onClick={()=>{
+          setDisplaySignUp(true)
+          toggleMobileMenu()
+          }}>
           My Palettes
-        </NavLink>
+        </Link>
       )}
-      <NavLink
+      <Link
         className="navlink"
         to="/all-palettes"
         onClick={toggleMobileMenu}
       >
         All Palettes
-      </NavLink>
+      </Link>
       {token ? (
         <Logout
           username={username}
