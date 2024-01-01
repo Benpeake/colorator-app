@@ -95,7 +95,7 @@ function AddPaletteForm({
             onChange={handleCheckboxChange}
           />
         </div>
-        <div className="">
+        <div className="btn-container">
           <input className="small-copy" type="submit" value="Submit" />
         </div>
       </form>

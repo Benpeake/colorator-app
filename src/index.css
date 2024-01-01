@@ -13,13 +13,17 @@ box-sizing: border-box;
 html, body {
   height: 100%;
   margin: 0;
+
+  height: fill-available;
+  height: -webkit-fill-available;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
+
 
 body {
   font-family: 'Space Grotesk', sans-serif;
@@ -28,6 +32,10 @@ body {
   padding: 0;
   background-color: var(--white);
   color: var(--black);
+
+  min-height: 100vh;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
 }
 
 a{
@@ -143,9 +151,13 @@ input:focus {
     width: 15vw;
     font-size: 1.1vw;
     padding: 0 0.5vw;
+    border-radius: 0;
   }
 
   :is(input[type="button"], input[type="submit"], button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 6vw;
     background-color: var(--black);
     color: var(--white);
@@ -154,12 +166,19 @@ input:focus {
     margin-top: 0.5vw;
     height: 2.5vw;
   }
+  
   :is(input[type="button"], input[type="submit"], button):hover {
     background-color: var(--white);
     color: var(--black);
     border: 0.12vw solid var(--black);
     cursor: pointer;
   }
+
+  .btn-container{
+    display: flex;
+    justify-content: center;
+  }
+  
 
   .active{
     font-weight: 800;
