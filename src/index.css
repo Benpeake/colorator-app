@@ -13,15 +13,12 @@ box-sizing: border-box;
 html, body {
   height: 100%;
   margin: 0;
-
-  height: fill-available;
-  height: -webkit-fill-available;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 
@@ -32,10 +29,6 @@ body {
   padding: 0;
   background-color: var(--white);
   color: var(--black);
-
-  min-height: 100vh;
-  min-height: fill-available;
-  min-height: -webkit-fill-available;
 }
 
 a{
@@ -179,6 +172,10 @@ input:focus {
     justify-content: center;
   }
   
+  select {
+    color: var(--black);
+    opacity: 0.6;
+  }
 
   .active{
     font-weight: 800;
