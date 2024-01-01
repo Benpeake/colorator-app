@@ -4,8 +4,6 @@
     width: 100%;
     height: calc(100vh - 11.1vw);
     overflow: auto;
-    position: sticky;
-    /* ??? */
 }
 
 @media screen and (max-width: 1000px){  
@@ -22,6 +20,6 @@
         flex-direction: column;
         width: 100%;
         min-height: calc(100vh - 110px);
-        overflow: auto;
+        overflow:hidden;
     }
   }
