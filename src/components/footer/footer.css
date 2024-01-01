@@ -1,5 +1,5 @@
 footer {
-    position: sticky;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding: 0 3vw;
@@ -20,3 +20,9 @@ footer {
       }
 
   }
+
+  @media screen and (max-width: 525px){  
+    footer {
+      justify-content: center; 
+    }
+}

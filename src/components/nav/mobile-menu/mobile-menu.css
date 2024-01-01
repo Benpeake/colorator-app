@@ -16,12 +16,12 @@
 .close-button-container{
     position: absolute !important;
     top: 0;
-    left: 0;
-    margin: 30px;
+    right: 0;
+    margin: 7.5px 15px;
 }
 
 .mobile-menu-icon{
-    width: 40px;
+    width: 35px;
 }
 
 .mobile-menu-display .navlink{
