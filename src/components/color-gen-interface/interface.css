@@ -17,11 +17,11 @@
   }
 
   @media screen and (max-width: 525px){  
-    .interface-container{
+    .interface-container {
         display: flex;
         flex-direction: column;
         width: 100%;
+        min-height: calc(100vh - 110px);
         overflow: auto;
     }
-
   }
