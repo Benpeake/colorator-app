@@ -11,6 +11,11 @@ footer {
     height: 3.5vw ;
     margin-top: auto;
   }
+
+  .footer-link{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
   
   @media screen and (max-width: 1000px){  
   

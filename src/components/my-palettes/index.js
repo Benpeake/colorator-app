@@ -99,6 +99,9 @@ function MyPalettes({
             <option value="newest">Saved palettes</option>
             <option value="most_likes">Liked palettes</option>
           </select>
+          <div className="order-icon">
+            <img src="../../icons/down_black.svg" alt="Down Arrow" />
+          </div>
         </div>
       </div>
       <div className="display-palettes-section">

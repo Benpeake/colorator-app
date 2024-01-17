@@ -13,7 +13,7 @@ function Controller({
   setDisplaySignUp,
   token,
   setShowSpaceTip,
-  setShowUndoRedoTip
+  setShowUndoRedoTip,
 }) {
   const [maxPanelNum, setMaxPanelNum] = useState(true);
   const [undoActive, setUndoActive] = useState(false);
@@ -110,7 +110,7 @@ function Controller({
     <section className="controller-contrainer">
       <div className="controller-left">
         <div
-          className={` panel-icon-container icon-container ${maxPanelNum ? "" : "unnactive"}`}
+          className={`panel-icon-container icon-container ${maxPanelNum ? "" : "unnactive"}`}
           onClick={addColorPanel}
         >
           <img

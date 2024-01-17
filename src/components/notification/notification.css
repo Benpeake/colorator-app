@@ -5,7 +5,7 @@
     bottom: 0; 
     left: 50%;
     transform: translateX(-50%); 
-    padding: 10px;
+    padding: 1vw 1.5vw;
     border: 0.1vw solid var(--white);
     margin-bottom: 6vw;
     display: flex;
@@ -33,6 +33,7 @@
       border: 1px solid var(--white);
       margin-bottom: 60px;
       border-radius: 10px;
+      padding: 10px 15px;
     }
   
     .message-container{

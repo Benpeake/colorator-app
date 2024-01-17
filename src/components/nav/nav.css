@@ -22,12 +22,18 @@ nav{
     align-items: center;
 }
 
+.navlink{
+    font-weight: 400;
+}
+
 .navlink:hover{
-    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: .4vw;
 }
 
 .grey.navlink:hover{
     font-weight: 400;
+    text-decoration: none;
 }
 
 
@@ -60,6 +66,11 @@ nav{
     .v-line{
         height: 40px;
         width: 1px;
+    }
+
+    .navlink:hover{
+        text-decoration: underline;
+        text-underline-offset: 4px;
     }
 
   }

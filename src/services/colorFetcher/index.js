@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 
+
 function ColorFetcher({ colors, setColors }) {
   const lastColorValues = useRef([]);
 

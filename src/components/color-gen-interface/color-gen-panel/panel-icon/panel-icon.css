@@ -19,7 +19,7 @@
         cursor: pointer;
     }
     .white .panel-icon-container:hover{
-        background-color: rgba(252, 247, 255, 0.1);
+        background-color: rgba(252, 247, 255, 0.15);
         cursor: pointer;
     }
 

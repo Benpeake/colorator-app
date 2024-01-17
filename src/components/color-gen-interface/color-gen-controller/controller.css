@@ -5,6 +5,8 @@
     border-bottom: 0.1vw solid;
     padding: 0 3vw;
     position: sticky;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .controller-left,
@@ -29,6 +31,11 @@
     border: solid 0.12vw;
     padding: 0.1vw 0.5vw;
 }
+
+/* .icon-container.panel-icon-container:hover{
+  background-color: rgba(252, 247, 255, 0.15);
+  cursor: pointer;
+} */
 
 .rotate {
     animation: rotate 2s infinite linear; 

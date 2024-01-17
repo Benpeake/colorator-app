@@ -94,6 +94,7 @@ function Panel({
         className={`panel ${setfontColor(fontColor)}`}
         style={{ backgroundColor: color, opacity: isDragging ? 0 : 1 }}
       >
+        {fontColor && (
         <div className="panel-info-container">
           <PanelIcon
             onClick={() => removeColorPanel(index)}
@@ -131,6 +132,7 @@ function Panel({
             <p className="small-copy">{name}</p>
           </div>
         </div>
+           )}
       </section>
       {displayColorPicker && (
         <ColorPicker

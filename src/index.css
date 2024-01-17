@@ -94,6 +94,12 @@ h3{
   margin-top: -0.5vw;
 }
 
+.login-form .error{
+  color: var(--red);
+  margin-top: -0.5vw;
+  padding-left: 4.4vw;
+}
+
 .red{
   color: var(--red);
 }
@@ -112,7 +118,7 @@ h3{
 }
 
 .grey{
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 input:focus {
@@ -178,7 +184,8 @@ input:focus {
   }
 
   .active{
-    font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: .4vw;
   }
 
 
@@ -214,6 +221,12 @@ input:focus {
     padding: 0 5px;
     height: 20px;
     width: 150px;
+  }
+
+  .login-form .error{
+    color: var(--red);
+    margin-top: -2px;
+    padding-left: 44px;
   }
 
   :is(input[type="button"], input[type="submit"], button) {
