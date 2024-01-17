@@ -7,7 +7,7 @@ footer {
     display: flex;
     justify-content: flex-end; 
     align-items: center;
-    border-top: 0.12vw solid;
+    border-top: 0.1vw solid;
     height: 3.5vw ;
     margin-top: auto;
   }
@@ -16,7 +16,7 @@ footer {
   
     footer {
         height: 35px ;
-        border-top: solid 1.2px;
+        border-top: solid 1px;
       }
 
   }

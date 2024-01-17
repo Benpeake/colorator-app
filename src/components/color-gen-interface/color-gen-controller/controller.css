@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     height: 3.5vw;
-    border-bottom: 0.12vw solid;
+    border-bottom: 0.1vw solid;
     padding: 0 3vw;
     position: sticky;
 }
@@ -17,12 +17,8 @@
 .icon-container{
     display: flex;
     align-items: center;
-    gap: 0.3vw;
+    gap: 0.2vw;
 }
-    .icon-container:hover{
-        cursor: pointer;
-        font-weight: 500;
-    }
 
 .icon{
     height: 1.5vw;
@@ -54,7 +50,7 @@
 
     .controller-contrainer{
         height: 35px;
-        border-bottom: solid 1.2px;
+        border-bottom: solid 1px;
         margin-top: 40px;
     }
 

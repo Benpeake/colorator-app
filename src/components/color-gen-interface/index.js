@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Controller from "./color-gen-controller";
 import Panel from "./color-gen-panel";
 import "./interface.css";
-
+import Tip from "./tip";
 
 function Interface({
   colors,
@@ -21,42 +21,72 @@ function Interface({
   setDisplaySignUp,
   token,
   copySuccess,
-  setCopySuccess
+  setCopySuccess,
 }) {
+
+  const [showSpaceTip, setShowSpaceTip] = useState(true);
+  const [showUndoRedoTip, setShowUndoRedoTip] = useState(false)
+
+  function hideSpaceTipShowUndoRedoTip(){
+    setShowSpaceTip(false)
+    setTimeout(() => {
+      setShowUndoRedoTip(true)
+    }, 1000)
+  }
 
   return (
     <>
-    <Controller
-    generateRandomColor={generateRandomColor}
-    undo={undo}
-    redo={redo}
-    addColorPanel={addColorPanel}
-    colors={colors}
-    history={history}
-    historyIndex={historyIndex}
-    setDisplayAddPalette={setDisplayAddPalette}
-    setDisplaySignUp={setDisplaySignUp}
-    token={token}
-  />
-    <section className="interface-container">
-      {colors.map((color, index) => (
-        <Panel
-          colors={colors}
-          key={index}
-          color={color.color}
-          name={color.name}
-          fontColor={color.fontColor}
-          index={index}
-          handleMoveColor={handleMoveColor}
-          removeColorPanel={removeColorPanel}
-          handleLockStatus={handleLockStatus}
-          updateColor={updateColor}
-          tempUpdateColor={tempUpdateColor}
-          copySuccess={copySuccess}
-          setCopySuccess={setCopySuccess}
+      <Controller
+        generateRandomColor={generateRandomColor}
+        undo={undo}
+        redo={redo}
+        addColorPanel={addColorPanel}
+        colors={colors}
+        history={history}
+        historyIndex={historyIndex}
+        setDisplayAddPalette={setDisplayAddPalette}
+        setDisplaySignUp={setDisplaySignUp}
+        token={token}
+        setShowSpaceTip={setShowSpaceTip}
+        setShowUndoRedoTip={setShowUndoRedoTip}
+      />
+
+      {showSpaceTip ? (
+        <Tip
+          setShowTip={hideSpaceTipShowUndoRedoTip}
+          tipCopy={"You can also press the spacebar to generate new colours!"}
         />
-      ))}
-    </section>
+      ) : (
+        ""
+      )}
+      {showUndoRedoTip ? (
+        <Tip
+          setShowTip={setShowUndoRedoTip}
+          tipCopy={"'Command-Z' to undo - 'Command-Shift-Z' to redo!"}
+        />
+      ) : (
+        ""
+      )}
+
+      <section className="interface-container">
+        {colors.map((color, index) => (
+          <Panel
+            colors={colors}
+            key={index}
+            color={color.color}
+            name={color.name}
+            fontColor={color.fontColor}
+            index={index}
+            handleMoveColor={handleMoveColor}
+            removeColorPanel={removeColorPanel}
+            handleLockStatus={handleLockStatus}
+            updateColor={updateColor}
+            tempUpdateColor={tempUpdateColor}
+            copySuccess={copySuccess}
+            setCopySuccess={setCopySuccess}
+          />
+        ))}
+      </section>
     </>
   );
 }

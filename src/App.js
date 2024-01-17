@@ -51,6 +51,7 @@ function App() {
   const [diplayAddPalette, setDisplayAddPalette] = useState(false);
   const [userId, setUserId] = useState(0);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [lastClickTime, setLastClickTime] = useState(0);
 
   function handleMoveColor(fromIndex, toIndex) {
     const updatedColors = [...colors];
@@ -60,6 +61,13 @@ function App() {
   }
 
   function generateRandomColor() {
+    const currentTime = new Date().getTime();
+    const cooldownPeriod = 250; // Set the cooldown period)
+  
+    if (currentTime - lastClickTime < cooldownPeriod) {
+      return; 
+    }
+  
     const newColors = colors.map((colorObj) => {
       if (colorObj.locked) {
         return colorObj;
@@ -70,7 +78,9 @@ function App() {
         };
       }
     });
+  
     setColors(newColors);
+    setLastClickTime(currentTime);
   }
 
   function addColorPanel() {

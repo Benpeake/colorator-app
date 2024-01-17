@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./controller.css";
 
 function Controller({
@@ -12,11 +12,15 @@ function Controller({
   setDisplayAddPalette,
   setDisplaySignUp,
   token,
+  setShowSpaceTip,
+  setShowUndoRedoTip
 }) {
   const [maxPanelNum, setMaxPanelNum] = useState(true);
   const [undoActive, setUndoActive] = useState(false);
   const [redoActive, setRedoActive] = useState(false);
   const [generateIsHovered, setGenerateIsHovered] = useState(false)
+  const isSpaceBarDown = useRef(false);
+  const undoRedoCooldown = useRef(false);
 
   useEffect(() => {
     if (colors.length > 4) {
@@ -36,11 +40,77 @@ function Controller({
     }
   }, [colors]);
 
+  const handleKeyDown = (event) => {
+    if (colors && generateRandomColor) {
+      if (event.keyCode === 32 && !isSpaceBarDown.current) {
+        // Spacebar is pressed
+        isSpaceBarDown.current = true;
+        setTimeout(() => {
+          generateRandomColor();
+          setShowSpaceTip(false);
+          setTimeout(() => {
+            setShowUndoRedoTip(true);
+          }, 1000);
+        }, 100)
+      }
+      // Check for Command (Meta key on Mac, Ctrl on Windows/Linux) and 'z' for undo
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'z') {
+        event.preventDefault(); // Prevents browser default behavior for undo (e.g., page navigation)
+        if (event.shiftKey) {
+          // Check for Command, Shift, and 'z' for redo
+          if (!undoRedoCooldown.current) {
+            redo();
+            setShowUndoRedoTip(false)
+            undoRedoCooldown.current = true;
+            setTimeout(() => {
+              undoRedoCooldown.current = false;
+            }, 250); // cooldown 
+          }
+        } else {
+          // Just Command and 'z' for undo
+          if (!undoRedoCooldown.current) {
+            undo();
+            setShowUndoRedoTip(false)
+            undoRedoCooldown.current = true;
+            setTimeout(() => {
+              undoRedoCooldown.current = false;
+            }, 250); // cooldown
+          }
+        }
+      }
+    }
+  };
+
+  const handleKeyUp = (event) => {
+    if (event.keyCode === 32) {
+      isSpaceBarDown.current = false;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [colors, generateRandomColor]);
+
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [colors, generateRandomColor]);
+
   return (
     <section className="controller-contrainer">
       <div className="controller-left">
         <div
-          className={`icon-container ${maxPanelNum ? "" : "unnactive"}`}
+          className={` panel-icon-container icon-container ${maxPanelNum ? "" : "unnactive"}`}
           onClick={addColorPanel}
         >
           <img
@@ -50,7 +120,7 @@ function Controller({
           />
           <p className="small-copy">Panel</p>
         </div>
-        <div className="icon-container">
+        <div className="panel-icon-container icon-container">
           <img
             className="icon"
             src="../../../icons/like_black.svg"
@@ -61,7 +131,6 @@ function Controller({
               className="small-copy"
               onClick={() => {
                 setDisplayAddPalette(true);
-                console.log("click");
               }}
             >
               Save
@@ -71,7 +140,6 @@ function Controller({
               className="small-copy"
               onClick={() => {
                 setDisplaySignUp(true);
-                console.log("click");
               }}
             >
               Save
@@ -79,7 +147,7 @@ function Controller({
           )}
         </div>
         <div
-          className={`icon-container ${undoActive ? "" : "unnactive"}`}
+          className={` panel-icon-container icon-container ${undoActive ? "" : "unnactive"}`}
           onClick={undo}
         >
           <img
@@ -90,7 +158,7 @@ function Controller({
           <p className="small-copy">Undo</p>
         </div>
         <div
-          className={`icon-container ${redoActive ? "" : "unnactive"}`}
+          className={` panel-icon-container icon-container ${redoActive ? "" : "unnactive"}`}
           onClick={redo}
         >
           <img
@@ -100,21 +168,18 @@ function Controller({
           />
           <p className="small-copy">Redo</p>
         </div>
-        <div className="icon-container">
-          <p className="small-copy">|</p>
-        </div>
         <div 
-          className="icon-container"
+          className="panel-icon-container icon-container"
           onClick={generateRandomColor}
           onMouseEnter={() => setGenerateIsHovered(true)}
           onMouseLeave={() => setGenerateIsHovered(false)}
         >
           <img
-            className={`icon ${generateIsHovered ? 'rotate' : ''}`}
-            src="../../../icons/boom_black.svg"
+            className={`icon`}
+            src="../../../icons/change.svg"
             alt="generate icon"
           />
-          <p className="small-copy">Generate!</p>
+          <p className="small-copy">Generate</p>
         </div>
       </div>
       <div className="controller-right"></div>

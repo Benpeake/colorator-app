@@ -6,7 +6,7 @@ box-sizing: border-box;
 
 :root {
   --white: #FCF7FF;
-  --black: #261C15;
+  --black: #0D0A07;
   --red: #EA481F;
 }
 
@@ -178,7 +178,7 @@ input:focus {
   }
 
   .active{
-    font-weight: 800;
+    font-weight: 600;
   }
 
 

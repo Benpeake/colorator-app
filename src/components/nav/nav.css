@@ -5,7 +5,7 @@ nav{
     padding: 0 3vw;
     background: var(--white);
     margin: 0;
-    border-bottom: 0.12vw solid;
+    border-bottom: 0.1vw solid;
     z-index: 2;
 }
 
@@ -23,19 +23,29 @@ nav{
 }
 
 .navlink:hover{
-    font-weight: 500;
+    font-weight: 600;
 }
+
+.grey.navlink:hover{
+    font-weight: 400;
+}
+
 
 .mobile-menu-icon-container{
     display: none !important; 
 }
 
+.v-line{
+    height: 4vw;
+    width: .1vw;
+    background-color: var(--black);
+}
 
 @media screen and (max-width: 1000px){  
   
     nav{
         padding: 0 30px;
-        border-bottom: solid 1.2px;
+        border-bottom: solid 1px;
         position: fixed;
     }
     
@@ -45,6 +55,11 @@ nav{
 
     .nav-bar-container{
         height: 40px;
+    }
+
+    .v-line{
+        height: 40px;
+        width: 1px;
     }
 
   }

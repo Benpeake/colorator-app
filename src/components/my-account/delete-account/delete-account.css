@@ -1,6 +1,6 @@
 .user-delete-seg {
     display: flex;
-    border: 0.12vw solid var(--red);
+    border: 0.1vw solid var(--red);
     border-radius: 1vw;
     padding: 2vw;
     gap: 2vw;
@@ -27,7 +27,7 @@
   
   @media screen and (max-width: 1000px) {
     .user-delete-seg {
-      border: 1.2px solid var(--red);
+      border: 1px solid var(--red);
       border-radius: 10px;
       padding: 20px;
       gap: 20px;

@@ -4,6 +4,8 @@ function useUndo(initialState) {
   const [state, setState] = useState(initialState);
   const [history, setHistory] = useState([initialState]);
   const [historyIndex, setHistoryIndex] = useState(0);
+  const [lastClickTime, setLastClickTime] = useState(0);
+  const cooldownPeriod = 250; // Set the cooldown period
 
   const setColors = (newState, recordHistory = true) => {
     if (newState !== state) {
@@ -16,18 +18,31 @@ function useUndo(initialState) {
         recordHistory ? newHistoryIndex + 1 : newHistoryIndex
       );
       setState(newState);
+      setLastClickTime(new Date().getTime());
     }
   };
 
   const undo = () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - lastClickTime < cooldownPeriod) {
+      return;
+    }
+
     if (historyIndex > 0) {
       setHistoryIndex((prevIndex) => prevIndex - 1);
+      setLastClickTime(currentTime);
     }
   };
 
   const redo = () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - lastClickTime < cooldownPeriod) {
+      return;
+    }
+
     if (historyIndex < history.length - 1) {
       setHistoryIndex((prevIndex) => prevIndex + 1);
+      setLastClickTime(currentTime);
     }
   };
 

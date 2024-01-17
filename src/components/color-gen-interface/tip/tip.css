@@ -1,0 +1,37 @@
+.tip-container{
+    position: absolute;
+    top: 9vw;
+    right: 3vw ;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0.5vw 0.75vw;
+    border-radius: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid .1vw var(--white);
+}
+
+.tip-icon:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px){  
+  
+    .tip-container{
+        position: absolute;
+        top: 90px;
+        right: 3vw ;
+        padding: 5px 7.5px;
+        border-radius: 10px;
+        border: solid 1px var(--white);
+    }
+
+  }
+
+  @media screen and (max-width: 525px){  
+    .tip-container{
+        display: none;
+    }
+}

@@ -50,7 +50,7 @@ function Nav({
           <NavLink className="navlink" to="/all-palettes">
             All Palettes
           </NavLink>
-          <p>|</p>
+          <div className="v-line"></div>
           {token ? (
             <Logout
               username={username}

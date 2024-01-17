@@ -21,20 +21,37 @@
 }
 
 .filter-bar{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 3vw;
-    padding-bottom: 3vw;
+  display: flex;
+  gap: 1vw;
+  align-items: center;
 }
 
+
 #search{
-    border: 0.08vw solid rgba(38, 28, 21, 0.5);
+    border:.09vw solid var(--black);
     background: transparent;
     height: 2.2vw;
     width: 18vw;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     padding: 0 0.5vw;
 }
+#search:focus {
+  outline: none;
+}
+
+select {
+  border:.09vw solid var(--black);
+  background: transparent;
+  height: 2.2vw;
+  width: 14vw;
+  font-size: 1.2vw;
+  padding: 0 0.5vw;
+  appearance: none;
+  z-index: 10;
+}
+  select:focus {
+      outline: none;
+  }
 
 .search-container {
     position: relative;
@@ -52,25 +69,25 @@
     height: 1.4vw;
   }
 
-  .order-bar{
+
+
+  .order-bar {
     display: flex;
     gap: 1vw;
     align-items: center;
+    position: relative; /* Add this line */
   }
-
-select {
-    border: 0.08vw solid rgba(38, 28, 21, 0.5);
-    background: transparent;
-    height: 2.2vw;
-    width: 14vw;
-    font-size: 1.3vw;
-    padding: 0 0.5vw;
+  
+  .order-icon {
+    position: absolute;
+    top: 57%;
+    right: 0.5vw;
+    transform: translateY(-50%);
   }
-    select:focus {
-        outline: none;
-    }
   
-  
+  .order-icon img {
+    height: 1.4vw;
+  }
 
 @media screen and (max-width: 1000px){  
 
@@ -103,24 +120,42 @@ select {
         height: 14px;
       }
 
-      #search{
-        border: 0.8px solid rgba(38, 28, 21, 0.5);
-        height: 22px;
-        width: 180px;
-        font-size: 13px;
-        padding: 0 5px;
-    }
+      .order-icon {
+        position: absolute;
+        top: 57%;
+        right: 5px;
+      }
+      
+      .order-icon img {
+        height: 14px;
+      }
 
     .order-bar{
         gap: 10px;
       }
 
-      select {
-        border: 0.8px solid rgba(38, 28, 21, 0.5);
+      #search{
+        border: 0.9px solid var(--black);
+        background: transparent;
         height: 22px;
         width: 140px;
-        font-size: 13px;
+        font-size: 12px;
         padding: 0 5px;
+    }
+    #search:focus {
+      outline: none;
+    }
+    
+    select {
+      border: 0.9px solid var(--black);
+      background: transparent;
+      height: 22px;
+      width: 140px;
+      font-size: 12px;
+      padding: 0 5px;
+    }
+      select:focus {
+          outline: none;
       }
   }
 
