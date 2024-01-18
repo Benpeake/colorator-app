@@ -94,7 +94,7 @@ function Panel({
         className={`panel ${setfontColor(fontColor)}`}
         style={{ backgroundColor: color, opacity: isDragging ? 0 : 1 }}
       >
-        {fontColor && (
+        {fontColor && name && (
         <div className="panel-info-container">
           <PanelIcon
             onClick={() => removeColorPanel(index)}

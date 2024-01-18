@@ -64,7 +64,7 @@ function Controller({
             undoRedoCooldown.current = true;
             setTimeout(() => {
               undoRedoCooldown.current = false;
-            }, 250); // cooldown 
+            }, 100); // cooldown 
           }
         } else {
           // Just Command and 'z' for undo
@@ -74,7 +74,7 @@ function Controller({
             undoRedoCooldown.current = true;
             setTimeout(() => {
               undoRedoCooldown.current = false;
-            }, 250); // cooldown
+            }, 100); // cooldown
           }
         }
       }

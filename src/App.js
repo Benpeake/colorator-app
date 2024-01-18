@@ -74,7 +74,7 @@ function App() {
 
   function generateRandomColor() {
     const currentTime = new Date().getTime();
-    const cooldownPeriod = 250; // Set the cooldown period)
+    const cooldownPeriod = 150; // Set the cooldown period)
   
     if (currentTime - lastClickTime < cooldownPeriod) {
       return; 
