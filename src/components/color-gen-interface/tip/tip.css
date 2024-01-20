@@ -1,6 +1,6 @@
 .tip-container{
     position: absolute;
-    top: 9vw;
+    top: 10vw;
     right: 3vw ;
     background-color: var(--black);
     color: var(--white);
@@ -21,7 +21,7 @@
   
     .tip-container{
         position: absolute;
-        top: 90px;
+        top: 100px;
         right: 3vw ;
         padding: 5px 7.5px;
         border-radius: 10px;

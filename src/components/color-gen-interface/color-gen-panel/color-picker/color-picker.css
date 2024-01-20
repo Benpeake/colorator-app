@@ -13,7 +13,7 @@
 .color-picker{
     background-color: var(--black);
     padding: 15px;
-    border: 0.12vw solid var(--white);
+    border: 0.1vw solid var(--white);
     color: var(--white);
     border-radius: 1vw;
     display: flex;
@@ -24,7 +24,7 @@
   }
 
   .custom-hex-input {
-    border: 0.12vw solid var(--white);
+    border: 0.1vw solid var(--white);
     text-align: center;
     background-color: var(--black);
     color: var(--white);
@@ -42,11 +42,11 @@
 
   @media screen and (max-width: 1000px){  
     .custom-hex-input {
-        border: 1.2px solid var(--white);
+        border: 1px solid var(--white);
         font-size: 11px;
       }
       .color-picker{
-        border: 1.2px solid var(--white);
+        border: 1px solid var(--white);
         border-radius: 10px;
       }
   }

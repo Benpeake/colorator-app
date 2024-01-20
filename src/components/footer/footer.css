@@ -7,7 +7,7 @@ footer {
     display: flex;
     justify-content: flex-end; 
     align-items: center;
-    border-top: 0.1vw solid rgba(38, 28, 21, 0.5);
+    border-top: 0.1vw solid rgba(38, 28, 21, 0.1);
     height: 4vw ;
     margin-top: auto;
   }

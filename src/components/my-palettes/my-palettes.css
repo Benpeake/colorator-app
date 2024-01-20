@@ -47,7 +47,7 @@ select {
   font-size: 1.2vw;
   padding: 0 0.5vw;
   appearance: none;
-  z-index: 10;
+  z-index: 1;
 }
   select:focus {
       outline: none;
