@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: calc(100vh - 11vw);
+    height: calc(100vh - 12vw);
     overflow: auto;
 }
 
 @media screen and (max-width: 1000px){  
   
     .interface-container{
-        height: calc(100vh - 110px);
+        height: calc(100vh - 120px);
     }
 
   }
@@ -19,7 +19,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        min-height: calc(100vh - 110px);
-        overflow:hidden;
+        min-height: calc(100vh - 120px);
+        /* overflow:hidden; */
     }
   }

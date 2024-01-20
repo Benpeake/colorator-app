@@ -5,11 +5,8 @@ nav{
     padding: 0 3vw;
     background: var(--white);
     margin: 0;
-    border-bottom: 0.1vw solid;
+    border-bottom: 0.1vw solid rgba(38, 28, 21, 0.1);
     z-index: 2;
-}
-
-.nav-bar-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,16 +21,16 @@ nav{
 
 .navlink{
     font-weight: 400;
+    padding: 0.5vw 0.75vw;
+    border-radius: 1vw;
 }
 
 .navlink:hover{
-    text-decoration: underline;
-    text-underline-offset: .4vw;
+    background-color: rgba(38, 28, 21, 0.1);
 }
 
 .grey.navlink:hover{
-    font-weight: 400;
-    text-decoration: none;
+    background-color: var(--white);
 }
 
 
@@ -44,23 +41,20 @@ nav{
 .v-line{
     height: 4vw;
     width: .1vw;
-    background-color: var(--black);
+    background-color: rgba(38, 28, 21, 0.1);
 }
 
 @media screen and (max-width: 1000px){  
   
     nav{
         padding: 0 30px;
-        border-bottom: solid 1px;
+        border-bottom: solid 1px rgba(38, 28, 21, 0.1);
         position: fixed;
+        height: 40px;
     }
     
     .nav-right{
         gap: 20px;
-    }
-
-    .nav-bar-container{
-        height: 40px;
     }
 
     .v-line{
@@ -69,8 +63,12 @@ nav{
     }
 
     .navlink:hover{
-        text-decoration: underline;
-        text-underline-offset: 4px;
+        background-color: rgba(38, 28, 21, 0.1);
+    }
+
+    .navlink{
+        padding: 5px 7.5px;
+        border-radius: 10px;
     }
 
   }

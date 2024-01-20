@@ -28,7 +28,6 @@ function Nav({
 
     <>
     <nav>
-      <div className="nav-bar-container">
         <div className="nav-left">
           <NavLink className="bold gradient-text med-copy" to="/">
             COLORATOR
@@ -77,7 +76,6 @@ function Nav({
               style={{ cursor: "pointer" }}
               onClick={toggleMobileMenu}
             />
-      </div>
       </div>
     </nav>
     {isMobileMenuOpen && <MobileMenu

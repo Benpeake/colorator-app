@@ -107,9 +107,16 @@ h3{
 .gradient-text {
   background: linear-gradient(-45deg, #FF007F, #5438DC);
   background-clip: text;
-  color: transparent; 
+  color: transparent;
   display: inline-block;
   font-weight: 500;
+  padding: 0.5vw 0.75vw;
+  border-radius: 1vw;
+  transition: all .6s ease;
+  background-size: 100% 100%;
+}
+.gradient-text:hover {
+  background-size: 200% 200%;
 }
 
 .dark{
@@ -184,8 +191,7 @@ input:focus {
   }
 
   .active{
-      text-decoration: underline;
-      text-underline-offset: .4vw;
+    background-color: rgba(38, 28, 21, 0.1);
   }
 
 

@@ -5,7 +5,7 @@ function useUndo(initialState) {
   const [history, setHistory] = useState([initialState]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const [lastClickTime, setLastClickTime] = useState(0);
-  const cooldownPeriod = 150; // Set the cooldown period
+  const cooldownPeriod = 150; // cooldown period
 
   const setColors = (newState, recordHistory = true) => {
     if (newState !== state) {
