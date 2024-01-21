@@ -4,6 +4,7 @@ import Panel from "./color-gen-panel";
 import "./interface.css";
 import Tip from "./tip";
 
+
 function Interface({
   colors,
   handleMoveColor,
@@ -26,6 +27,7 @@ function Interface({
 
   const [showSpaceTip, setShowSpaceTip] = useState(true);
   const [showUndoRedoTip, setShowUndoRedoTip] = useState(false)
+  const panelWidth = 100 / colors.length; 
 
   function hideSpaceTipShowUndoRedoTip(){
     setShowSpaceTip(false)

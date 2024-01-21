@@ -3,7 +3,7 @@ import "./panel.css";
 import { useDrag, useDrop } from "react-dnd";
 import PanelIcon from "./panel-icon";
 import ColorPicker from "./color-picker";
-import Notification from "../../notification";
+
 
 function Panel({
   color,
@@ -92,7 +92,7 @@ function Panel({
           drag(drop(panel));
         }}
         className={`panel ${setfontColor(fontColor)}`}
-        style={{ backgroundColor: color, opacity: isDragging ? 0 : 1 }}
+        style={{ backgroundColor: color, opacity: isDragging ? 1 : 1 }}
       >
         {fontColor && name && (
         <div className="panel-info-container">

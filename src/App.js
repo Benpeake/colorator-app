@@ -16,6 +16,7 @@ import AddPalette from "./components/add-palette";
 import AllPalettes from "./components/all-palettes";
 import MyPalettes from "./components/my-palettes";
 
+
 function generateRandomHex() {
   const characters = "0123456789ABCDEF";
   let color = "#";

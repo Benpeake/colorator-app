@@ -77,6 +77,11 @@ nav{
 
   @media screen and (max-width: 750px){  
 
+    nav{
+        padding: 0 7.5px;
+    }
+    
+
     .nav-right{
         display: none;
     }

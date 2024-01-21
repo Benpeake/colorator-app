@@ -17,16 +17,9 @@ function MobileMenu({
   toggleMobileMenu,
   isMobileMenuOpen
 }) {
+  
   return (
     <div className="mobile-menu-display">
-      <div className="panel-icon-container close-button-container">
-        <img
-          className="mobile-menu-icon"
-          src="`../../../icons/close_black.svg"
-          style={{ cursor: "pointer" }}
-          onClick={toggleMobileMenu}
-        />
-      </div>
       <Link className="navlink" to="/" onClick={toggleMobileMenu}>
         Generator
       </Link>
