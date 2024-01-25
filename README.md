@@ -4,7 +4,7 @@
 
 A colour palette tool that allows a user to build, customise, save, and share colour palettes, as well as like other users palettes.
 
-[![colorator screen shot](https://benpeake.github.io/portfolio/images/colorator.png)](https://colorator-app.vercel.app/)
+[![colorator screen shot](https://benpeake-dev-portfolio.vercel.app/images/colorator.png)](https://colorator-app.vercel.app/)
 
 ## Demo
 
