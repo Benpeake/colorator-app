@@ -5,7 +5,7 @@ function Footer(){
     return(
         <footer>
             <p className="small-print">
-                © Copyright 2023 | Site designed & built by <a className="footer-link" href="https://benpeake.github.io/portfolio/" target="_blank" rel="noopener">Ben Peake</a>
+                © Copyright 2023 | Site designed & built by <a className="footer-link" href="https://benpeake-dev-portfolio.vercel.app/" target="_blank" rel="noopener">Ben Peake</a>
             </p>
         </footer>
     )
